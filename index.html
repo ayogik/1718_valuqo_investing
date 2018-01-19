@@ -1,945 +1,784 @@
 <!DOCTYPE html>
-<!-- saved from url=(0077)https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html -->
+<!-- saved from url=(0069)https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>SB Admin - Start Bootstrap Template</title>
+  <!-- Bootstrap core CSS-->
+  <link href="./index/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="./index/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- Page level plugin CSS-->
+  <link href="./index/dataTables.bootstrap4.css" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="./index/sb-admin.css" rel="stylesheet">
+<style type="text/css">/* Chart.js */
+@-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}</style></head>
 
-    
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="./SB Admin 2 - Bootstrap Admin Theme_files/bootstrap.min.css" rel="stylesheet">
-
-    <!-- MetisMenu CSS -->
-    <link href="./SB Admin 2 - Bootstrap Admin Theme_files/metisMenu.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="./SB Admin 2 - Bootstrap Admin Theme_files/sb-admin-2.css" rel="stylesheet">
-
-    <!-- Morris Charts CSS -->
-    <link href="./SB Admin 2 - Bootstrap Admin Theme_files/morris.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="./SB Admin 2 - Bootstrap Admin Theme_files/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-
-<body>
-
-    <div id="wrapper">
-
-        <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <a class="navbar-brand" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html">Start Bootstrap</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Dashboard">
+          <a class="nav-link" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html">
+            <i class="fa fa-fw fa-dashboard"></i>
+            <span class="nav-link-text">Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Charts">
+          <a class="nav-link" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/charts.html">
+            <i class="fa fa-fw fa-area-chart"></i>
+            <span class="nav-link-text">Charts</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Tables">
+          <a class="nav-link" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/tables.html">
+            <i class="fa fa-fw fa-table"></i>
+            <span class="nav-link-text">Tables</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#collapseComponents" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-wrench"></i>
+            <span class="nav-link-text">Components</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents">
+            <li>
+              <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/navbar.html">Navbar</a>
+            </li>
+            <li>
+              <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/cards.html">Cards</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Example Pages">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#collapseExamplePages" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-file"></i>
+            <span class="nav-link-text">Example Pages</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseExamplePages">
+            <li>
+              <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/login.html">Login Page</a>
+            </li>
+            <li>
+              <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/register.html">Registration Page</a>
+            </li>
+            <li>
+              <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/forgot-password.html">Forgot Password Page</a>
+            </li>
+            <li>
+              <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/blank.html">Blank Page</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Menu Levels">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#collapseMulti" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-sitemap"></i>
+            <span class="nav-link-text">Menu Levels</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseMulti">
+            <li>
+              <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">Second Level Item</a>
+            </li>
+            <li>
+              <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">Second Level Item</a>
+            </li>
+            <li>
+              <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">Second Level Item</a>
+            </li>
+            <li>
+              <a class="nav-link-collapse collapsed" data-toggle="collapse" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#collapseMulti2">Third Level</a>
+              <ul class="sidenav-third-level collapse" id="collapseMulti2">
+                <li>
+                  <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">Third Level Item</a>
+                </li>
+                <li>
+                  <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">Third Level Item</a>
+                </li>
+                <li>
+                  <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">Third Level Item</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Link">
+          <a class="nav-link" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">
+            <i class="fa fa-fw fa-link"></i>
+            <span class="nav-link-text">Link</span>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav sidenav-toggler">
+        <li class="nav-item">
+          <a class="nav-link text-center" id="sidenavToggler">
+            <i class="fa fa-fw fa-angle-left"></i>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-fw fa-envelope"></i>
+            <span class="d-lg-none">Messages
+              <span class="badge badge-pill badge-primary">12 New</span>
+            </span>
+            <span class="indicator text-primary d-none d-lg-block">
+              <i class="fa fa-fw fa-circle"></i>
+            </span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="messagesDropdown">
+            <h6 class="dropdown-header">New Messages:</h6>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">
+              <strong>David Miller</strong>
+              <span class="small float-right text-muted">11:21 AM</span>
+              <div class="dropdown-message small">Hey there! This new version of SB Admin is pretty awesome! These messages clip off when they reach the end of the box so they don't overflow over to the sides!</div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">
+              <strong>Jane Smith</strong>
+              <span class="small float-right text-muted">11:21 AM</span>
+              <div class="dropdown-message small">I was wondering if you could meet for an appointment at 3:00 instead of 4:00. Thanks!</div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">
+              <strong>John Doe</strong>
+              <span class="small float-right text-muted">11:21 AM</span>
+              <div class="dropdown-message small">I've sent the final files over to you for review. When you're able to sign off of them let me know and we can discuss distribution.</div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item small" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">View all messages</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-fw fa-bell"></i>
+            <span class="d-lg-none">Alerts
+              <span class="badge badge-pill badge-warning">6 New</span>
+            </span>
+            <span class="indicator text-warning d-none d-lg-block">
+              <i class="fa fa-fw fa-circle"></i>
+            </span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="alertsDropdown">
+            <h6 class="dropdown-header">New Alerts:</h6>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">
+              <span class="text-success">
+                <strong>
+                  <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
+              </span>
+              <span class="small float-right text-muted">11:21 AM</span>
+              <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">
+              <span class="text-danger">
+                <strong>
+                  <i class="fa fa-long-arrow-down fa-fw"></i>Status Update</strong>
+              </span>
+              <span class="small float-right text-muted">11:21 AM</span>
+              <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">
+              <span class="text-success">
+                <strong>
+                  <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
+              </span>
+              <span class="small float-right text-muted">11:21 AM</span>
+              <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item small" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">View all alerts</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <form class="form-inline my-2 my-lg-0 mr-lg-2">
+            <div class="input-group">
+              <input class="form-control" type="text" placeholder="Search for...">
+              <span class="input-group-btn">
+                <button class="btn btn-primary" type="button">
+                  <i class="fa fa-search"></i>
                 </button>
-                <a class="navbar-brand" href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html">SB Admin v2.0</a>
+              </span>
             </div>
-            <!-- /.navbar-header -->
-
-            <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">
-                        <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-messages">
-                        <li>
-                            <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">
-                                <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">
-                                <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">
-                                <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">
-                                <strong>Read All Messages</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-messages -->
-                </li>
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">
-                        <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-tasks">
-                        <li>
-                            <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">
-                                <div>
-                                    <p>
-                                        <strong>Task 1</strong>
-                                        <span class="pull-right text-muted">40% Complete</span>
-                                    </p>
-                                    <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                                            <span class="sr-only">40% Complete (success)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">
-                                <div>
-                                    <p>
-                                        <strong>Task 2</strong>
-                                        <span class="pull-right text-muted">20% Complete</span>
-                                    </p>
-                                    <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-                                            <span class="sr-only">20% Complete</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">
-                                <div>
-                                    <p>
-                                        <strong>Task 3</strong>
-                                        <span class="pull-right text-muted">60% Complete</span>
-                                    </p>
-                                    <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                                            <span class="sr-only">60% Complete (warning)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">
-                                <div>
-                                    <p>
-                                        <strong>Task 4</strong>
-                                        <span class="pull-right text-muted">80% Complete</span>
-                                    </p>
-                                    <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                                            <span class="sr-only">80% Complete (danger)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">
-                                <strong>See All Tasks</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-tasks -->
-                </li>
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">
-                        <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-alerts">
-                        <li>
-                            <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">
-                                <div>
-                                    <i class="fa fa-comment fa-fw"></i> New Comment
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">
-                                <div>
-                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                    <span class="pull-right text-muted small">12 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">
-                                <div>
-                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">
-                                <div>
-                                    <i class="fa fa-tasks fa-fw"></i> New Task
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">
-                                <div>
-                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">
-                                <strong>See All Alerts</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-alerts -->
-                </li>
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-user -->
-                </li>
-                <!-- /.dropdown -->
-            </ul>
-            <!-- /.navbar-top-links -->
-
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav in" id="side-menu">
-                        <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                            </div>
-                            <!-- /input-group -->
-                        </li>
-                        <li>
-                            <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level collapse">
-                                <li>
-                                    <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/flot.html">Flot Charts</a>
-                                </li>
-                                <li>
-                                    <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/morris.html">Morris.js Charts</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
-                        </li>
-                        <li>
-                            <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
-                        </li>
-                        <li>
-                            <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level collapse">
-                                <li>
-                                    <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/panels-wells.html">Panels and Wells</a>
-                                </li>
-                                <li>
-                                    <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/buttons.html">Buttons</a>
-                                </li>
-                                <li>
-                                    <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/notifications.html">Notifications</a>
-                                </li>
-                                <li>
-                                    <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/typography.html">Typography</a>
-                                </li>
-                                <li>
-                                    <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/icons.html"> Icons</a>
-                                </li>
-                                <li>
-                                    <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/grid.html">Grid</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level collapse">
-                                <li>
-                                    <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">Second Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">Second Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">Third Level <span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level collapse">
-                                        <li>
-                                            <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">Third Level Item</a>
-                                        </li>
-                                    </ul>
-                                    <!-- /.nav-third-level -->
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level collapse">
-                                <li>
-                                    <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/blank.html">Blank Page</a>
-                                </li>
-                                <li>
-                                    <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/login.html">Login Page</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                    </ul>
-                </div>
-                <!-- /.sidebar-collapse -->
-            </div>
-            <!-- /.navbar-static-side -->
-        </nav>
-
-        <div id="page-wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Dashboard</h1>
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-comments fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">26</div>
-                                    <div>New Comments!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-green">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-tasks fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">12</div>
-                                    <div>New Tasks!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-yellow">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-shopping-cart fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">124</div>
-                                    <div>New Orders!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-red">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-support fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">13</div>
-                                    <div>Support Tickets!</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">
-                            <div class="panel-footer">
-                                <span class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Area Chart Example
-                            <div class="pull-right">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                        Actions
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">Action</a>
-                                        </li>
-                                        <li><a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">Another action</a>
-                                        </li>
-                                        <li><a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">Something else here</a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li><a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">Separated link</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div id="morris-area-chart" style="position: relative; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><svg height="342" version="1.1" width="1019" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.2.0</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><text x="49.515625" y="308" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="4">0</tspan></text><path fill="none" stroke="#aaaaaa" d="M62.015625,308H994.328125" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="49.515625" y="237.25" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="4">7,500</tspan></text><path fill="none" stroke="#aaaaaa" d="M62.015625,237.25H994.328125" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="49.515625" y="166.5" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="4">15,000</tspan></text><path fill="none" stroke="#aaaaaa" d="M62.015625,166.5H994.328125" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="49.515625" y="95.75" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="4">22,500</tspan></text><path fill="none" stroke="#aaaaaa" d="M62.015625,95.75H994.328125" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="49.515625" y="25" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="4">30,000</tspan></text><path fill="none" stroke="#aaaaaa" d="M62.015625,25H994.328125" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="994.328125" y="320.5" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,7)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="4">2012-06</tspan></text><text x="925.2224847792517" y="320.5" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,7)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="4">2012-04</tspan></text><text x="822.1776674282315" y="320.5" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,7)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="4">2012-01</tspan></text><text x="753.0248239013215" y="320.5" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,7)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="4">2011-11</tspan></text><text x="683.9191836805732" y="320.5" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,7)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="4">2011-09</tspan></text><text x="613.6806641119437" y="320.5" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,7)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="4">2011-07</tspan></text><text x="544.5750238911953" y="320.5" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,7)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="4">2011-05</tspan></text><text x="475.5165869766088" y="320.5" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,7)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="4">2011-03</tspan></text><text x="373.557445667308" y="320.5" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,7)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="4">2010-12</tspan></text><text x="304.40460214039797" y="320.5" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,7)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="4">2010-10</tspan></text><text x="235.29896191964966" y="320.5" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,7)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="4">2010-08</tspan></text><text x="166.19332169890134" y="320.5" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,7)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="4">2010-06</tspan></text><text x="97.087681478153" y="320.5" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,7)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="4">2010-04</tspan></text><path fill="#7cb57c" stroke="none" d="M62.015625,257.8807C88.06004917472534,252.69236666666666,140.148897524176,241.92430907701018,166.19332169890134,237.12736666666666C192.24954670016712,232.32825074367685,244.3619967026986,226.0632520069808,270.4182217039644,219.49646666666666C296.2030276948003,212.99808534031413,347.77263967647207,186.8057303509781,373.557445667308,184.86669999999998C399.0472309946332,182.9498553509781,450.0268016492836,202.66269737424625,475.5165869766088,204.07296666666667C501.5610111513341,205.51392237424625,553.6498595007847,195.31197573801433,579.6942836755101,196.27159999999998C605.7505086767758,197.23165907134765,657.8629586793074,228.78622565445028,683.9191836805732,211.7517C709.7039896714091,194.89461732111693,761.2736016530808,68.92819836728465,787.0584076439168,60.705166666666656C812.8314128082122,52.48589836728465,864.3774231368033,133.9253336597586,890.1504283010987,145.9825C916.1948524758241,158.16664199309193,968.2837008252747,154.748425,994.328125,157.6704L994.328125,308L62.015625,308Z" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></path><path fill="none" stroke="#4da74d" d="M62.015625,257.8807C88.06004917472534,252.69236666666666,140.148897524176,241.92430907701018,166.19332169890134,237.12736666666666C192.24954670016712,232.32825074367685,244.3619967026986,226.0632520069808,270.4182217039644,219.49646666666666C296.2030276948003,212.99808534031413,347.77263967647207,186.8057303509781,373.557445667308,184.86669999999998C399.0472309946332,182.9498553509781,450.0268016492836,202.66269737424625,475.5165869766088,204.07296666666667C501.5610111513341,205.51392237424625,553.6498595007847,195.31197573801433,579.6942836755101,196.27159999999998C605.7505086767758,197.23165907134765,657.8629586793074,228.78622565445028,683.9191836805732,211.7517C709.7039896714091,194.89461732111693,761.2736016530808,68.92819836728465,787.0584076439168,60.705166666666656C812.8314128082122,52.48589836728465,864.3774231368033,133.9253336597586,890.1504283010987,145.9825C916.1948524758241,158.16664199309193,968.2837008252747,154.748425,994.328125,157.6704" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><circle cx="62.015625" cy="257.8807" r="2" fill="#4da74d" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="166.19332169890134" cy="237.12736666666666" r="2" fill="#4da74d" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="270.4182217039644" cy="219.49646666666666" r="2" fill="#4da74d" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="373.557445667308" cy="184.86669999999998" r="2" fill="#4da74d" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="475.5165869766088" cy="204.07296666666667" r="2" fill="#4da74d" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="579.6942836755101" cy="196.27159999999998" r="2" fill="#4da74d" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="683.9191836805732" cy="211.7517" r="2" fill="#4da74d" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="787.0584076439168" cy="60.705166666666656" r="2" fill="#4da74d" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="890.1504283010987" cy="145.9825" r="2" fill="#4da74d" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="994.328125" cy="157.6704" r="2" fill="#4da74d" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><path fill="#a8b4bd" stroke="none" d="M62.015625,282.8507333333333C88.06004917472534,277.1765833333333,140.148897524176,265.12319508305023,166.19332169890134,260.15413333333333C192.24954670016712,255.18282008305022,244.3619967026986,245.80603333333332,270.4182217039644,243.0892333333333C296.2030276948003,240.4007333333333,347.77263967647207,240.71864155159187,373.557445667308,238.53293333333335C399.0472309946332,236.37223321825854,450.0268016492836,228.73527071215938,475.5165869766088,225.7036C501.5610111513341,222.60596237882604,553.6498595007847,213.88719994526235,579.6942836755101,214.01569999999998C605.7505086767758,214.1442582785957,657.8629586793074,239.86184799301918,683.9191836805732,226.73183333333333C709.7039896714091,213.73858965968586,761.2736016530808,117.2267462806134,787.0584076439168,109.52266666666665C812.8314128082122,101.82211294728006,864.3774231368033,157.02553252106583,890.1504283010987,165.1133C916.1948524758241,173.28624085439915,968.2837008252747,172.20245,994.328125,174.5655L994.328125,308L62.015625,308Z" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></path><path fill="none" stroke="#7a92a3" d="M62.015625,282.8507333333333C88.06004917472534,277.1765833333333,140.148897524176,265.12319508305023,166.19332169890134,260.15413333333333C192.24954670016712,255.18282008305022,244.3619967026986,245.80603333333332,270.4182217039644,243.0892333333333C296.2030276948003,240.4007333333333,347.77263967647207,240.71864155159187,373.557445667308,238.53293333333335C399.0472309946332,236.37223321825854,450.0268016492836,228.73527071215938,475.5165869766088,225.7036C501.5610111513341,222.60596237882604,553.6498595007847,213.88719994526235,579.6942836755101,214.01569999999998C605.7505086767758,214.1442582785957,657.8629586793074,239.86184799301918,683.9191836805732,226.73183333333333C709.7039896714091,213.73858965968586,761.2736016530808,117.2267462806134,787.0584076439168,109.52266666666665C812.8314128082122,101.82211294728006,864.3774231368033,157.02553252106583,890.1504283010987,165.1133C916.1948524758241,173.28624085439915,968.2837008252747,172.20245,994.328125,174.5655" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><circle cx="62.015625" cy="282.8507333333333" r="2" fill="#7a92a3" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="166.19332169890134" cy="260.15413333333333" r="2" fill="#7a92a3" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="270.4182217039644" cy="243.0892333333333" r="2" fill="#7a92a3" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="373.557445667308" cy="238.53293333333335" r="2" fill="#7a92a3" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="475.5165869766088" cy="225.7036" r="2" fill="#7a92a3" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="579.6942836755101" cy="214.01569999999998" r="2" fill="#7a92a3" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="683.9191836805732" cy="226.73183333333333" r="2" fill="#7a92a3" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="787.0584076439168" cy="109.52266666666665" r="2" fill="#7a92a3" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="890.1504283010987" cy="165.1133" r="2" fill="#7a92a3" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="994.328125" cy="174.5655" r="2" fill="#7a92a3" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><path fill="#2677b5" stroke="none" d="M62.015625,282.8507333333333C88.06004917472534,282.5866,140.148897524176,284.44200846734617,166.19332169890134,281.7942C192.24954670016712,279.14519180067947,244.3619967026986,262.8357682373473,270.4182217039644,261.66346666666664C296.2030276948003,260.5033765706806,347.77263967647207,274.71556887226694,373.557445667308,272.4646333333333C399.0472309946332,270.2394522056003,450.0268016492836,245.9788035264484,475.5165869766088,243.75900000000001C501.5610111513341,241.49089519311505,553.6498595007847,252.16698982634958,579.6942836755101,254.513C605.7505086767758,256.8600731596829,657.8629586793074,273.6770883071554,683.9191836805732,262.53133333333335C709.7039896714091,251.501679973822,761.2736016530808,172.73112096780346,787.0584076439168,165.81136666666666C812.8314128082122,158.8947793011368,864.3774231368033,199.39613870037198,890.1504283010987,207.18596666666667C916.1948524758241,215.05783036703863,968.2837008252747,223.14009166666668,994.328125,228.45813333333334L994.328125,308L62.015625,308Z" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></path><path fill="none" stroke="#0b62a4" d="M62.015625,282.8507333333333C88.06004917472534,282.5866,140.148897524176,284.44200846734617,166.19332169890134,281.7942C192.24954670016712,279.14519180067947,244.3619967026986,262.8357682373473,270.4182217039644,261.66346666666664C296.2030276948003,260.5033765706806,347.77263967647207,274.71556887226694,373.557445667308,272.4646333333333C399.0472309946332,270.2394522056003,450.0268016492836,245.9788035264484,475.5165869766088,243.75900000000001C501.5610111513341,241.49089519311505,553.6498595007847,252.16698982634958,579.6942836755101,254.513C605.7505086767758,256.8600731596829,657.8629586793074,273.6770883071554,683.9191836805732,262.53133333333335C709.7039896714091,251.501679973822,761.2736016530808,172.73112096780346,787.0584076439168,165.81136666666666C812.8314128082122,158.8947793011368,864.3774231368033,199.39613870037198,890.1504283010987,207.18596666666667C916.1948524758241,215.05783036703863,968.2837008252747,223.14009166666668,994.328125,228.45813333333334" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><circle cx="62.015625" cy="282.8507333333333" r="2" fill="#0b62a4" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="166.19332169890134" cy="281.7942" r="2" fill="#0b62a4" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="270.4182217039644" cy="261.66346666666664" r="2" fill="#0b62a4" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="373.557445667308" cy="272.4646333333333" r="2" fill="#0b62a4" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="475.5165869766088" cy="243.75900000000001" r="2" fill="#0b62a4" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="579.6942836755101" cy="254.513" r="2" fill="#0b62a4" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="683.9191836805732" cy="262.53133333333335" r="2" fill="#0b62a4" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="787.0584076439168" cy="165.81136666666666" r="2" fill="#0b62a4" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="890.1504283010987" cy="207.18596666666667" r="2" fill="#0b62a4" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="994.328125" cy="228.45813333333334" r="2" fill="#0b62a4" stroke="#ffffff" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle></svg><div class="morris-hover morris-default-style" style="left: 834.119px; top: 103px; display: none;"><div class="morris-hover-row-label">2012 Q1</div><div class="morris-hover-point" style="color: #0b62a4">
-  iPhone:
-  10,687
-</div><div class="morris-hover-point" style="color: #7A92A3">
-  iPad:
-  4,460
-</div><div class="morris-hover-point" style="color: #4da74d">
-  iPod Touch:
-  2,028
-</div></div></div>
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Bar Chart Example
-                            <div class="pull-right">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                        Actions
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">Action</a>
-                                        </li>
-                                        <li><a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">Another action</a>
-                                        </li>
-                                        <li><a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">Something else here</a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li><a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">Separated link</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered table-hover table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th>#</th>
-                                                    <th>Date</th>
-                                                    <th>Time</th>
-                                                    <th>Amount</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>3326</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>3:29 PM</td>
-                                                    <td>$321.33</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3325</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>3:20 PM</td>
-                                                    <td>$234.34</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3324</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>3:03 PM</td>
-                                                    <td>$724.17</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3323</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>3:00 PM</td>
-                                                    <td>$23.71</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3322</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>2:49 PM</td>
-                                                    <td>$8345.23</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3321</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>2:23 PM</td>
-                                                    <td>$245.12</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3320</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>2:15 PM</td>
-                                                    <td>$5663.54</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3319</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>2:13 PM</td>
-                                                    <td>$943.45</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <!-- /.table-responsive -->
-                                </div>
-                                <!-- /.col-lg-4 (nested) -->
-                                <div class="col-lg-8">
-                                    <div id="morris-bar-chart" style="position: relative; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><svg height="342" version="1.1" width="670" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; left: -0.765625px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.2.0</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><text x="32.84375" y="308" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="4">0</tspan></text><path fill="none" stroke="#aaaaaa" d="M45.34375,308H644.546875" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="32.84375" y="237.25" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="4">25</tspan></text><path fill="none" stroke="#aaaaaa" d="M45.34375,237.25H644.546875" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="32.84375" y="166.5" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="4">50</tspan></text><path fill="none" stroke="#aaaaaa" d="M45.34375,166.5H644.546875" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="32.84375" y="95.75" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="4">75</tspan></text><path fill="none" stroke="#aaaaaa" d="M45.34375,95.75H644.546875" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="32.84375" y="25" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="4">100</tspan></text><path fill="none" stroke="#aaaaaa" d="M45.34375,25H644.546875" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="601.7466517857143" y="320.5" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,7)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="4">2012</tspan></text><text x="516.1462053571429" y="320.5" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,7)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="4">2011</tspan></text><text x="430.54575892857144" y="320.5" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,7)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="4">2010</tspan></text><text x="344.9453125" y="320.5" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,7)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="4">2009</tspan></text><text x="259.34486607142856" y="320.5" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,7)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="4">2008</tspan></text><text x="173.74441964285714" y="320.5" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,7)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="4">2007</tspan></text><text x="88.14397321428572" y="320.5" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,7)"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="4">2006</tspan></text><rect x="56.04380580357143" y="25" width="30.600167410714285" height="283" rx="0" ry="0" fill="#0b62a4" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="89.64397321428572" y="53.29999999999998" width="30.600167410714285" height="254.70000000000002" rx="0" ry="0" fill="#7a92a3" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="141.6442522321429" y="95.75" width="30.600167410714285" height="212.25" rx="0" ry="0" fill="#0b62a4" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="175.24441964285717" y="124.04999999999998" width="30.600167410714285" height="183.95000000000002" rx="0" ry="0" fill="#7a92a3" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="227.24469866071428" y="166.5" width="30.600167410714285" height="141.5" rx="0" ry="0" fill="#0b62a4" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="260.84486607142856" y="194.8" width="30.600167410714285" height="113.19999999999999" rx="0" ry="0" fill="#7a92a3" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="312.8451450892857" y="95.75" width="30.600167410714285" height="212.25" rx="0" ry="0" fill="#0b62a4" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="346.4453125" y="124.04999999999998" width="30.600167410714285" height="183.95000000000002" rx="0" ry="0" fill="#7a92a3" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="398.44559151785717" y="166.5" width="30.600167410714285" height="141.5" rx="0" ry="0" fill="#0b62a4" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="432.04575892857144" y="194.8" width="30.600167410714285" height="113.19999999999999" rx="0" ry="0" fill="#7a92a3" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="484.0460379464286" y="95.75" width="30.600167410714285" height="212.25" rx="0" ry="0" fill="#0b62a4" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="517.6462053571429" y="124.04999999999998" width="30.600167410714285" height="183.95000000000002" rx="0" ry="0" fill="#7a92a3" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="569.646484375" y="25" width="30.600167410714285" height="283" rx="0" ry="0" fill="#0b62a4" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="603.2466517857143" y="53.29999999999998" width="30.600167410714285" height="254.70000000000002" rx="0" ry="0" fill="#7a92a3" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect></svg><div class="morris-hover morris-default-style" style="display: none;"></div></div>
-                                </div>
-                                <!-- /.col-lg-8 (nested) -->
-                            </div>
-                            <!-- /.row -->
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-clock-o fa-fw"></i> Responsive Timeline
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <ul class="timeline">
-                                <li>
-                                    <div class="timeline-badge"><i class="fa fa-check"></i>
-                                    </div>
-                                    <div class="timeline-panel">
-                                        <div class="timeline-heading">
-                                            <h4 class="timeline-title">Lorem ipsum dolor</h4>
-                                            <p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 hours ago via Twitter</small>
-                                            </p>
-                                        </div>
-                                        <div class="timeline-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero laboriosam dolor perspiciatis omnis exercitationem. Beatae, officia pariatur? Est cum veniam excepturi. Maiores praesentium, porro voluptas suscipit facere rem dicta, debitis.</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="timeline-inverted">
-                                    <div class="timeline-badge warning"><i class="fa fa-credit-card"></i>
-                                    </div>
-                                    <div class="timeline-panel">
-                                        <div class="timeline-heading">
-                                            <h4 class="timeline-title">Lorem ipsum dolor</h4>
-                                        </div>
-                                        <div class="timeline-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dolorem quibusdam, tenetur commodi provident cumque magni voluptatem libero, quis rerum. Fugiat esse debitis optio, tempore. Animi officiis alias, officia repellendus.</p>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium maiores odit qui est tempora eos, nostrum provident explicabo dignissimos debitis vel! Adipisci eius voluptates, ad aut recusandae minus eaque facere.</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="timeline-badge danger"><i class="fa fa-bomb"></i>
-                                    </div>
-                                    <div class="timeline-panel">
-                                        <div class="timeline-heading">
-                                            <h4 class="timeline-title">Lorem ipsum dolor</h4>
-                                        </div>
-                                        <div class="timeline-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus numquam facilis enim eaque, tenetur nam id qui vel velit similique nihil iure molestias aliquam, voluptatem totam quaerat, magni commodi quisquam.</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="timeline-inverted">
-                                    <div class="timeline-panel">
-                                        <div class="timeline-heading">
-                                            <h4 class="timeline-title">Lorem ipsum dolor</h4>
-                                        </div>
-                                        <div class="timeline-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates est quaerat asperiores sapiente, eligendi, nihil. Itaque quos, alias sapiente rerum quas odit! Aperiam officiis quidem delectus libero, omnis ut debitis!</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="timeline-badge info"><i class="fa fa-save"></i>
-                                    </div>
-                                    <div class="timeline-panel">
-                                        <div class="timeline-heading">
-                                            <h4 class="timeline-title">Lorem ipsum dolor</h4>
-                                        </div>
-                                        <div class="timeline-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis minus modi quam ipsum alias at est molestiae excepturi delectus nesciunt, quibusdam debitis amet, beatae consequuntur impedit nulla qui! Laborum, atque.</p>
-                                            <hr>
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
-                                                    <i class="fa fa-gear"></i> <span class="caret"></span>
-                                                </button>
-                                                <ul class="dropdown-menu" role="menu">
-                                                    <li><a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">Action</a>
-                                                    </li>
-                                                    <li><a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">Another action</a>
-                                                    </li>
-                                                    <li><a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">Something else here</a>
-                                                    </li>
-                                                    <li class="divider"></li>
-                                                    <li><a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">Separated link</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="timeline-panel">
-                                        <div class="timeline-heading">
-                                            <h4 class="timeline-title">Lorem ipsum dolor</h4>
-                                        </div>
-                                        <div class="timeline-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi fuga odio quibusdam. Iure expedita, incidunt unde quis nam! Quod, quisquam. Officia quam qui adipisci quas consequuntur nostrum sequi. Consequuntur, commodi.</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="timeline-inverted">
-                                    <div class="timeline-badge success"><i class="fa fa-graduation-cap"></i>
-                                    </div>
-                                    <div class="timeline-panel">
-                                        <div class="timeline-heading">
-                                            <h4 class="timeline-title">Lorem ipsum dolor</h4>
-                                        </div>
-                                        <div class="timeline-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt obcaecati, quaerat tempore officia voluptas debitis consectetur culpa amet, accusamus dolorum fugiat, animi dicta aperiam, enim incidunt quisquam maxime neque eaque.</p>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-8 -->
-                <div class="col-lg-4">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-bell fa-fw"></i> Notifications Panel
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="list-group">
-                                <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> New Comment
-                                    <span class="pull-right text-muted small"><em>4 minutes ago</em>
-                                    </span>
-                                </a>
-                                <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#" class="list-group-item">
-                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                    <span class="pull-right text-muted small"><em>12 minutes ago</em>
-                                    </span>
-                                </a>
-                                <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#" class="list-group-item">
-                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
-                                    <span class="pull-right text-muted small"><em>27 minutes ago</em>
-                                    </span>
-                                </a>
-                                <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#" class="list-group-item">
-                                    <i class="fa fa-tasks fa-fw"></i> New Task
-                                    <span class="pull-right text-muted small"><em>43 minutes ago</em>
-                                    </span>
-                                </a>
-                                <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#" class="list-group-item">
-                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                    <span class="pull-right text-muted small"><em>11:32 AM</em>
-                                    </span>
-                                </a>
-                                <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#" class="list-group-item">
-                                    <i class="fa fa-bolt fa-fw"></i> Server Crashed!
-                                    <span class="pull-right text-muted small"><em>11:13 AM</em>
-                                    </span>
-                                </a>
-                                <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#" class="list-group-item">
-                                    <i class="fa fa-warning fa-fw"></i> Server Not Responding
-                                    <span class="pull-right text-muted small"><em>10:57 AM</em>
-                                    </span>
-                                </a>
-                                <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#" class="list-group-item">
-                                    <i class="fa fa-shopping-cart fa-fw"></i> New Order Placed
-                                    <span class="pull-right text-muted small"><em>9:49 AM</em>
-                                    </span>
-                                </a>
-                                <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#" class="list-group-item">
-                                    <i class="fa fa-money fa-fw"></i> Payment Received
-                                    <span class="pull-right text-muted small"><em>Yesterday</em>
-                                    </span>
-                                </a>
-                            </div>
-                            <!-- /.list-group -->
-                            <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#" class="btn btn-default btn-block">View All Alerts</a>
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Donut Chart Example
-                        </div>
-                        <div class="panel-body">
-                            <div id="morris-donut-chart"><svg height="342" version="1.1" width="479" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; left: -0.328125px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.2.0</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><path fill="none" stroke="#0b62a4" d="M239.328125,282.5A109,109,0,0,0,342.2501898142984,209.38939361930437" stroke-width="2" opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;"></path><path fill="#0b62a4" stroke="#ffffff" d="M239.328125,285.5A112,112,0,0,0,345.08290719450844,210.377175095065L388.99002658776413,225.6877879693554A158.5,158.5,0,0,1,239.328125,332Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="none" stroke="#3980b5" d="M342.2501898142984,209.38939361930437A109,109,0,0,0,141.54881750765188,125.33147265779414" stroke-width="2" opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 1;"></path><path fill="#3980b5" stroke="#ffffff" d="M345.08290719450844,210.377175095065A112,112,0,0,0,138.85764390694504,124.00573337314628L92.6591637614778,101.24720898669122A163.5,163.5,0,0,1,393.71122222144754,227.33409042895653Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="none" stroke="#679dc6" d="M141.54881750765188,125.33147265779414A109,109,0,0,0,239.29388164063926,282.49999462106564" stroke-width="2" opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;"></path><path fill="#679dc6" stroke="#ffffff" d="M138.85764390694504,124.00573337314628A112,112,0,0,0,239.2929391628587,285.4999944730216L239.27833075725985,331.9999921783386A158.5,158.5,0,0,1,97.14445309598918,103.45677446110433Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="239.328125" y="163.5" text-anchor="middle" font-family="&quot;Arial&quot;" font-size="15px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: Arial; font-size: 15px; font-weight: 800;" font-weight="800" transform="matrix(1.7063,0,0,1.7063,-169.0364,-123.2526)" stroke-width="0.5860569571865443"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="6">In-Store Sales</tspan></text><text x="239.328125" y="183.5" text-anchor="middle" font-family="&quot;Arial&quot;" font-size="14px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: Arial; font-size: 14px;" transform="matrix(2.2708,0,0,2.2708,-304.2653,-223.0313)" stroke-width="0.4403669724770642"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5">30</tspan></text></svg></div>
-                            <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#" class="btn btn-default btn-block">View Details</a>
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                    <div class="chat-panel panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-comments fa-fw"></i> Chat
-                            <div class="btn-group pull-right">
-                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-chevron-down"></i>
-                                </button>
-                                <ul class="dropdown-menu slidedown">
-                                    <li>
-                                        <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">
-                                            <i class="fa fa-refresh fa-fw"></i> Refresh
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">
-                                            <i class="fa fa-check-circle fa-fw"></i> Available
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">
-                                            <i class="fa fa-times fa-fw"></i> Busy
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">
-                                            <i class="fa fa-clock-o fa-fw"></i> Away
-                                        </a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
-                                        <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/pages/index.html#">
-                                            <i class="fa fa-sign-out fa-fw"></i> Sign Out
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <ul class="chat">
-                                <li class="left clearfix">
-                                    <span class="chat-img pull-left">
-                                        <img src="./SB Admin 2 - Bootstrap Admin Theme_files/fff" alt="User Avatar" class="img-circle">
-                                    </span>
-                                    <div class="chat-body clearfix">
-                                        <div class="header">
-                                            <strong class="primary-font">Jack Sparrow</strong>
-                                            <small class="pull-right text-muted">
-                                                <i class="fa fa-clock-o fa-fw"></i> 12 mins ago
-                                            </small>
-                                        </div>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="right clearfix">
-                                    <span class="chat-img pull-right">
-                                        <img src="./SB Admin 2 - Bootstrap Admin Theme_files/fff(1)" alt="User Avatar" class="img-circle">
-                                    </span>
-                                    <div class="chat-body clearfix">
-                                        <div class="header">
-                                            <small class=" text-muted">
-                                                <i class="fa fa-clock-o fa-fw"></i> 13 mins ago</small>
-                                            <strong class="pull-right primary-font">Bhaumik Patel</strong>
-                                        </div>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="left clearfix">
-                                    <span class="chat-img pull-left">
-                                        <img src="./SB Admin 2 - Bootstrap Admin Theme_files/fff" alt="User Avatar" class="img-circle">
-                                    </span>
-                                    <div class="chat-body clearfix">
-                                        <div class="header">
-                                            <strong class="primary-font">Jack Sparrow</strong>
-                                            <small class="pull-right text-muted">
-                                                <i class="fa fa-clock-o fa-fw"></i> 14 mins ago</small>
-                                        </div>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="right clearfix">
-                                    <span class="chat-img pull-right">
-                                        <img src="./SB Admin 2 - Bootstrap Admin Theme_files/fff(1)" alt="User Avatar" class="img-circle">
-                                    </span>
-                                    <div class="chat-body clearfix">
-                                        <div class="header">
-                                            <small class=" text-muted">
-                                                <i class="fa fa-clock-o fa-fw"></i> 15 mins ago</small>
-                                            <strong class="pull-right primary-font">Bhaumik Patel</strong>
-                                        </div>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                                        </p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- /.panel-body -->
-                        <div class="panel-footer">
-                            <div class="input-group">
-                                <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-warning btn-sm" id="btn-chat">
-                                        Send
-                                    </button>
-                                </span>
-                            </div>
-                        </div>
-                        <!-- /.panel-footer -->
-                    </div>
-                    <!-- /.panel .chat-panel -->
-                </div>
-                <!-- /.col-lg-4 -->
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /#page-wrapper -->
-
+          </form>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+            <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+        </li>
+      </ul>
     </div>
-    <!-- /#wrapper -->
-
-    <!-- jQuery -->
-    <script src="./SB Admin 2 - Bootstrap Admin Theme_files/jquery.min.js.download"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="./SB Admin 2 - Bootstrap Admin Theme_files/bootstrap.min.js.download"></script>
-
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="./SB Admin 2 - Bootstrap Admin Theme_files/metisMenu.min.js.download"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="./SB Admin 2 - Bootstrap Admin Theme_files/raphael.min.js.download"></script>
-    <script src="./SB Admin 2 - Bootstrap Admin Theme_files/morris.min.js.download"></script>
-    <script src="./SB Admin 2 - Bootstrap Admin Theme_files/morris-data.js.download"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="./SB Admin 2 - Bootstrap Admin Theme_files/sb-admin-2.js.download"></script>
-
+  </nav>
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">My Dashboard</li>
+      </ol>
+      <!-- Icon Cards-->
+      <div class="row">
+        <div class="col-xl-3 col-sm-6 mb-3">
+          <div class="card text-white bg-primary o-hidden h-100">
+            <div class="card-body">
+              <div class="card-body-icon">
+                <i class="fa fa-fw fa-comments"></i>
+              </div>
+              <div class="mr-5">26 New Messages!</div>
+            </div>
+            <a class="card-footer text-white clearfix small z-1" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">
+              <span class="float-left">View Details</span>
+              <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-3">
+          <div class="card text-white bg-warning o-hidden h-100">
+            <div class="card-body">
+              <div class="card-body-icon">
+                <i class="fa fa-fw fa-list"></i>
+              </div>
+              <div class="mr-5">11 New Tasks!</div>
+            </div>
+            <a class="card-footer text-white clearfix small z-1" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">
+              <span class="float-left">View Details</span>
+              <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-3">
+          <div class="card text-white bg-success o-hidden h-100">
+            <div class="card-body">
+              <div class="card-body-icon">
+                <i class="fa fa-fw fa-shopping-cart"></i>
+              </div>
+              <div class="mr-5">123 New Orders!</div>
+            </div>
+            <a class="card-footer text-white clearfix small z-1" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">
+              <span class="float-left">View Details</span>
+              <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-3">
+          <div class="card text-white bg-danger o-hidden h-100">
+            <div class="card-body">
+              <div class="card-body-icon">
+                <i class="fa fa-fw fa-support"></i>
+              </div>
+              <div class="mr-5">13 New Tickets!</div>
+            </div>
+            <a class="card-footer text-white clearfix small z-1" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">
+              <span class="float-left">View Details</span>
+              <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Area Chart Example-->
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-area-chart"></i> Area Chart Example</div>
+        <div class="card-body"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+          <canvas id="myAreaChart" width="1581" height="474" class="chartjs-render-monitor" style="display: block; width: 1581px; height: 474px;"></canvas>
+        </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8">
+          <!-- Example Bar Chart Card-->
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fa fa-bar-chart"></i> Bar Chart Example</div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-8 my-auto"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+                  <canvas id="myBarChart" width="677" height="338" class="chartjs-render-monitor" style="display: block; width: 677px; height: 338px;"></canvas>
+                </div>
+                <div class="col-sm-4 text-center my-auto">
+                  <div class="h4 mb-0 text-primary">$34,693</div>
+                  <div class="small text-muted">YTD Revenue</div>
+                  <hr>
+                  <div class="h4 mb-0 text-warning">$18,474</div>
+                  <div class="small text-muted">YTD Expenses</div>
+                  <hr>
+                  <div class="h4 mb-0 text-success">$16,219</div>
+                  <div class="small text-muted">YTD Margin</div>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+          </div>
+          <!-- Card Columns Example Social Feed-->
+          <div class="mb-0 mt-4">
+            <i class="fa fa-newspaper-o"></i> News Feed</div>
+          <hr class="mt-2">
+          <div class="card-columns">
+            <!-- Example Social Card-->
+            <div class="card mb-3">
+              <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">
+                <img class="card-img-top img-fluid w-100" src="https://unsplash.it/700/450?image=610" alt="">
+              </a>
+              <div class="card-body">
+                <h6 class="card-title mb-1"><a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">David Miller</a></h6>
+                <p class="card-text small">These waves are looking pretty good today!
+                  <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">#surfsup</a>
+                </p>
+              </div>
+              <hr class="my-0">
+              <div class="card-body py-2 small">
+                <a class="mr-3 d-inline-block" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">
+                  <i class="fa fa-fw fa-thumbs-up"></i>Like</a>
+                <a class="mr-3 d-inline-block" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">
+                  <i class="fa fa-fw fa-comment"></i>Comment</a>
+                <a class="d-inline-block" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">
+                  <i class="fa fa-fw fa-share"></i>Share</a>
+              </div>
+              <hr class="my-0">
+              <div class="card-body small bg-faded">
+                <div class="media">
+                  <img class="d-flex mr-3" src="./index/45x45" alt="">
+                  <div class="media-body">
+                    <h6 class="mt-0 mb-1"><a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">John Smith</a></h6>Very nice! I wish I was there! That looks amazing!
+                    <ul class="list-inline mb-0">
+                      <li class="list-inline-item">
+                        <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">Like</a>
+                      </li>
+                      <li class="list-inline-item">·</li>
+                      <li class="list-inline-item">
+                        <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">Reply</a>
+                      </li>
+                    </ul>
+                    <div class="media mt-3">
+                      <a class="d-flex pr-3" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">
+                        <img src="./index/45x45" alt="">
+                      </a>
+                      <div class="media-body">
+                        <h6 class="mt-0 mb-1"><a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">David Miller</a></h6>Next time for sure!
+                        <ul class="list-inline mb-0">
+                          <li class="list-inline-item">
+                            <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">Like</a>
+                          </li>
+                          <li class="list-inline-item">·</li>
+                          <li class="list-inline-item">
+                            <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">Reply</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer small text-muted">Posted 32 mins ago</div>
+            </div>
+            <!-- Example Social Card-->
+            <div class="card mb-3">
+              <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">
+                <img class="card-img-top img-fluid w-100" src="https://unsplash.it/700/450?image=180" alt="">
+              </a>
+              <div class="card-body">
+                <h6 class="card-title mb-1"><a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">John Smith</a></h6>
+                <p class="card-text small">Another day at the office...
+                  <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">#workinghardorhardlyworking</a>
+                </p>
+              </div>
+              <hr class="my-0">
+              <div class="card-body py-2 small">
+                <a class="mr-3 d-inline-block" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">
+                  <i class="fa fa-fw fa-thumbs-up"></i>Like</a>
+                <a class="mr-3 d-inline-block" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">
+                  <i class="fa fa-fw fa-comment"></i>Comment</a>
+                <a class="d-inline-block" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">
+                  <i class="fa fa-fw fa-share"></i>Share</a>
+              </div>
+              <hr class="my-0">
+              <div class="card-body small bg-faded">
+                <div class="media">
+                  <img class="d-flex mr-3" src="./index/45x45" alt="">
+                  <div class="media-body">
+                    <h6 class="mt-0 mb-1"><a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">Jessy Lucas</a></h6>Where did you get that camera?! I want one!
+                    <ul class="list-inline mb-0">
+                      <li class="list-inline-item">
+                        <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">Like</a>
+                      </li>
+                      <li class="list-inline-item">·</li>
+                      <li class="list-inline-item">
+                        <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">Reply</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer small text-muted">Posted 46 mins ago</div>
+            </div>
+            <!-- Example Social Card-->
+            <div class="card mb-3">
+              <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">
+                <img class="card-img-top img-fluid w-100" src="https://unsplash.it/700/450?image=281" alt="">
+              </a>
+              <div class="card-body">
+                <h6 class="card-title mb-1"><a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">Jeffery Wellings</a></h6>
+                <p class="card-text small">Nice shot from the skate park!
+                  <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">#kickflip</a>
+                  <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">#holdmybeer</a>
+                  <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">#igotthis</a>
+                </p>
+              </div>
+              <hr class="my-0">
+              <div class="card-body py-2 small">
+                <a class="mr-3 d-inline-block" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">
+                  <i class="fa fa-fw fa-thumbs-up"></i>Like</a>
+                <a class="mr-3 d-inline-block" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">
+                  <i class="fa fa-fw fa-comment"></i>Comment</a>
+                <a class="d-inline-block" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">
+                  <i class="fa fa-fw fa-share"></i>Share</a>
+              </div>
+              <div class="card-footer small text-muted">Posted 1 hr ago</div>
+            </div>
+            <!-- Example Social Card-->
+            <div class="card mb-3">
+              <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">
+                <img class="card-img-top img-fluid w-100" src="https://unsplash.it/700/450?image=185" alt="">
+              </a>
+              <div class="card-body">
+                <h6 class="card-title mb-1"><a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">David Miller</a></h6>
+                <p class="card-text small">It's hot, and I might be lost...
+                  <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">#desert</a>
+                  <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">#water</a>
+                  <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">#anyonehavesomewater</a>
+                  <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">#noreally</a>
+                  <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">#thirsty</a>
+                  <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">#dehydration</a>
+                </p>
+              </div>
+              <hr class="my-0">
+              <div class="card-body py-2 small">
+                <a class="mr-3 d-inline-block" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">
+                  <i class="fa fa-fw fa-thumbs-up"></i>Like</a>
+                <a class="mr-3 d-inline-block" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">
+                  <i class="fa fa-fw fa-comment"></i>Comment</a>
+                <a class="d-inline-block" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">
+                  <i class="fa fa-fw fa-share"></i>Share</a>
+              </div>
+              <hr class="my-0">
+              <div class="card-body small bg-faded">
+                <div class="media">
+                  <img class="d-flex mr-3" src="./index/45x45" alt="">
+                  <div class="media-body">
+                    <h6 class="mt-0 mb-1"><a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">John Smith</a></h6>The oasis is a mile that way, or is that just a mirage?
+                    <ul class="list-inline mb-0">
+                      <li class="list-inline-item">
+                        <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">Like</a>
+                      </li>
+                      <li class="list-inline-item">·</li>
+                      <li class="list-inline-item">
+                        <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">Reply</a>
+                      </li>
+                    </ul>
+                    <div class="media mt-3">
+                      <a class="d-flex pr-3" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">
+                        <img src="./index/45x45" alt="">
+                      </a>
+                      <div class="media-body">
+                        <h6 class="mt-0 mb-1"><a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">David Miller</a></h6>
+                        <img class="img-fluid w-100 mb-1" src="https://unsplash.it/700/450?image=789" alt="">I'm saved, I found a cactus. How do I open this thing?
+                        <ul class="list-inline mb-0">
+                          <li class="list-inline-item">
+                            <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">Like</a>
+                          </li>
+                          <li class="list-inline-item">·</li>
+                          <li class="list-inline-item">
+                            <a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">Reply</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer small text-muted">Posted yesterday</div>
+            </div>
+          </div>
+          <!-- /Card Columns-->
+        </div>
+        <div class="col-lg-4">
+          <!-- Example Pie Chart Card-->
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fa fa-pie-chart"></i> Pie Chart Example</div>
+            <div class="card-body"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+              <canvas id="myPieChart" width="479" height="479" class="chartjs-render-monitor" style="display: block; width: 479px; height: 479px;"></canvas>
+            </div>
+            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+          </div>
+          <!-- Example Notifications Card-->
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fa fa-bell-o"></i> Feed Example</div>
+            <div class="list-group list-group-flush small">
+              <a class="list-group-item list-group-item-action" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">
+                <div class="media">
+                  <img class="d-flex mr-3 rounded-circle" src="./index/45x45" alt="">
+                  <div class="media-body">
+                    <strong>David Miller</strong>posted a new article to
+                    <strong>David Miller Website</strong>.
+                    <div class="text-muted smaller">Today at 5:43 PM - 5m ago</div>
+                  </div>
+                </div>
+              </a>
+              <a class="list-group-item list-group-item-action" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">
+                <div class="media">
+                  <img class="d-flex mr-3 rounded-circle" src="./index/45x45" alt="">
+                  <div class="media-body">
+                    <strong>Samantha King</strong>sent you a new message!
+                    <div class="text-muted smaller">Today at 4:37 PM - 1hr ago</div>
+                  </div>
+                </div>
+              </a>
+              <a class="list-group-item list-group-item-action" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">
+                <div class="media">
+                  <img class="d-flex mr-3 rounded-circle" src="./index/45x45" alt="">
+                  <div class="media-body">
+                    <strong>Jeffery Wellings</strong>added a new photo to the album
+                    <strong>Beach</strong>.
+                    <div class="text-muted smaller">Today at 4:31 PM - 1hr ago</div>
+                  </div>
+                </div>
+              </a>
+              <a class="list-group-item list-group-item-action" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">
+                <div class="media">
+                  <img class="d-flex mr-3 rounded-circle" src="./index/45x45" alt="">
+                  <div class="media-body">
+                    <i class="fa fa-code-fork"></i>
+                    <strong>Monica Dennis</strong>forked the
+                    <strong>startbootstrap-sb-admin</strong>repository on
+                    <strong>GitHub</strong>.
+                    <div class="text-muted smaller">Today at 3:54 PM - 2hrs ago</div>
+                  </div>
+                </div>
+              </a>
+              <a class="list-group-item list-group-item-action" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#">View all activity...</a>
+            </div>
+            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+          </div>
+        </div>
+      </div>
+      <!-- Example DataTables Card-->
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Data Table Example</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <div id="dataTable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4"><div class="row"><div class="col-sm-12 col-md-6"><div class="dataTables_length" id="dataTable_length"><label>Show <select name="dataTable_length" aria-controls="dataTable" class="form-control form-control-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div></div><div class="col-sm-12 col-md-6"><div id="dataTable_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="dataTable"></label></div></div></div><div class="row"><div class="col-sm-12"><table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+              <thead>
+                <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 257px;">Name</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 416px;">Position</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 189px;">Office</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 96px;">Age</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 183px;">Start date</th><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 151px;">Salary</th></tr>
+              </thead>
+              <tfoot>
+                <tr><th rowspan="1" colspan="1">Name</th><th rowspan="1" colspan="1">Position</th><th rowspan="1" colspan="1">Office</th><th rowspan="1" colspan="1">Age</th><th rowspan="1" colspan="1">Start date</th><th rowspan="1" colspan="1">Salary</th></tr>
+              </tfoot>
+              <tbody>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+              <tr role="row" class="odd">
+                  <td class="sorting_1">Airi Satou</td>
+                  <td>Accountant</td>
+                  <td>Tokyo</td>
+                  <td>33</td>
+                  <td>2008/11/28</td>
+                  <td>$162,700</td>
+                </tr><tr role="row" class="even">
+                  <td class="sorting_1">Angelica Ramos</td>
+                  <td>Chief Executive Officer (CEO)</td>
+                  <td>London</td>
+                  <td>47</td>
+                  <td>2009/10/09</td>
+                  <td>$1,200,000</td>
+                </tr><tr role="row" class="odd">
+                  <td class="sorting_1">Ashton Cox</td>
+                  <td>Junior Technical Author</td>
+                  <td>San Francisco</td>
+                  <td>66</td>
+                  <td>2009/01/12</td>
+                  <td>$86,000</td>
+                </tr><tr role="row" class="even">
+                  <td class="sorting_1">Bradley Greer</td>
+                  <td>Software Engineer</td>
+                  <td>London</td>
+                  <td>41</td>
+                  <td>2012/10/13</td>
+                  <td>$132,000</td>
+                </tr><tr role="row" class="odd">
+                  <td class="sorting_1">Brenden Wagner</td>
+                  <td>Software Engineer</td>
+                  <td>San Francisco</td>
+                  <td>28</td>
+                  <td>2011/06/07</td>
+                  <td>$206,850</td>
+                </tr><tr role="row" class="even">
+                  <td class="sorting_1">Brielle Williamson</td>
+                  <td>Integration Specialist</td>
+                  <td>New York</td>
+                  <td>61</td>
+                  <td>2012/12/02</td>
+                  <td>$372,000</td>
+                </tr><tr role="row" class="odd">
+                  <td class="sorting_1">Bruno Nash</td>
+                  <td>Software Engineer</td>
+                  <td>London</td>
+                  <td>38</td>
+                  <td>2011/05/03</td>
+                  <td>$163,500</td>
+                </tr><tr role="row" class="even">
+                  <td class="sorting_1">Caesar Vance</td>
+                  <td>Pre-Sales Support</td>
+                  <td>New York</td>
+                  <td>21</td>
+                  <td>2011/12/12</td>
+                  <td>$106,450</td>
+                </tr><tr role="row" class="odd">
+                  <td class="sorting_1">Cara Stevens</td>
+                  <td>Sales Assistant</td>
+                  <td>New York</td>
+                  <td>46</td>
+                  <td>2011/12/06</td>
+                  <td>$145,600</td>
+                </tr><tr role="row" class="even">
+                  <td class="sorting_1">Cedric Kelly</td>
+                  <td>Senior Javascript Developer</td>
+                  <td>Edinburgh</td>
+                  <td>22</td>
+                  <td>2012/03/29</td>
+                  <td>$433,060</td>
+                </tr></tbody>
+            </table></div></div><div class="row"><div class="col-sm-12 col-md-5"><div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div></div><div class="col-sm-12 col-md-7"><div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="dataTable_previous"><a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li><li class="paginate_button page-item active"><a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item "><a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item "><a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#" aria-controls="dataTable" data-dt-idx="3" tabindex="0" class="page-link">3</a></li><li class="paginate_button page-item "><a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#" aria-controls="dataTable" data-dt-idx="4" tabindex="0" class="page-link">4</a></li><li class="paginate_button page-item "><a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#" aria-controls="dataTable" data-dt-idx="5" tabindex="0" class="page-link">5</a></li><li class="paginate_button page-item "><a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#" aria-controls="dataTable" data-dt-idx="6" tabindex="0" class="page-link">6</a></li><li class="paginate_button page-item next" id="dataTable_next"><a href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#" aria-controls="dataTable" data-dt-idx="7" tabindex="0" class="page-link">Next</a></li></ul></div></div></div></div>
+          </div>
+        </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      </div>
+    </div>
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>Copyright © Your Website 2017</small>
+        </div>
+      </div>
+    </footer>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/index.html#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="https://blackrockdigital.github.io/startbootstrap-sb-admin/login.html">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+    <script src="./index/jquery.min.js.download"></script>
+    <script src="./index/bootstrap.bundle.min.js.download"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="./index/jquery.easing.min.js.download"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="./index/Chart.min.js.download"></script>
+    <script src="./index/jquery.dataTables.js.download"></script>
+    <script src="./index/dataTables.bootstrap4.js.download"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="./index/sb-admin.min.js.download"></script>
+    <!-- Custom scripts for this page-->
+    <script src="./index/sb-admin-datatables.min.js.download"></script>
+    <script src="./index/sb-admin-charts.min.js.download"></script>
+  </div>
 
 
 
