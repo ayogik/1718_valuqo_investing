@@ -69,6 +69,7 @@ function BindTable(jsondata, tableid) {/*Function used to convert the JSON array
  }  
  function BindTableHeader(jsondata, tableid) {/*Function used to get all column names from JSON and bind the html table header*/  
      var columnSet = []; 
+     var jsondata =["Transaction Date", "Description", "Amount in Dollars"];
      var headT$ = $('<thead/>'); 
      var headerTr$ = $('<tr/>');  
      for (var i = 0; i < jsondata.length; i++) {  
@@ -82,6 +83,26 @@ function BindTable(jsondata, tableid) {/*Function used to convert the JSON array
              }  
          }  
      }  
+
+
+
+
+<!--
+     var columnSet = []; 
+     var headT$ = $('<thead/>'); 
+     var headerTr$ = $('<tr/>');  
+     for (var i = 0; i < jsondata.length; i++) {  
+         var rowHash = jsondata[i];  
+         for (var key in rowHash) {  
+             if (rowHash.hasOwnProperty(key)) {  
+                 if ($.inArray(key, columnSet) == -1) {/*Adding each unique column names to a variable array*/  
+                     columnSet.push(key);  
+                     headerTr$.append($('<th/>').html(key));
+                 }  
+             }  
+         }  
+     }  
+     -->
      $(tableid).append(headerTr$);
      return columnSet;  
  }  

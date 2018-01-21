@@ -31,11 +31,11 @@ function ExportToTable() {
                          var exceljson = XLS.utils.sheet_to_row_object_array(workbook.Sheets[y]);  
                      }  
                      if (exceljson.length > 0 && cnt == 0) {  
-                         BindTable(exceljson, '#exceltable');  
+                         BindTable(exceljson, '#dataTable');  
                          cnt++;  
                      }  
                  });  
-                 $('#exceltable').show();  
+                 $('#dataTable').show();  
              }  
              if (xlsxflag) {/*If excel file is .xlsx extension than creates a Array Buffer from excel*/  
                  reader.readAsArrayBuffer($("#excelfile")[0].files[0]);  
