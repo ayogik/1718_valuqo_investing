@@ -1,0 +1,15 @@
+import CoreLocation
+import MapKit
+
+var locationManager = CLLocationManager()
+
+self.locationManager.requestAlwaysAuthorization() //request user for constant location sensing
+
+self.locationManager.requestWhenInUseAuthorization() //request user for location sensing while app is open
+
+if CLLocationManager.locationServicesEnabled() / / if permission is granted, check location
+{
+    locationManager.delegate = self
+    locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+    locationManager.startUpdatingLocation()
+}
