@@ -4,10 +4,17 @@
 
 A secure personal finance website and iOS/Android app that recommends cheaper options for daily commodities, new commuting routes, and diagnostics on expenses.
 Specifically, the app offers:
-- **Cheaper Alternatives** - a machine learning algorithm to analyze cheaper, yet comparable options for commonly purchased goods, including gr oceries, breakfast options, etc.
+- **Cheaper Alternatives** - algorithms to analyze cheaper, yet comparable options for commonly purchased goods. Currently includes gas prices. Planning to including gr oceries, breakfast options, etc.
 - **Diagnostics**- diagnostics on transactional history and current blances to suggest new routes to commonly visited places using Google Maps API
 - **Analysis** - analysis on expenditures to suggest budget cuts in certain areas
 - **Data Visualization** - personalized visualization of data with multicolored and multi-layered charts/graphs integrated into an invigorating UI/UX. 
+
+## Status
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/BlackrockDigital/startbootstrap-sb-admin/master/LICENSE)
+[![npm version](https://img.shields.io/npm/v/startbootstrap-sb-admin.svg)](https://www.npmjs.com/package/startbootstrap-sb-admin)
+[![Build Status](https://travis-ci.org/BlackrockDigital/startbootstrap-sb-admin.svg?branch=master)](https://travis-ci.org/BlackrockDigital/startbootstrap-sb-admin)
+[![dependencies Status](https://david-dm.org/BlackrockDigital/startbootstrap-sb-admin/status.svg)](https://david-dm.org/BlackrockDigital/startbootstrap-sb-admin)
+[![devDependencies Status](https://david-dm.org/BlackrockDigital/startbootstrap-sb-admin/dev-status.svg)](https://david-dm.org/BlackrockDigital/startbootstrap-sb-admin?type=dev)
 
 ## Structure
 
@@ -16,3 +23,8 @@ To be updated soon.
 ## Authors
 
 CSE 2017 Long-Term Project Repo for Sathya, Bill, & Yogi
+
+## Copyright and License
+
+Copyright 2013-2017 Blackrock Digital LLC. Base and Valuqo released under the [MIT](https://github.com/BlackrockDigital/startbootstrap-sb-admin/blob/gh-pages/LICENSE) license.
+
