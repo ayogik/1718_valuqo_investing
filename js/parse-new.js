@@ -1,5 +1,5 @@
-var newloc =[];
 function ExportToTable() {  
+
      var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.xlsx|.xls)$/;  
      /*Checks whether the file is a valid excel file*/  
      if (regex.test($("#excelfile").val().toLowerCase())) {  
@@ -51,34 +51,73 @@ function ExportToTable() {
      }  
      else {  
          alert("Please upload a valid Excel file!");  
-     } 
-     
+     }  
  }  
-function BindTable(jsondata, tableid) {/*Function used to convert the JSON array to Html Table*/  
-     var columns = BindTableHeader(jsondata, tableid); /*Gets all the column headings of Excel*/  
-     var locationsInM = [];
-     for (var i = 0; i < jsondata.length; i++) {  
+function BindTable(jsondata, tableid) {/*Function used to convert the JSON array to Html Table*/
+
+    var locations = ["EXXONMOBIL NEW BRUNSWI NJ", "EXXONMOBIL JERSEY CITY NJ", "ALLENTOWN GASKO RTE. 539 @ 195 ALLENTOWN NJ", "ALLENTWON GASKO ALLENTOWN   NJ"];
+  	var latLongPoints = [];
+ 	var map;
+    var centering = {lat: 40.1843574, lng: -74.5740333};
+
+  
+    var columns = BindTableHeader(jsondata, tableid); /*Gets all the column headings of Excel*/  
+    for (var i = 0; i < jsondata.length; i++) {  
          var row$ = $('<tr/>');  
          for (var colIndex = 0; colIndex < columns.length; colIndex++) {  
              var cellValue = jsondata[i][columns[colIndex]];  
              if (cellValue == null)  
                  cellValue = "";  
              row$.append($('<td/>').html(cellValue));  
- 
-            var expenseDesc = cellValue.toLowerCase();
-            if (expenseDesc.indexOf("gas") > -1 || expenseDesc.indexOf("exxon") > -1 )
-            {
-                locationsInM.push(cellValue);
-                console.log("locations from parse.js are" + cellValue);
-                newloc.push(cellValue);
-            }
          }  
          $(tableid).append(row$);  
-     }  
-    console.log("locations after binding table:" + newloc[0]); 
-    window.initMap();    
-         
- }  
+     }
+
+    var mapProp = {  
+                center: centering,  
+                zoom: 11,  
+                panControl: true, /*In order to show navigating control*/  
+                zoomControl: true,  
+                mapTypeControl: true,  
+                scaleControl: true,  
+                streetViewControl: true, /*Enable street view control*/  
+                overviewMapControl: true,  
+                rotateControl: true,  
+                mapTypeId: google.maps.MapTypeId.ROADMAP  
+    };
+    map = new google.maps.Map(tableid.parentNode.getElementById('map'), mapProp);  
+	map.setTilt(45);  /*To rotate map with an angle of 45 degree*/  
+
+    for (i = 0; i < locations.length; i++) {  
+	/* Code to get Latitude and Longitude of location*/ 
+    	var locate = locations[i];
+   		var geocoder = new google.maps.Geocoder();  
+        var address = locate;
+    	var points;
+    	var latitude;
+    	var longitude;
+   
+    	geocoder.geocode({ 'address': address }, function (results, status) {  
+            if (status == google.maps.GeocoderStatus.OK) {  
+                latitude = results[0].geometry.location.lat();  
+                longitude = results[0].geometry.location.lng();  
+                points = new google.maps.LatLng(latitude, longitude);  
+    		  	latLongPoints[i]=points;
+                console.log("Found gas station at"+ latitude + " "+ longitude);
+                
+    		    /* marker code*/               
+                var marker = new google.maps.Marker({  
+                    position: points,  
+                   // icon: 'pinkball.png',
+    			     map: map  
+                });  
+                /*marker.setMap(map); */ 
+            }  
+        });  
+   }
+  
+ }
+  
  function BindTableHeader(jsondata, tableid) {/*Function used to get all column names from JSON and bind the html table header*/  
      var columnSet = [];  
      var headerTr$ = $('<tr/>');  

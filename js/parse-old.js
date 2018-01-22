@@ -1,4 +1,3 @@
-var newloc =[];
 function ExportToTable() {  
      var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.xlsx|.xls)$/;  
      /*Checks whether the file is a valid excel file*/  
@@ -51,33 +50,55 @@ function ExportToTable() {
      }  
      else {  
          alert("Please upload a valid Excel file!");  
-     } 
-     
+     }  
  }  
 function BindTable(jsondata, tableid) {/*Function used to convert the JSON array to Html Table*/  
      var columns = BindTableHeader(jsondata, tableid); /*Gets all the column headings of Excel*/  
-     var locationsInM = [];
+     var gasStations = [];
      for (var i = 0; i < jsondata.length; i++) {  
          var row$ = $('<tr/>');  
          for (var colIndex = 0; colIndex < columns.length; colIndex++) {  
              var cellValue = jsondata[i][columns[colIndex]];  
              if (cellValue == null)  
                  cellValue = "";  
+             if (colIndex == 1) {
+                console.log("Cell value is" + cellValue);
+                var isGasCategory = 0;
+                var expenseDescription = cellValue;
+                expenseDescription = expenseDescription.toLowerCase();
+                if (expenseDescription.indexOf("gas") != -1 ||
+                    expenseDescription.indexOf("exxon") != -1) 
+                {
+                    isGasCategory = 1;
+                    console.log("expenseDescription is " + expenseDescription + " is of type Gas");
+                    var gasDetails= [];
+                    gasDetails[0] = cellValue;
+                    var gasLocation = "allentown"; /*FindGasLocation(cellValue);*/
+
+https://maps.googleapis.com/maps/api/place/textsearch/json?query=123+main+street&key=YOUR_API_KEY
+
+                    
+                    // Get HTML from page
+/*$.ajax({
+     url: "https://www.bing.com/search?q=EXXONMOBIL%20JERSEY%20CITY%20NJ&PC=U316&FORM=CHROMN",
+     dataType: 'jsonp',
+     crossDomain: true,
+     success: function(data) {
+          console.log($(data));
+          /*console.log(theText).getElementsByTagName("ul")[0].getElementsByTagName("li");
+          for(var i = 0; i < elements.length; i++) {
+               var theText = elements[i].firstChild.nodeValue;
+               console.log(theText);
+          }*/
+   /*  }
+});*/
+                    gasStations[0] = gasDetails;
+                }
+             }
              row$.append($('<td/>').html(cellValue));  
- 
-            var expenseDesc = cellValue.toLowerCase();
-            if (expenseDesc.indexOf("gas") > -1 || expenseDesc.indexOf("exxon") > -1 )
-            {
-                locationsInM.push(cellValue);
-                console.log("locations from parse.js are" + cellValue);
-                newloc.push(cellValue);
-            }
          }  
          $(tableid).append(row$);  
      }  
-    console.log("locations after binding table:" + newloc[0]); 
-    window.initMap();    
-         
  }  
  function BindTableHeader(jsondata, tableid) {/*Function used to get all column names from JSON and bind the html table header*/  
      var columnSet = [];  
