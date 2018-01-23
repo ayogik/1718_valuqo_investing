@@ -1,0 +1,561 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C59DFF282017D7760081589E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DFF272017D7760081589E /* AppDelegate.swift */; };
+		C59DFF2A2017D7760081589E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DFF292017D7760081589E /* FirstViewController.swift */; };
+		C59DFF2C2017D7760081589E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DFF2B2017D7760081589E /* SecondViewController.swift */; };
+		C59DFF2F2017D7770081589E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C59DFF2D2017D7770081589E /* Main.storyboard */; };
+		C59DFF312017D7770081589E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C59DFF302017D7770081589E /* Assets.xcassets */; };
+		C59DFF342017D7770081589E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C59DFF322017D7770081589E /* LaunchScreen.storyboard */; };
+		C59DFF3F2017D7770081589E /* ValuqoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DFF3E2017D7770081589E /* ValuqoTests.swift */; };
+		C59DFF4A2017D7770081589E /* ValuqoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59DFF492017D7770081589E /* ValuqoUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C59DFF3B2017D7770081589E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C59DFF1C2017D7760081589E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C59DFF232017D7760081589E;
+			remoteInfo = Valuqo;
+		};
+		C59DFF462017D7770081589E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C59DFF1C2017D7760081589E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C59DFF232017D7760081589E;
+			remoteInfo = Valuqo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C59DFF242017D7760081589E /* Valuqo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Valuqo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C59DFF272017D7760081589E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C59DFF292017D7760081589E /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		C59DFF2B2017D7760081589E /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		C59DFF2E2017D7770081589E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C59DFF302017D7770081589E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C59DFF332017D7770081589E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C59DFF352017D7770081589E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C59DFF3A2017D7770081589E /* ValuqoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ValuqoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C59DFF3E2017D7770081589E /* ValuqoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuqoTests.swift; sourceTree = "<group>"; };
+		C59DFF402017D7770081589E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C59DFF452017D7770081589E /* ValuqoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ValuqoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C59DFF492017D7770081589E /* ValuqoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuqoUITests.swift; sourceTree = "<group>"; };
+		C59DFF4B2017D7770081589E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C59DFF212017D7760081589E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C59DFF372017D7770081589E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C59DFF422017D7770081589E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C59DFF1B2017D7760081589E = {
+			isa = PBXGroup;
+			children = (
+				C59DFF262017D7760081589E /* Valuqo */,
+				C59DFF3D2017D7770081589E /* ValuqoTests */,
+				C59DFF482017D7770081589E /* ValuqoUITests */,
+				C59DFF252017D7760081589E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C59DFF252017D7760081589E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C59DFF242017D7760081589E /* Valuqo.app */,
+				C59DFF3A2017D7770081589E /* ValuqoTests.xctest */,
+				C59DFF452017D7770081589E /* ValuqoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C59DFF262017D7760081589E /* Valuqo */ = {
+			isa = PBXGroup;
+			children = (
+				C59DFF272017D7760081589E /* AppDelegate.swift */,
+				C59DFF292017D7760081589E /* FirstViewController.swift */,
+				C59DFF2B2017D7760081589E /* SecondViewController.swift */,
+				C59DFF2D2017D7770081589E /* Main.storyboard */,
+				C59DFF302017D7770081589E /* Assets.xcassets */,
+				C59DFF322017D7770081589E /* LaunchScreen.storyboard */,
+				C59DFF352017D7770081589E /* Info.plist */,
+			);
+			path = Valuqo;
+			sourceTree = "<group>";
+		};
+		C59DFF3D2017D7770081589E /* ValuqoTests */ = {
+			isa = PBXGroup;
+			children = (
+				C59DFF3E2017D7770081589E /* ValuqoTests.swift */,
+				C59DFF402017D7770081589E /* Info.plist */,
+			);
+			path = ValuqoTests;
+			sourceTree = "<group>";
+		};
+		C59DFF482017D7770081589E /* ValuqoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C59DFF492017D7770081589E /* ValuqoUITests.swift */,
+				C59DFF4B2017D7770081589E /* Info.plist */,
+			);
+			path = ValuqoUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C59DFF232017D7760081589E /* Valuqo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C59DFF4E2017D7770081589E /* Build configuration list for PBXNativeTarget "Valuqo" */;
+			buildPhases = (
+				C59DFF202017D7760081589E /* Sources */,
+				C59DFF212017D7760081589E /* Frameworks */,
+				C59DFF222017D7760081589E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Valuqo;
+			productName = Valuqo;
+			productReference = C59DFF242017D7760081589E /* Valuqo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C59DFF392017D7770081589E /* ValuqoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C59DFF512017D7770081589E /* Build configuration list for PBXNativeTarget "ValuqoTests" */;
+			buildPhases = (
+				C59DFF362017D7770081589E /* Sources */,
+				C59DFF372017D7770081589E /* Frameworks */,
+				C59DFF382017D7770081589E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C59DFF3C2017D7770081589E /* PBXTargetDependency */,
+			);
+			name = ValuqoTests;
+			productName = ValuqoTests;
+			productReference = C59DFF3A2017D7770081589E /* ValuqoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C59DFF442017D7770081589E /* ValuqoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C59DFF542017D7770081589E /* Build configuration list for PBXNativeTarget "ValuqoUITests" */;
+			buildPhases = (
+				C59DFF412017D7770081589E /* Sources */,
+				C59DFF422017D7770081589E /* Frameworks */,
+				C59DFF432017D7770081589E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C59DFF472017D7770081589E /* PBXTargetDependency */,
+			);
+			name = ValuqoUITests;
+			productName = ValuqoUITests;
+			productReference = C59DFF452017D7770081589E /* ValuqoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C59DFF1C2017D7760081589E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "A K";
+				TargetAttributes = {
+					C59DFF232017D7760081589E = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					C59DFF392017D7770081589E = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C59DFF232017D7760081589E;
+					};
+					C59DFF442017D7770081589E = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C59DFF232017D7760081589E;
+					};
+				};
+			};
+			buildConfigurationList = C59DFF1F2017D7760081589E /* Build configuration list for PBXProject "Valuqo" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C59DFF1B2017D7760081589E;
+			productRefGroup = C59DFF252017D7760081589E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C59DFF232017D7760081589E /* Valuqo */,
+				C59DFF392017D7770081589E /* ValuqoTests */,
+				C59DFF442017D7770081589E /* ValuqoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C59DFF222017D7760081589E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C59DFF342017D7770081589E /* LaunchScreen.storyboard in Resources */,
+				C59DFF312017D7770081589E /* Assets.xcassets in Resources */,
+				C59DFF2F2017D7770081589E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C59DFF382017D7770081589E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C59DFF432017D7770081589E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C59DFF202017D7760081589E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C59DFF2C2017D7760081589E /* SecondViewController.swift in Sources */,
+				C59DFF282017D7760081589E /* AppDelegate.swift in Sources */,
+				C59DFF2A2017D7760081589E /* FirstViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C59DFF362017D7770081589E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C59DFF3F2017D7770081589E /* ValuqoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C59DFF412017D7770081589E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C59DFF4A2017D7770081589E /* ValuqoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C59DFF3C2017D7770081589E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C59DFF232017D7760081589E /* Valuqo */;
+			targetProxy = C59DFF3B2017D7770081589E /* PBXContainerItemProxy */;
+		};
+		C59DFF472017D7770081589E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C59DFF232017D7760081589E /* Valuqo */;
+			targetProxy = C59DFF462017D7770081589E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C59DFF2D2017D7770081589E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C59DFF2E2017D7770081589E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C59DFF322017D7770081589E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C59DFF332017D7770081589E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C59DFF4C2017D7770081589E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C59DFF4D2017D7770081589E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C59DFF4F2017D7770081589E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Valuqo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Valuqo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C59DFF502017D7770081589E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Valuqo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Valuqo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C59DFF522017D7770081589E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ValuqoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ValuqoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Valuqo.app/Valuqo";
+			};
+			name = Debug;
+		};
+		C59DFF532017D7770081589E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ValuqoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ValuqoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Valuqo.app/Valuqo";
+			};
+			name = Release;
+		};
+		C59DFF552017D7770081589E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ValuqoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ValuqoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Valuqo;
+			};
+			name = Debug;
+		};
+		C59DFF562017D7770081589E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ValuqoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ValuqoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Valuqo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C59DFF1F2017D7760081589E /* Build configuration list for PBXProject "Valuqo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C59DFF4C2017D7770081589E /* Debug */,
+				C59DFF4D2017D7770081589E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C59DFF4E2017D7770081589E /* Build configuration list for PBXNativeTarget "Valuqo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C59DFF4F2017D7770081589E /* Debug */,
+				C59DFF502017D7770081589E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C59DFF512017D7770081589E /* Build configuration list for PBXNativeTarget "ValuqoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C59DFF522017D7770081589E /* Debug */,
+				C59DFF532017D7770081589E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C59DFF542017D7770081589E /* Build configuration list for PBXNativeTarget "ValuqoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C59DFF552017D7770081589E /* Debug */,
+				C59DFF562017D7770081589E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C59DFF1C2017D7760081589E /* Project object */;
+}
