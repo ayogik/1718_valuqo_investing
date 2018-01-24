@@ -20,9 +20,16 @@ Specifically, the app offers:
 ![dependencies Status](https://david-dm.org/BlackrockDigital/startbootstrap-sb-admin/status.svg)
 ![devDependencies Status](https://david-dm.org/BlackrockDigital/startbootstrap-sb-admin/dev-status.svg)
 
-## Structure
+## Essential Structure
 
-To be updated soon.
+### Valuqo Website
+- **index.html** - Home page with links to tables.html, Yodlee Envestnet POC App
+- **tables.html** - Gas algorithm page with parsing and Google Maps API
+- **Yodlee Envestnet** - Connection with bank accounts (passes huge hurdle that many financial companies fail to cross (security of information and convenience)
+
+### Non-Valuqo Website
+- **Swift Code** - geolocation and Valuqo website.
+- **Yodlee Envestnet** - application Java source code and modifications.
 
 ## Authors
 
