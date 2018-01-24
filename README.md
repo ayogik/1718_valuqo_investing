@@ -2,7 +2,7 @@
 
 ## Visit Website
 
-Visit Valuqo [![Valuqo](vqlogo.png)](http://snme.github.io)
+Visit <a href="http://snme.github.io">Valuqo <img src="vqlogo.png" width="15" height="15"/></a>
 
 ## Description and Feature Set
 
@@ -15,7 +15,7 @@ Specifically, the app offers:
 
 ## Status
 ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
-![npm version](vqobeta.svg)
+<img src="vqobeta.svg" height="20"/>
 ![Build Status](https://travis-ci.org/BlackrockDigital/startbootstrap-sb-admin.svg?branch=master)
 ![dependencies Status](https://david-dm.org/BlackrockDigital/startbootstrap-sb-admin/status.svg)
 ![devDependencies Status](https://david-dm.org/BlackrockDigital/startbootstrap-sb-admin/dev-status.svg)
