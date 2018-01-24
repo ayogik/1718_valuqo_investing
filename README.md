@@ -1,5 +1,9 @@
 # Valuqo
 
+## Visit Website
+
+Visit <a href="http://snme.github.io">Valuqo <img src="vqlogo.png" width="15" height="15"/></a>
+
 ## Description and Feature Set
 
 A secure personal finance website and iOS/Android app that recommends cheaper options for daily commodities, new commuting routes, and diagnostics on expenses.
@@ -10,11 +14,11 @@ Specifically, the app offers:
 - **Data Visualization** - personalized visualization of data with multicolored and multi-layered charts/graphs integrated into an invigorating UI/UX. 
 
 ## Status
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/BlackrockDigital/startbootstrap-sb-admin/master/LICENSE)
-[![npm version](https://img.shields.io/npm/v/startbootstrap-sb-admin.svg)](https://www.npmjs.com/package/startbootstrap-sb-admin)
-[![Build Status](https://travis-ci.org/BlackrockDigital/startbootstrap-sb-admin.svg?branch=master)](https://travis-ci.org/BlackrockDigital/startbootstrap-sb-admin)
-[![dependencies Status](https://david-dm.org/BlackrockDigital/startbootstrap-sb-admin/status.svg)](https://david-dm.org/BlackrockDigital/startbootstrap-sb-admin)
-[![devDependencies Status](https://david-dm.org/BlackrockDigital/startbootstrap-sb-admin/dev-status.svg)](https://david-dm.org/BlackrockDigital/startbootstrap-sb-admin?type=dev)
+![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
+<img src="vqobeta.svg" height="20"/>
+![Build Status](https://travis-ci.org/BlackrockDigital/startbootstrap-sb-admin.svg?branch=master)
+![dependencies Status](https://david-dm.org/BlackrockDigital/startbootstrap-sb-admin/status.svg)
+![devDependencies Status](https://david-dm.org/BlackrockDigital/startbootstrap-sb-admin/dev-status.svg)
 
 ## Structure
 
