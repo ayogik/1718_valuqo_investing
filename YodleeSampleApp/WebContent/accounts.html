@@ -71,7 +71,7 @@
 	$("#txnTable").append('<tbody><tr><td colspan="5" class="text-center"><div align="center" class="alert alert-info"><p>Loading Transactions....<i class="fa fa-spinner fa-spin" style="font-size:24px"></i></p></div></td></tr></tbody>');
 
 	  
-	  $.get( "/YodleeSampleApp",{ action: "getTransactions", accountId:accountId} )
+	  $.get( "/YodleeSampleApp/YodleeSampleApp",{ action: "getTransactions", accountId:accountId} )
 	  .done(function( data ) {
 	
 		  var responseObj = jQuery.parseJSON(data);
@@ -95,7 +95,7 @@
 	  window.console.log('unlink acct');
 	  var id =  $('#unlinkButtonDiv').data('accountId');
 	  
-	  $.get( "/YodleeSampleApp",{ action: "deleteAccount", accountId:id} )
+	  $.get( "/YodleeSampleApp/YodleeSampleApp",{ action: "deleteAccount", accountId:id} )
 	  .done(function( data ) {
 		  $('#unlinkAccountModal').modal('show')
 	   });
@@ -110,7 +110,7 @@ $(document).ready(function(){
 	
 	$('#fastlinkbutton').click(function() {
 		
-	  $.get( "/YodleeSampleApp",{ action: "getFastLinkToken"} )
+	  $.get( "/YodleeSampleApp/YodleeSampleApp",{ action: "getFastLinkToken"} )
 	  .done(function( data ) {
 		  
 		window.console.log('getFastLinkToken - '+data);
@@ -145,7 +145,7 @@ $(document).ready(function(){
 	})
 			
 	//Load user accounts in Sample Web App
-	$.get( "/YodleeSampleApp",{ action: "getAccounts"} )
+	$.get( "/YodleeSampleApp/YodleeSampleApp",{ action: "getAccounts"} )
 	  .done(function( data ) {
 	      
 		  data = data.replace(/\'/g, '\"');
@@ -206,8 +206,8 @@ $(document).ready(function(){
 				</div>
 				<div class="col-md-6">
 					<h2
-						style="padding-bottom: 10px; color: #777777; font-family: Open Sans, Arial, sans-serif;">Look Mr. Hanas, it works
-						</h2>
+						style="padding-bottom: 10px; color: #777777; font-family: Open Sans, Arial, sans-serif;">Yodlee
+						Sample Application</h2>
 				</div>
 				<div class="col-md-2 col-md-offset-2" align="right"
 					style="padding: 20px;">

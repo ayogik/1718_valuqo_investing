@@ -11,10 +11,10 @@
     <title>Yodlee Sample App</title>
     <!-- Bootstrap -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	
+
 	<!-- jQuery library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	
+
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -27,48 +27,48 @@
 $(document).ready(function(){
 
 	//Initialize Yodlee Sample app - makes call to servlet to ensure cobrand login is successful.
-	
-	$.get( "/YodleeSampleApp",{ action: "init"} )
+
+	$.get( "/YodleeSampleApp/YodleeSampleApp",{ action: "init"} )
 	  .done(function( data ) {
 
 		  data = data.replace(/\'/g, '\"');
-		  
+
 		  var responseObj = jQuery.parseJSON(data);
-		  
+
 		  if(responseObj && responseObj.cobSession){
 			  $("#initCheck").append("<p><strong>Cobrand Configuration Check Successful!</strong></p><p>Use test accounts from API Dashboard to login</p>");
-			  
+
 			  $('#submitButton').prop('disabled', false);
-			  
+
 		  }else{
-			  
+
 			  $("#initCheck").removeClass("alert-info");
 			  $("#initCheck").addClass("alert-danger");
-			  
+
 			  if(responseObj && responseObj.error){
-				  
+
 				  $("#initCheck").append("<p>"+responseObj.message+"</p>");
-				  
+
 			  }else{
 				  $("#initCheck").append("<p>Error during initialization. Please check settings in config.properties and user credentials</p>");
-			  }	
+			  }
 		  }
-		  
-	}); 
-	
+
+	});
+
 	//User login
 	$('#submitButton').click(function() {
-		
+
 		window.console.log('submitButton');
-		
+
 			var userName = $("#username").val();
 			var password = $("#password").val();
 			$('#submitButton').prop('disabled', true);
 			$('#submitButton').html("Loading...");
-		
-		  $.post( "/YodleeSampleApp",{ username:userName, password:password} )
+
+		  $.post( "/YodleeSampleApp/YodleeSampleApp",{ username:userName, password:password} )
 		  .done(function( data ) {
-			  
+
 			  data = data.replace(/\'/g, '\"');
 			  var dataObj = jQuery.parseJSON(data);
 
@@ -84,26 +84,26 @@ $(document).ready(function(){
 
 
 			  }
-						  
-		   });  
-		
+
+		   });
+
 	});
-		
-	
+
+
 	$("#username").keyup(function(event){
 	    if(event.keyCode == 13) {
 	        $("#submitButton").click();
 	    }
 	});
-	
-	
+
+
 	$("#password").keyup(function(event){
 	    if(event.keyCode == 13) {
 	        $("#submitButton").click();
 	    }
 	});
-	
-	
+
+
 });
 
 </script>
@@ -119,8 +119,8 @@ $(document).ready(function(){
 				</div>
 				<div class="col-md-6">
 					<h2
-						style="padding-bottom: 10px; color: #777777; font-family: Open Sans, Arial, sans-serif;">Gucci gang gucci gang gucci gang yuh
-						</h2>
+						style="padding-bottom: 10px; color: #777777; font-family: Open Sans, Arial, sans-serif;">Yodlee
+						Sample Application</h2>
 				</div>
 			</div>
 		</nav>
