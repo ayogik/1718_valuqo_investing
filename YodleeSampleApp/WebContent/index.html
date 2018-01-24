@@ -28,7 +28,7 @@ $(document).ready(function(){
 
 	//Initialize Yodlee Sample app - makes call to servlet to ensure cobrand login is successful.
 
-	$.get( "/YodleeSampleApp/YodleeSampleApp",{ action: "init"} )
+	$.get( "/YodleeSampleApp",{ action: "init"} )
 	  .done(function( data ) {
 
 		  data = data.replace(/\'/g, '\"');
@@ -66,7 +66,7 @@ $(document).ready(function(){
 			$('#submitButton').prop('disabled', true);
 			$('#submitButton').html("Loading...");
 
-		  $.post( "/YodleeSampleApp/YodleeSampleApp",{ username:userName, password:password} )
+		  $.post( "/YodleeSampleApp",{ username:userName, password:password} )
 		  .done(function( data ) {
 
 			  data = data.replace(/\'/g, '\"');
@@ -119,8 +119,7 @@ $(document).ready(function(){
 				</div>
 				<div class="col-md-6">
 					<h2
-						style="padding-bottom: 10px; color: #777777; font-family: Open Sans, Arial, sans-serif;">Yodlee
-						Sample Application</h2>
+						style="padding-bottom: 10px; color: #777777; font-family: Open Sans, Arial, sans-serif;">Valuqo Yodlee Webapp Proof of Concept</h2>
 				</div>
 			</div>
 		</nav>
