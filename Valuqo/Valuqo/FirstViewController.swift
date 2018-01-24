@@ -14,6 +14,7 @@ class ViewController: UIViewController , CLLocationManagerDelegate{
     
     @IBOutlet weak var mapView: MKMapView!
     var locationManager = CLLocationManager() //creates location manager object
+    var prev_locations = [CLLocationCoordinate2D]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,9 +40,12 @@ class ViewController: UIViewController , CLLocationManagerDelegate{
         
         manager.stopUpdatingLocation()
         
-        let coordinations = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude,longitude: userLocation.coordinate.longitude)
+        let coordinates = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude,longitude: userLocation.coordinate.longitude)
+        
+        prev_locations.append(coordinates)
+        
         let span = MKCoordinateSpanMake(0.2,0.2)
-        let region = MKCoordinateRegion(center: coordinations, span: span)
+        let region = MKCoordinateRegion(center: coordinates, span: span)
         
         mapView.setRegion(region, animated: true)
     }
