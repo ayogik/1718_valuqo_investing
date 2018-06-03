@@ -1,13 +1,14 @@
 const express = require('express')
 const app = express()
 var path = require("path");
-var dir = path.dirname(require.main.filename);
 
 app.set('view engine','pug');
-app.set('views','./views');
+app.set('views','./pug');
 
-app.get('/', function(req, res) {
-  res.render('index', {title: "Hey", message: "Hello there!"});
+app.use(express.static(__dirname + '/public'));
+
+app.get('/index.html', function(req, res) {
+  res.sendFile('index');
 });
 
 
