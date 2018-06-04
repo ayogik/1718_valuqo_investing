@@ -5,19 +5,23 @@ var mysql = require('mysql');
 const app = express();
 var path = require("path");
 
+//static files and favicon
 app.enable('trust proxy');
 app.use(express.static('views'));
 //app.use(express.static("public"));
 app.use(favicon(__dirname + "/views/public/vqlogo.png"));
 
+//view engine for rendering websites
 app.set('view engine','pug');
 app.set('views', __dirname + '/views');
 
+//general handler for any web request
 app.all('/*', function (req,res, next) {
   console.log(req.ip)
   next()
 });
 
+//database handling
 var connection = mysql.createConnection({
   host     : 'valuqo.cf2muhtlwios.us-east-2.rds.amazonaws.com',
   user     : 'bizhao@ctemc.org',
@@ -30,11 +34,6 @@ connection.query("NEW TABLE accounts",function (err, rows, fields) {
   if (err) throw err
 })
 */
-app.use(function (err, req, res, next) {
-  console.error(err.stack)
-  res.status(500).send("Something broke!")
-  res.status(404).send ("404")
-})
 
 //sessions
 app.use(session({
