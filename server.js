@@ -7,9 +7,9 @@ var path = require("path");
 
 //static files and favicon
 app.enable('trust proxy');
+app.use(express.static('public'));
 app.use(express.static('views'));
-//app.use(express.static("public"));
-app.use(favicon(__dirname + "/views/public/vqlogo.png"));
+app.use(favicon(__dirname + "/public/vqlogo.png"));
 
 //view engine for rendering websites
 app.set('view engine','pug');
@@ -24,9 +24,9 @@ app.all('/*', function (req,res, next) {
 //database handling
 var connection = mysql.createConnection({
   host     : 'valuqo.cf2muhtlwios.us-east-2.rds.amazonaws.com',
-  user     : 'bizhao@ctemc.org',
-  password : 'Valuqo12',
-  database : 'valuqo'
+  user     : 'root',
+  password : '12345678',
+  database : 'accounts'
 });
 /* database stuff
 connection.connect();
@@ -35,14 +35,19 @@ connection.query("NEW TABLE accounts",function (err, rows, fields) {
 })
 */
 
-//sessions
+//---SESSIONS---//
+//cookie with session node
 app.use(session({
   cookieName: 'session',
-  secret: 'black-people',
+  secret: 'abcdefgsomeoneshouldatoldyounottofwithme&*(T@rghu9T*(&#789hg#W0g0)($Y*G))',
   duration: 30 * 60 * 1000,
   activeDuration: 5 * 60 * 1000,
 }));
 
+function testCookie(req,res) {
+  //Database.findmyuserplease({more parameters}, ty);
+}
+/* this is a meme atm
 app.get("/*" , function(req, res, next) {
   if (req.path == "/login.html") {
     next();
@@ -69,8 +74,11 @@ app.get("/*" , function(req, res, next) {
     }
   }
 });
+*/
 
+//---------//
 
+//page handlers
 app.get('/', function(req, res) {
   res.render('index')
 });
