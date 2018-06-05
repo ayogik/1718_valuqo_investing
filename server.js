@@ -1,6 +1,7 @@
 const express = require('express')
 const favicon = require("express-favicon");
 const session = require("client-sessions");
+var auth = require("./public/auth.js")
 var mysql = require('mysql');
 const app = express();
 var path = require("path");
@@ -16,8 +17,12 @@ app.set('view engine','pug');
 app.set('views', __dirname + '/views');
 
 //general handler for any web request
+var ips = [];
 app.all('/*', function (req,res, next) {
-  console.log(req.ip)
+  if (!(ips.includes(req.ip))){
+    console.log(req.ip);
+    ips.push(req.ip);
+  }
   next()
 });
 
@@ -36,7 +41,7 @@ connection.query("NEW TABLE accounts",function (err, rows, fields) {
 */
 
 //---SESSIONS---//
-//cookie with session node
+//cookie made with Session node
 app.use(session({
   cookieName: 'session',
   secret: 'abcdefgsomeoneshouldatoldyounottofwithme&*(T@rghu9T*(&#789hg#W0g0)($Y*G))',
@@ -44,43 +49,15 @@ app.use(session({
   activeDuration: 5 * 60 * 1000,
 }));
 
-function testCookie(req,res) {
-  //Database.findmyuserplease({more parameters}, ty);
-}
-/* this is a meme atm
-app.get("/*" , function(req, res, next) {
-  if (req.path == "/login.html") {
-    next();
-  }
-  else {
-    if (req.session && req.session.user) { // Check if session exists
-      // lookup the user in the DB by pulling their email from the session
-      User.findOne({ email: req.session.user.email }, function (err, user) {
-        if (!user) {
-          // if the user isn't found in the DB, reset the session info and
-          // redirect the user to the login page
-          req.session.reset();
-          res.redirect('/login.html');
-        } else {
-          // expose the user to the template
-          res.locals.user = user;
+//checks session
+app.get("/*" , auth.testCookie);
 
-          // render the dashboard page
-          res.render('index', {title: "Valuqo - Dashboard"});
-        }
-      });
-    } else {
-      res.redirect('/login.html');
-    }
-  }
-});
-*/
 
 //---------//
 
 //page handlers
 app.get('/', function(req, res) {
-  res.render('index')
+  res.redirect("/index.html")
 });
 app.get('/index.html', function(req, res) {
   res.render('index', {title: "Valuqo - Dashboard"})
