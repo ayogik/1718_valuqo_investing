@@ -1,7 +1,5 @@
 $(document).ready(function(){
-
 	//Initialize Yodlee Sample app - makes call to servlet to ensure cobrand login is successful.
-
 	$.get( "/YodleeSampleApp1.1/YodleeSampleApp",{ action: "init"} )
 	  .done(function( data ) {
 
@@ -10,7 +8,7 @@ $(document).ready(function(){
 		  var responseObj = jQuery.parseJSON(data);
 
 		  if(responseObj && responseObj.cobSession){
-			  $("#initCheck").append("<p><strong>Cobrand Configuration Check Successful!</strong></p><p>Use test accounts from API Dashboard to login</p>");
+			  $("#initCheck").append("<p><strong>Connection Successful!</strong></p><p>USING TEST API: Login with default logins</p>");
 
 			  $('#submitButton').prop('disabled', false);
 

@@ -43,7 +43,7 @@ connection.query("NEW TABLE accounts",function (err, rows, fields) {
 //---SESSIONS---//
 //cookie made with Session node
 app.use(session({
-  cookieName: 'session',
+  cookieName: 'mySession',
   secret: 'abcdefgsomeoneshouldatoldyounottofwithme&*(T@rghu9T*(&#789hg#W0g0)($Y*G))',
   duration: 30 * 60 * 1000,
   activeDuration: 5 * 60 * 1000,

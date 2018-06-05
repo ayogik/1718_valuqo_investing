@@ -6,17 +6,23 @@ var connection = mysql.createConnection({
   database : 'accounts'
 });
 
-var testCookie = function(req,res, next) {
-  if (req.session && req.session.user) { // Check if session exists
-    // lookup the user in the DB by pulling their email from the session
-    connection.query("SELECT email IN user WHERE email = '" + req.session.user.email + "'",function (err, result, fields) {
-      if (err) throw err;
-      if (result.length > 0) {
-        next();
+module.exports = {
+  testCookie: function(req,res,next) {
+    if (!["/login.html","/landing.html"].includes(req.path)) {
+      if (req.mySession && req.mySession.user) { // Check if session exists
+        // lookup the user in the DB by pulling their email from the session
+        connection.query("SELECT email IN user WHERE email = '" + req.session.user.email + "'",function (err, result, fields) {
+          if (err) throw err;
+          if (result.length > 0) {
+            next();
+          }
+        })
       }
-    })
+      else {
+        res.redirect("/login.html");
+      }
+    }
+    else {next();}
   }
-  else {
-    res.redirect("/login.html");
-  }
+
 };
