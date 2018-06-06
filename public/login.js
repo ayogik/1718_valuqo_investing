@@ -1,12 +1,25 @@
+const path = "https://developer.api.yodlee.com/ysl/";
+
 $(document).ready(function(){
+	$("#initCheck").removeClass("alert-info");
+	$("#initCheck").addClass("alert-warning");
 	//Initialize Yodlee Sample app - makes call to servlet to ensure cobrand login is successful.
-	$.get( "/YodleeSampleApp1.1/YodleeSampleApp",{ action: "init"} )
+	$.post( path + "cobrand/login",{
+		cobrandParam:
+		{
+			'cobrand': {
+				"cobrandLogin": "sbCobdbf3615a663fa406a1fbef6009fe38075a",
+				"cobrandPassword": "de178e45-9aff-4c88-a59b-4518c0ff6ce1",
+				"locale": "en_US" //for now yea
+			}
+		}
+	})
 	  .done(function( data ) {
 
+			$("#initCheck").append(path + "cobrand/login");
 		  data = data.replace(/\'/g, '\"');
 
 		  var responseObj = jQuery.parseJSON(data);
-
 		  if(responseObj && responseObj.cobSession){
 			  $("#initCheck").append("<p><strong>Connection Successful!</strong></p><p>USING TEST API: Login with default logins</p>");
 
