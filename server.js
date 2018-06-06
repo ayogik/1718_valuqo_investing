@@ -84,3 +84,5 @@ var httpsServer = https.createServer(options,app);
 httpsServer.listen(443, () => console.log("https on 443"))
 
 //app.listen(80, () => console.log('App listening on port 80!'))
+
+app.listen(80, () => console.log('App listening on port 8080!'))
