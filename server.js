@@ -9,10 +9,12 @@ const app = express();
 var path = require("path");
 
 //ssl attempts
+/* Disabled for now, might have real keys soon enough
 var options = {
   key: fs.readFileSync("./private_key.pem"),
   cert: fs.readFileSync("./certificate_file.crt")
 };
+*/
 
 //static files and favicon
 app.enable('trust proxy');
@@ -87,9 +89,10 @@ app.get('/register', function(req, res) {
   res.render('login')
 });
 
-
+/* See line 12
 var httpsServer = https.createServer(options,app);
 httpsServer.listen(443, () => console.log("https on 443"));
+*/
 
 app.listen(80, () => console.log('App listening on port 80!'))
 
