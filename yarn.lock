@@ -1097,6 +1097,10 @@ express-http-to-https@^1.1.4:
   dependencies:
     express "^4.15.3"
 
+express-https-redirect@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/express-https-redirect/-/express-https-redirect-1.0.0.tgz#d97bbb382cb428dcd8125710dcfc563a645c48e0"
+
 express@^4.15.3, express@^4.16.3:
   version "4.16.3"
   resolved "https://registry.yarnpkg.com/express/-/express-4.16.3.tgz#6af8a502350db3246ecc4becf6b5a34d22f7ed53"

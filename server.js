@@ -1,7 +1,6 @@
 const express = require('express')
 const favicon = require("express-favicon");
 const session = require("client-sessions");
-var redirectToHTTPS = require('express-http-to-https').redirectToHTTPS;
 var fs = require("fs");
 var https = require("https");
 var auth = require("./public/auth.js")
@@ -58,11 +57,20 @@ app.get("/*" , auth.testCookie);
 
 
 //---------//
+//all https related code (except for the other thing)
+var httpsRedirect = require('express-https-redirect');
+app.use("/*",httpsRedirect(true));
 
+
+/*
 //page handlers
 app.get('/', function(req, res) {
   res.redirect("/index")
 });
+*/
+
+
+
 app.get('/index', function(req, res) {
   res.render('index', {title: "Valuqo - Dashboard"})
 });
@@ -79,10 +87,10 @@ app.get('/register', function(req, res) {
   res.render('login')
 });
 
-app.use(redirectToHTTPS([/localhost:(\d{4})/], []));
+
 var httpsServer = https.createServer(options,app);
-httpsServer.listen(443, () => console.log("https on 443"))
+httpsServer.listen(443, () => console.log("https on 443"));
 
-//app.listen(80, () => console.log('App listening on port 80!'))
+app.listen(80, () => console.log('App listening on port 80!'))
 
-app.listen(80, () => console.log('App listening on port 8080!'))
+//app.listen(80, () => console.log('App listening on port 8080!'))
