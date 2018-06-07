@@ -25,8 +25,8 @@ html(lang='en')
           | Login to Valuqo
         .card-body
           #initCheck.alert.alert-info
-            p Initializing.....
-            p Checking Cobrand Login Configurations
+            p.temp Initializing.....
+            p.temp Checking Cobrand Login Configurations
           form
             .form-group
               label(for='exampleInputEmail1') Email address
@@ -39,9 +39,9 @@ html(lang='en')
                 label.form-check-label
                   input.form-check-input(type='checkbox')
                   |                   Remember Password
-            #submitButton.a.btn.btn-primary.btn-block(href='index.html') Login
+            #submitButton.a.btn.btn-primary.btn-block.disabled(href='index.html') Login
           .text-center
-            a.d-block.small.mt-3(href='register.html') Register an Account
-            a.d-block.small(href='forgot-password.html') Forgot Password?
+            a.d-block.small.mt-3.disabled(href='register.html') Register an Account (Disabled)
+            a.d-block.small.disabled(href='forgot-password.html') Forgot Password? (Disabled)
 
     include includes/js/core.pug

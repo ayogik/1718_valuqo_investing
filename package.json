@@ -28,8 +28,10 @@
     "url": "git+https://github.com/BlackrockDigital/startbootstrap-sb-admin.git"
   },
   "dependencies": {
+    "ajax": "^0.0.4",
     "bootstrap": "4.0.0",
     "chart.js": "2.7.1",
+    "circular-json": "^0.5.4",
     "client-sessions": "^0.8.0",
     "cors": "^2.8.4",
     "datatables.net-bs4": "1.10.16",
@@ -42,8 +44,10 @@
     "greenlock": "2.x",
     "greenlock-express": "^2.1.6",
     "jquery": "^3.3.1",
+    "jquery-ajax-native": "^1.0.2",
     "jquery.easing": "^1.4.1",
     "mysql": "^2.15.0",
+    "needle": "^2.2.1",
     "passport-local": "^1.0.0",
     "popper.js": "^1.12.9",
     "pug": "^2.0.3"

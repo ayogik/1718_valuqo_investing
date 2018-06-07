@@ -1,6 +1,14 @@
-const path = "https://developer.api.yodlee.com/ysl/";
-
-
+const path = "https://www.valuqo.us";
+/*
+$.ajaxSetup({
+	headers: {
+		"Access-Control-Allow-Origin": "*",
+		"Authority" :  document.authorizationToken,
+		"Api-Version" : "1.1",
+		"Cobrand-Name": "restserver"
+	}
+});
+*/
 $(document).ready(function(){
 	/*
 	$("#initCheck").removeClass("alert-info");
@@ -18,48 +26,16 @@ $(document).ready(function(){
 	})
 	*/
 	$.ajax({
-	  type: "POST",
-	  beforeSend: function(request) {
-	    request.setRequestHeader("Authority", document.authorizationToken);
-			request.setRequestHeader("Api-Version", "1.1");
-			request.setRequestHeader("Cobrand-Name", "restserver");
-			request.setRequestHeader("Access-Control-Allow-Origin", "https://valuqo.us");
-	  },
-		/*
-		headers: {
-			"Access-Control-Allow-Origin": "*",
-			"Authority" :  document.authorizationToken,
-			"Api-Version" : "1.1",
-			"Cobrand-Name": "restserver"
-		},
-		*/
-	  url: (path + "cobrand/login"),
-		crossDomain: true,
-	  data: "json=" + escape(JSON.stringify({
-			cobrandParam:
-			{
-				"cobrand":	{
-					"cobrandLogin" : "sbCobdbf3615a663fa406a1fbef6009fe38075a",
-					"cobrandPassword" : "de178e45-9aff-4c88-a59b-4518c0ff6ce1",
-					"locale" : "en_US"
-				}
-			}
-		})),
-	  processData: false,
-		failure: function(msg) {
-			$("#initCheck").removeClass("alert-info");
-			$("#initCheck").addClass("alert-danger");
-			$("#initCheck").append("Something broke :(");
-		},
-	  success: function(msg) {
-			$("#initCheck").append(path + "cobrand/login");
-		  data = data.replace(/\'/g, '\"');
+	  type: "GET",
+		url: path + "/api/cobrandlogin",
+	  success: function(responseObj) {
+		  if(responseObj && responseObj.session.cobSession){
+				$("#initCheck").removeClass("alert-info");
+			  $("#initCheck").addClass("alert-success");
+				$(".temp").remove();
+			  $("#initCheck").append("<p>Connection Successful!</p><p><strong>VALUQO IS CURRENTLY USING TEST API:</strong> Log in with default logins.</p>");
 
-		  var responseObj = jQuery.parseJSON(data);
-		  if(responseObj && responseObj.cobSession){
-			  $("#initCheck").append("<p><strong>Connection Successful!</strong></p><p>USING TEST API: Login with default logins</p>");
-
-			  $('#submitButton').prop('disabled', false);
+			  $('#submitButton').removeClass('disabled');
 
 		  }else{
 

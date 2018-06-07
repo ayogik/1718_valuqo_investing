@@ -1,7 +1,8 @@
 const express = require('express')
 const favicon = require("express-favicon");
 const session = require("client-sessions");
-var cors = require('cors');
+//const $ = require("jquery");
+var request = require("request");
 var fs = require("fs");
 var https = require("https");
 var auth = require("./public/auth.js")
@@ -9,11 +10,6 @@ var mysql = require('mysql');
 const app = express();
 var path = require("path");
 
-app.options('*', cors())
-app.use(cors());
-app.get('/products/:id', function (req, res, next) {
-  res.json({msg: 'This is CORS-enabled for all origins!'})
-});
 
 //ssl attempts
 var options = {
@@ -69,7 +65,7 @@ app.use(session({
   cookieName: "authorizationToken",
   secret: "woshitingchechang9359&*($Y&(t7t#g$78gg&*($g&(gy9y894ghHG99gghh)))))",
 
-}))
+}));
 
 //checks session
 app.get("/*" , auth.testCookie);
@@ -88,8 +84,34 @@ app.get('/', function(req, res) {
 });
 */
 
+var yodlee_path = "https://developer.api.yodlee.com/ysl/";
+var request_options = {
+  url: yodlee_path + "cobrand/login",
+  headers: {
+    "authorization" : "authorizationToken",
+    "Api-Version" : "1.1",
+    "Cobrand-Name" : "restserver",
+    "content-type" : "application/json"
+  },
+  json : {
+    "cobrand":	{
+      "cobrandLogin" : "sbCobdbf3615a663fa406a1fbef6009fe38075a",
+      "cobrandPassword" : "de178e45-9aff-4c88-a59b-4518c0ff6ce1",
+      "locale" : "en_US"
+    }
+  }
+};
 
+//api handlers
+app.get("/api/cobrandlogin", function(req,res,next) {
+  request.post(request_options, function(error, response, body){
+    console.log(body);
+    res.json(body);
+    next();
+  });
+});
 
+//web calls
 app.get('/index', function(req, res) {
   res.render('index', {title: "Valuqo - Dashboard"})
 });

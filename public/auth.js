@@ -8,7 +8,7 @@ var connection = mysql.createConnection({
 
 module.exports = {
   testCookie: function(req,res,next) {
-    if (!["/login","/landing*"].includes(req.path)) {
+    if (!["/login","/landing*","/api/cobrandlogin"].includes(req.path)) {
       if (req.mySession && req.mySession.user) { // Check if session exists
         // lookup the user in the DB by pulling their email from the session
         connection.query("SELECT email IN user WHERE email = '" + req.session.user.email + "'",function (err, result, fields) {
