@@ -1,24 +1,126 @@
 doctype html
+// tables.html, includes the gas algorithm, parsing the js files (due to errors when separating js script files), adding to table, plotting on Google Embed API's map, and using "Places" to plot nearby gas stations.
 html(lang='en')
-
   head
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
     meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
     meta(name='description', content='')
     meta(name='author', content='')
-
-    title SB Admin - Start Bootstrap Template
-
-    include includes/css/core.pug
-
+    title Gas Algorithm
+    link.js-site-favicon(rel='icon', type='image/x-icon', href='vqlogo.ico')
+    // Bootstrap core CSS
+    link(href='vendor/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+    // Custom fonts for this template
+    link(href='vendor/font-awesome/css/font-awesome.min.css', rel='stylesheet', type='text/css')
     // Page level plugin CSS
     link(href='vendor/datatables/dataTables.bootstrap4.css', rel='stylesheet')
-
-    include includes/css/custom.pug
-
+    // Custom styles for this template
+    link(href='css/sb-admin.css', rel='stylesheet')
   body#page-top.fixed-nav.sticky-footer.bg-dark
-    include includes/navbar.pug
+    // Navigation
+    nav#mainNav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
+      a.navbar-brand(href='index.html')
+        | Valuqo  
+        img(src='vqlogo.png', alt='vqlogo', height='18', width='18')
+      button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarResponsive.collapse.navbar-collapse
+        ul#exampleAccordion.navbar-nav.navbar-sidenav
+          li.nav-item(data-toggle='tooltip', data-placement='right', title='Dashboard')
+            a.nav-link(href='index.html')
+              i.fa.fa-fw.fa-dashboard
+              span.nav-link-text Dashboard
+          li.nav-item(data-toggle='tooltip', data-placement='right', title='Charts')
+            a.nav-link(href='charts.html')
+              i.fa.fa-fw.fa-area-chart
+              span.nav-link-text Charts
+          li.nav-item(data-toggle='tooltip', data-placement='right', title='Tables')
+            a.nav-link(href='tables.html')
+              i.fa.fa-fw.fa-table
+              span.nav-link-text Gas Algorithm
+          li.nav-item(data-toggle='tooltip', data-placement='right', title='Test Yodlee API')
+            a.nav-link(href='http://valuqo.us-east-2.elasticbeanstalk.com/', target='_blank')
+              i.fa.fa-fw.fa-link
+              span.nav-link-text Webapp Demo
+        ul.navbar-nav.ml-auto
+          li.nav-item.dropdown
+            a#messagesDropdown.nav-link.dropdown-toggle.mr-lg-2(href='#', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+              i.fa.fa-fw.fa-envelope
+              span.d-lg-none
+                | Messages
+                span.badge.badge-pill.badge-primary 12 New
+              span.indicator.text-primary.d-none.d-lg-block
+                i.fa.fa-fw.fa-circle
+            .dropdown-menu(aria-labelledby='messagesDropdown')
+              h6.dropdown-header New Messages:
+              .dropdown-divider
+              a.dropdown-item(href='#')
+                strong David Miller
+                span.small.float-right.text-muted 11:21 AM
+                .dropdown-message.small
+                  | Hey there! This new version of SB Admin is pretty awesome! These messages clip off when they reach the end of the box so they don't overflow over to the sides!
+              .dropdown-divider
+              a.dropdown-item(href='#')
+                strong Jane Smith
+                span.small.float-right.text-muted 11:21 AM
+                .dropdown-message.small
+                  | I was wondering if you could meet for an appointment at 3:00 instead of 4:00. Thanks!
+              .dropdown-divider
+              a.dropdown-item(href='#')
+                strong John Doe
+                span.small.float-right.text-muted 11:21 AM
+                .dropdown-message.small
+                  | I've sent the final files over to you for review. When you're able to sign off of them let me know and we can discuss distribution.
+              .dropdown-divider
+              a.dropdown-item.small(href='#') View all messages
+          li.nav-item.dropdown
+            a#alertsDropdown.nav-link.dropdown-toggle.mr-lg-2(href='#', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+              i.fa.fa-fw.fa-bell
+              span.d-lg-none
+                | Alerts
+                span.badge.badge-pill.badge-warning 6 New
+              span.indicator.text-warning.d-none.d-lg-block
+                i.fa.fa-fw.fa-circle
+            .dropdown-menu(aria-labelledby='alertsDropdown')
+              h6.dropdown-header New Alerts:
+              .dropdown-divider
+              a.dropdown-item(href='#')
+                span.text-success
+                  strong
+                    i.fa.fa-long-arrow-up.fa-fw
+                    | Status Update
+                span.small.float-right.text-muted 11:21 AM
+                .dropdown-message.small This is an automated server response message. All systems are online.
+              .dropdown-divider
+              a.dropdown-item(href='#')
+                span.text-danger
+                  strong
+                    i.fa.fa-long-arrow-down.fa-fw
+                    | Status Update
+                span.small.float-right.text-muted 11:21 AM
+                .dropdown-message.small This is an automated server response message. All systems are online.
+              .dropdown-divider
+              a.dropdown-item(href='#')
+                span.text-success
+                  strong
+                    i.fa.fa-long-arrow-up.fa-fw
+                    | Status Update
+                span.small.float-right.text-muted 11:21 AM
+                .dropdown-message.small This is an automated server response message. All systems are online.
+              .dropdown-divider
+              a.dropdown-item.small(href='#') View all alerts
+          li.nav-item
+            form.form-inline.my-2.my-lg-0.mr-lg-2
+              .input-group
+                input.form-control(type='text', placeholder='Search for...')
+                span.input-group-append
+                  button.btn.btn-primary(type='button')
+                    i.fa.fa-search
+          li.nav-item
+            a.nav-link(data-toggle='modal', data-target='#exampleModal')
+              i.fa.fa-fw.fa-sign-out
+              | Logout
     .content-wrapper
       .container-fluid
         // Breadcrumbs
@@ -27,447 +129,252 @@ html(lang='en')
             a(href='#') Dashboard
           li.breadcrumb-item.active Tables
         // Example DataTables Card
+        // 
+        p
+          | To analyze gas expenditures, upload a .xlsx (Excel Workbook) of your expenses by clicking "Choose File" below.
+        input#excelfile(type='file')
+        input#viewfile(type='button', value='Export To Table', onclick='ExportToTable()')
+        br
+        p#demo
+        table#exceltable
+        input#viewfile.btn.btn-primary(type='button', value='Export To Table', onclick='ExportToTable()')
+        br
+        br
         .card.mb-3
           .card-header
             i.fa.fa-table
-            |  Data Table Example
+            | Data Table Example
           .card-body
             .table-responsive
               table#dataTable.table.table-bordered(width='100%', cellspacing='0')
-                thead
-                  tr
-                    th Name
-                    th Position
-                    th Office
-                    th Age
-                    th Start date
-                    th Salary
-                tfoot
-                  tr
-                    th Name
-                    th Position
-                    th Office
-                    th Age
-                    th Start date
-                    th Salary
-                tbody
-                  tr
-                    td Tiger Nixon
-                    td System Architect
-                    td Edinburgh
-                    td 61
-                    td 2011/04/25
-                    td $320,800
-                  tr
-                    td Garrett Winters
-                    td Accountant
-                    td Tokyo
-                    td 63
-                    td 2011/07/25
-                    td $170,750
-                  tr
-                    td Ashton Cox
-                    td Junior Technical Author
-                    td San Francisco
-                    td 66
-                    td 2009/01/12
-                    td $86,000
-                  tr
-                    td Cedric Kelly
-                    td Senior Javascript Developer
-                    td Edinburgh
-                    td 22
-                    td 2012/03/29
-                    td $433,060
-                  tr
-                    td Airi Satou
-                    td Accountant
-                    td Tokyo
-                    td 33
-                    td 2008/11/28
-                    td $162,700
-                  tr
-                    td Brielle Williamson
-                    td Integration Specialist
-                    td New York
-                    td 61
-                    td 2012/12/02
-                    td $372,000
-                  tr
-                    td Herrod Chandler
-                    td Sales Assistant
-                    td San Francisco
-                    td 59
-                    td 2012/08/06
-                    td $137,500
-                  tr
-                    td Rhona Davidson
-                    td Integration Specialist
-                    td Tokyo
-                    td 55
-                    td 2010/10/14
-                    td $327,900
-                  tr
-                    td Colleen Hurst
-                    td Javascript Developer
-                    td San Francisco
-                    td 39
-                    td 2009/09/15
-                    td $205,500
-                  tr
-                    td Sonya Frost
-                    td Software Engineer
-                    td Edinburgh
-                    td 23
-                    td 2008/12/13
-                    td $103,600
-                  tr
-                    td Jena Gaines
-                    td Office Manager
-                    td London
-                    td 30
-                    td 2008/12/19
-                    td $90,560
-                  tr
-                    td Quinn Flynn
-                    td Support Lead
-                    td Edinburgh
-                    td 22
-                    td 2013/03/03
-                    td $342,000
-                  tr
-                    td Charde Marshall
-                    td Regional Director
-                    td San Francisco
-                    td 36
-                    td 2008/10/16
-                    td $470,600
-                  tr
-                    td Haley Kennedy
-                    td Senior Marketing Designer
-                    td London
-                    td 43
-                    td 2012/12/18
-                    td $313,500
-                  tr
-                    td Tatyana Fitzpatrick
-                    td Regional Director
-                    td London
-                    td 19
-                    td 2010/03/17
-                    td $385,750
-                  tr
-                    td Michael Silva
-                    td Marketing Designer
-                    td London
-                    td 66
-                    td 2012/11/27
-                    td $198,500
-                  tr
-                    td Paul Byrd
-                    td Chief Financial Officer (CFO)
-                    td New York
-                    td 64
-                    td 2010/06/09
-                    td $725,000
-                  tr
-                    td Gloria Little
-                    td Systems Administrator
-                    td New York
-                    td 59
-                    td 2009/04/10
-                    td $237,500
-                  tr
-                    td Bradley Greer
-                    td Software Engineer
-                    td London
-                    td 41
-                    td 2012/10/13
-                    td $132,000
-                  tr
-                    td Dai Rios
-                    td Personnel Lead
-                    td Edinburgh
-                    td 35
-                    td 2012/09/26
-                    td $217,500
-                  tr
-                    td Jenette Caldwell
-                    td Development Lead
-                    td New York
-                    td 30
-                    td 2011/09/03
-                    td $345,000
-                  tr
-                    td Yuri Berry
-                    td Chief Marketing Officer (CMO)
-                    td New York
-                    td 40
-                    td 2009/06/25
-                    td $675,000
-                  tr
-                    td Caesar Vance
-                    td Pre-Sales Support
-                    td New York
-                    td 21
-                    td 2011/12/12
-                    td $106,450
-                  tr
-                    td Doris Wilder
-                    td Sales Assistant
-                    td Sidney
-                    td 23
-                    td 2010/09/20
-                    td $85,600
-                  tr
-                    td Angelica Ramos
-                    td Chief Executive Officer (CEO)
-                    td London
-                    td 47
-                    td 2009/10/09
-                    td $1,200,000
-                  tr
-                    td Gavin Joyce
-                    td Developer
-                    td Edinburgh
-                    td 42
-                    td 2010/12/22
-                    td $92,575
-                  tr
-                    td Jennifer Chang
-                    td Regional Director
-                    td Singapore
-                    td 28
-                    td 2010/11/14
-                    td $357,650
-                  tr
-                    td Brenden Wagner
-                    td Software Engineer
-                    td San Francisco
-                    td 28
-                    td 2011/06/07
-                    td $206,850
-                  tr
-                    td Fiona Green
-                    td Chief Operating Officer (COO)
-                    td San Francisco
-                    td 48
-                    td 2010/03/11
-                    td $850,000
-                  tr
-                    td Shou Itou
-                    td Regional Marketing
-                    td Tokyo
-                    td 20
-                    td 2011/08/14
-                    td $163,000
-                  tr
-                    td Michelle House
-                    td Integration Specialist
-                    td Sidney
-                    td 37
-                    td 2011/06/02
-                    td $95,400
-                  tr
-                    td Suki Burks
-                    td Developer
-                    td London
-                    td 53
-                    td 2009/10/22
-                    td $114,500
-                  tr
-                    td Prescott Bartlett
-                    td Technical Author
-                    td London
-                    td 27
-                    td 2011/05/07
-                    td $145,000
-                  tr
-                    td Gavin Cortez
-                    td Team Leader
-                    td San Francisco
-                    td 22
-                    td 2008/10/26
-                    td $235,500
-                  tr
-                    td Martena Mccray
-                    td Post-Sales support
-                    td Edinburgh
-                    td 46
-                    td 2011/03/09
-                    td $324,050
-                  tr
-                    td Unity Butler
-                    td Marketing Designer
-                    td San Francisco
-                    td 47
-                    td 2009/12/09
-                    td $85,675
-                  tr
-                    td Howard Hatfield
-                    td Office Manager
-                    td San Francisco
-                    td 51
-                    td 2008/12/16
-                    td $164,500
-                  tr
-                    td Hope Fuentes
-                    td Secretary
-                    td San Francisco
-                    td 41
-                    td 2010/02/12
-                    td $109,850
-                  tr
-                    td Vivian Harrell
-                    td Financial Controller
-                    td San Francisco
-                    td 62
-                    td 2009/02/14
-                    td $452,500
-                  tr
-                    td Timothy Mooney
-                    td Office Manager
-                    td London
-                    td 37
-                    td 2008/12/11
-                    td $136,200
-                  tr
-                    td Jackson Bradshaw
-                    td Director
-                    td New York
-                    td 65
-                    td 2008/09/26
-                    td $645,750
-                  tr
-                    td Olivia Liang
-                    td Support Engineer
-                    td Singapore
-                    td 64
-                    td 2011/02/03
-                    td $234,500
-                  tr
-                    td Bruno Nash
-                    td Software Engineer
-                    td London
-                    td 38
-                    td 2011/05/03
-                    td $163,500
-                  tr
-                    td Sakura Yamamoto
-                    td Support Engineer
-                    td Tokyo
-                    td 37
-                    td 2009/08/19
-                    td $139,575
-                  tr
-                    td Thor Walton
-                    td Developer
-                    td New York
-                    td 61
-                    td 2013/08/11
-                    td $98,540
-                  tr
-                    td Finn Camacho
-                    td Support Engineer
-                    td San Francisco
-                    td 47
-                    td 2009/07/07
-                    td $87,500
-                  tr
-                    td Serge Baldwin
-                    td Data Coordinator
-                    td Singapore
-                    td 64
-                    td 2012/04/09
-                    td $138,575
-                  tr
-                    td Zenaida Frank
-                    td Software Engineer
-                    td New York
-                    td 63
-                    td 2010/01/04
-                    td $125,250
-                  tr
-                    td Zorita Serrano
-                    td Software Engineer
-                    td San Francisco
-                    td 56
-                    td 2012/06/01
-                    td $115,000
-                  tr
-                    td Jennifer Acosta
-                    td Junior Javascript Developer
-                    td Edinburgh
-                    td 43
-                    td 2013/02/01
-                    td $75,650
-                  tr
-                    td Cara Stevens
-                    td Sales Assistant
-                    td New York
-                    td 46
-                    td 2011/12/06
-                    td $145,600
-                  tr
-                    td Hermione Butler
-                    td Regional Director
-                    td London
-                    td 47
-                    td 2011/03/21
-                    td $356,250
-                  tr
-                    td Lael Greer
-                    td Systems Administrator
-                    td London
-                    td 21
-                    td 2009/02/27
-                    td $103,500
-                  tr
-                    td Jonas Alexander
-                    td Developer
-                    td San Francisco
-                    td 30
-                    td 2010/07/14
-                    td $86,500
-                  tr
-                    td Shad Decker
-                    td Regional Director
-                    td Edinburgh
-                    td 51
-                    td 2008/11/13
-                    td $183,000
-                  tr
-                    td Michael Bruce
-                    td Javascript Developer
-                    td Singapore
-                    td 29
-                    td 2011/06/27
-                    td $183,000
-                  tr
-                    td Donna Snider
-                    td Customer Support
-                    td New York
-                    td 27
-                    td 2011/01/25
-                    td $112,000
-          .card-footer.small.text-muted
-            | Updated yesterday at 11:59 PM
+                //
+                  <thead>
+                  <tr>
+                  <th>Date</th>
+                  <th>Expense</th>
+                  <th>Amount</th>
+                  </tr>
+                  </thead>
+                  <tfoot>
+                  <tr>
+                  <th>Date</th>
+                  <th>Expense</th>
+                  <th>Amount</th>
+                  </tr>
+                  </tfoot>
+                  <tbody>
+                  <tr>
+                  <td>1/13/2018</td>
+                  <td>Allentown Gas</td>
+                  <td>$28.35</td>
+                  </tr>
+                  <tr>
+                  <td>1/13/2018</td>
+                  <td>Allentown Gas</td>
+                  <td>$28.35</td>
+                  </tr>
+                  <tr>
+                  <td>1/13/2018</td>
+                  <td>Allentown Gas</td>
+                  <td>$28.35</td>
+                  </tr>
+                  </tbody>
+          .card-footer.small.text-muted Updated yesterday at 11:59 PM
+        //
+          <script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDFCcHzzZgvH5aLn91I1kdvKfA1FT9ENmc'></script>
+          <div style='overflow:hidden;height:400px;width:520px;'>
+          <div id='gmap_canvas' style='height:400px;width:520px;'></div>
+          <style>
+          #gmap_canvas img {
+          max-width: none !important;
+          background: none !important
+          }
+          </style>
+          </div>
+          <a href='https://embedmaps.org/'>google maps html widget</a>
+          <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=a36a21f0ca14e004e460d95709874e3ec29c478f'></script>
+          <script type='text/javascript'>
+          function init_map() {
+          var myOptions = {
+          zoom: 12,
+          center: new google.maps.LatLng(40.1843574, -74.5740333),
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+          };
+          map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);
+          marker = new google.maps.Marker({
+          map: map,
+          position: new google.maps.LatLng(40.1843574, -74.5740333)
+          });
+          infowindow = new google.maps.InfoWindow({
+          content: '<strong>Allentown Gas </strong><br>1650 Old York Rd<br>08501 Allentown<br>'
+          });
+          google.maps.event.addListener(marker, 'click', function() {
+          infowindow.open(map, marker);
+          });
+          infowindow.open(map, marker);
+          }
+          google.maps.event.addDomListener(window, 'load', init_map);
+          </script>
+        script(src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDFCcHzzZgvH5aLn91I1kdvKfA1FT9ENmc')
+        div(style='overflow:hidden;height:400px;width:520px;')
+          #map(style='height:400px;width:520px;')
+          style.
+            #map img {
+            max-width: none !important;
+            background: none !important
+            }
+        a(href='https://embedmaps.org/') Gas Station Widget
+        script(type='text/javascript', src='https://embedmaps.com/google-maps-authorization/script.js?id=a36a21f0ca14e004e460d95709874e3ec29c478f')
+        script(type='text/javascript').
+          var map;
+          var centering = {lat: 40.1843574, lng: -74.5740333};
+          var infowindow;
+          var latLongPoints = [];
+          var service;
+          /*var locations = ["EXXONMOBIL NEW BRUNSWI NJ", "EXXONMOBIL JERSEY CITY NJ", "ALLENTOWN GASKO RTE. 539 @ 195 ALLENTOWN NJ", "ALLENTWON GASKO ALLENTOWN   NJ"];*/
+          function initMap() {
+          var bounds = new google.maps.LatLngBounds();
+          var locations = newloc;
+          console.log("Now locations are " +locations);
+          var mapProp = {
+          center: centering,
+          zoom: 8,
+          panControl: true, /*In order to show navigating control*/
+          zoomControl: true,
+          mapTypeControl: true,
+          scaleControl: true,
+          streetViewControl: true, /*Enable street view control*/
+          overviewMapControl: true,
+          rotateControl: true,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+          };
+          map = new google.maps.Map(document.getElementById('map'), mapProp);
+          map.setTilt(45);  /*To rotate map with an angle of 45 degree*/
+          for (i = 0; i < locations.length; i++) {
+          /* Code to get Latitude and Longitude of location*/
+          var locate = locations[i];
+          var geocoder = new google.maps.Geocoder();
+          var address = locate;
+          var points;
+          var latitude;
+          var longitude;
+          geocoder.geocode({ 'address': address }, function (results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+          latitude = results[0].geometry.location.lat();
+          longitude = results[0].geometry.location.lng();
+          points = new google.maps.LatLng(latitude, longitude);
+          latLongPoints[i]=points;
+          console.log("Found gas station at"+ latitude + " "+ longitude);
+          /* marker code*/
+          var marker = new google.maps.Marker({
+          position: points,
+          map: map
+          });
+          /* Info window for primary gas station marker */
+          google.maps.event.addListener(marker, 'click', function() {
+          service = new google.maps.places.PlacesService(map);
+          console.log(results[0].place_id);
+          var plrequest = {
+          placeId: results[0].place_id
+          };
+          service.getDetails(plrequest, function(result, status) {
+          if (status !== google.maps.places.PlacesServiceStatus.OK) {
+          console.error(status);
+          return;
+          }
+          infoWindow = new google.maps.InfoWindow();
+          infoWindow.setContent(result.name);
+          infoWindow.open(map, marker);
+          });
+          });
+          //extend the bounds to include each marker's position
+          bounds.extend(marker.position);
+          /* Now finding nearby gas stations */
+          var request = {
+          location: results[0].geometry.location,
+          radius: '5000',
+          type: ['gas_station']
+          };
+          console.log("doing search for nearby gas stations for:" + locate);
+          service = new google.maps.places.PlacesService(map);
+          service.nearbySearch(request, callback);
+          }
+          });
+          }
+          /*map.fitBounds(bounds);*/
+          }
+          function callback(results, status) {
+          if (status == google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+          var place = results[i];
+          createMarker(results[i]);
+          }
+          }
+          }
+          function createMarker(place) {
+          console.log("Found marker:" +place.geometry.location.lat() + ":" + place.geometry.location.lng() );
+          var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location,
+          icon: {
+          url: 'https://developers.google.com/maps/documentation/javascript/images/circle.png',
+          anchor: new google.maps.Point(10, 10),
+          scaledSize: new google.maps.Size(10, 17)
+          }
+          });
+          google.maps.event.addListener(marker, 'click', function() {
+          service.getDetails(place, function(result, status) {
+          if (status !== google.maps.places.PlacesServiceStatus.OK) {
+          console.error(status);
+          return;
+          }
+          infoWindow.setContent(result.name);
+          infoWindow.open(map, marker);
+          });
+          });
+          }
+          /*google.maps.event.addDomListener(window, 'load', initMap);
+          icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|FE7569', ==> orange/red
+          icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|F4EB42', ==> yellow */
+        script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDFCcHzzZgvH5aLn91I1kdvKfA1FT9ENmc&libraries=places', async='', defer='')
       // /.container-fluid
       // /.content-wrapper
-
-      include includes/footer.pug
-
-      include includes/scroll-to-top.pug
-
-      include includes/modals/logout.pug
-
-      include includes/js/core.pug
-
+      footer.sticky-footer
+        .container
+          .text-center
+            small Copyright © Valuqo 2018
+      // Scroll to Top Button
+      a.scroll-to-top.rounded(href='#page-top')
+        i.fa.fa-angle-up
+      // Logout Modal
+      #exampleModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+        .modal-dialog(role='document')
+          .modal-content
+            .modal-header
+              h5#exampleModalLabel.modal-title Ready to Leave?
+              button.close(type='button', data-dismiss='modal', aria-label='Close')
+                span(aria-hidden='true') ×
+            .modal-body Select "Logout" below if you are ready to end your current session.
+            .modal-footer
+              button.btn.btn-secondary(type='button', data-dismiss='modal') Cancel
+              a.btn.btn-primary(href='login.html') Logout
+      // Bootstrap core JavaScript
+      script(src='vendor/jquery/jquery.min.js')
+      script(src='vendor/bootstrap/js/bootstrap.bundle.min.js')
+      // Core plugin JavaScript
+      script(src='vendor/jquery-easing/jquery.easing.min.js')
       // Page level plugin JavaScript
       script(src='vendor/datatables/jquery.dataTables.js')
       script(src='vendor/datatables/dataTables.bootstrap4.js')
-
-      include includes/js/custom.pug
-
+      // Custom scripts for all pages
+      script(src='js/sb-admin.min.js')
       // Custom scripts for this page
       script(src='js/sb-admin-datatables.min.js')
+      // jQuery plugin files for parsing xlsx
+      // <script src="jquery-1.10.2.min.js" type="text/javascript"></script>
+      // jQuery plugin files for parsing xlsx
+      script(src=' https://code.jquery.com/jquery-1.10.2.min.js', type='text/javascript')
+      script(src='https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.7.7/xlsx.core.min.js')
+      script(src='https://cdnjs.cloudflare.com/ajax/libs/xls/0.7.4-a/xls.core.min.js')
+      // Script file for adding to bootstrap table
+      script(src='js/parse.js')
