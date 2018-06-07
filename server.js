@@ -1,9 +1,25 @@
 const express = require('express')
 const favicon = require("express-favicon");
 const session = require("client-sessions");
+//const $ = require("jquery");
+var request = require("request");
+var fs = require("fs");
+var https = require("https");
+var auth = require("./public/auth.js")
 var mysql = require('mysql');
 const app = express();
 var path = require("path");
+
+
+//ssl attempts
+var options = {
+  key: fs.readFileSync("./ssl_certification/keyo.key"),
+  cert: fs.readFileSync("./ssl_certification/valuqo_us.crt"),
+  ca: [
+    fs.readFileSync('./ssl_certification/COMODORSADomainValidationSecureServerCA.crt'),
+    fs.readFileSync('./ssl_certification/COMODORSAAddTrustCA.crt')
+  ]
+};
 
 //static files and favicon
 app.enable('trust proxy');
@@ -12,14 +28,21 @@ app.use(express.static('views'));
 app.use(favicon(__dirname + "/public/vqlogo.png"));
 
 //view engine for rendering websites
+app.engine('pug',require('pug').__express);
 app.set('view engine','pug');
 app.set('views', __dirname + '/views');
 
 //general handler for any web request
+var ips = [];
 app.all('/*', function (req,res, next) {
-  console.log(req.ip)
+  if (!(ips.includes(req.ip))){
+    console.log(req.ip);
+    ips.push(req.ip);
+  }
   next()
 });
+
+
 
 //database handling
 var connection = mysql.createConnection({
@@ -28,76 +51,88 @@ var connection = mysql.createConnection({
   password : '12345678',
   database : 'accounts'
 });
-/* database stuff
-connection.connect();
-connection.query("NEW TABLE accounts",function (err, rows, fields) {
-  if (err) throw err
-})
-*/
 
 //---SESSIONS---//
-//cookie with session node
+//cookie made with Session node
 app.use(session({
-  cookieName: 'session',
+  cookieName: 'mySession',
   secret: 'abcdefgsomeoneshouldatoldyounottofwithme&*(T@rghu9T*(&#789hg#W0g0)($Y*G))',
   duration: 30 * 60 * 1000,
   activeDuration: 5 * 60 * 1000,
 }));
 
-function testCookie(req,res) {
-  //Database.findmyuserplease({more parameters}, ty);
-}
-/* this is a meme atm
-app.get("/*" , function(req, res, next) {
-  if (req.path == "/login.html") {
-    next();
-  }
-  else {
-    if (req.session && req.session.user) { // Check if session exists
-      // lookup the user in the DB by pulling their email from the session
-      User.findOne({ email: req.session.user.email }, function (err, user) {
-        if (!user) {
-          // if the user isn't found in the DB, reset the session info and
-          // redirect the user to the login page
-          req.session.reset();
-          res.redirect('/login.html');
-        } else {
-          // expose the user to the template
-          res.locals.user = user;
+app.use(session({
+  cookieName: "authorizationToken",
+  secret: "woshitingchechang9359&*($Y&(t7t#g$78gg&*($g&(gy9y894ghHG99gghh)))))",
 
-          // render the dashboard page
-          res.render('index', {title: "Valuqo - Dashboard"});
-        }
-      });
-    } else {
-      res.redirect('/login.html');
-    }
-  }
+}));
+
+//checks session
+app.get("/*" , auth.testCookie);
+
+
+//---------//
+//all https related code (except for the other thing)
+var httpsRedirect = require('express-https-redirect');
+app.use("/*",httpsRedirect(true));
+
+
+/*
+//page handlers
+app.get('/', function(req, res) {
+  res.redirect("/index")
 });
 */
 
-//---------//
+var yodlee_path = "https://developer.api.yodlee.com/ysl/";
+var request_options = {
+  url: yodlee_path + "cobrand/login",
+  headers: {
+    "authorization" : "authorizationToken",
+    "Api-Version" : "1.1",
+    "Cobrand-Name" : "restserver",
+    "content-type" : "application/json"
+  },
+  json : {
+    "cobrand":	{
+      "cobrandLogin" : "sbCobdbf3615a663fa406a1fbef6009fe38075a",
+      "cobrandPassword" : "de178e45-9aff-4c88-a59b-4518c0ff6ce1",
+      "locale" : "en_US"
+    }
+  }
+};
 
-//page handlers
-app.get('/', function(req, res) {
-  res.render('index')
+//api handlers
+app.get("/api/cobrandlogin", function(req,res,next) {
+  request.post(request_options, function(error, response, body){
+    console.log(body);
+    res.json(body);
+    next();
+  });
 });
-app.get('/index.html', function(req, res) {
+
+//web calls
+app.get('/index', function(req, res) {
   res.render('index', {title: "Valuqo - Dashboard"})
 });
-app.get('/charts.html', function(req, res) {
+app.get('/charts', function(req, res) {
   res.render('charts')
 });
-app.get('/tables.html', function(req, res) {
+app.get('/tables', function(req, res) {
   res.render('tables')
 });
-app.get('/login.html', function(req, res) {
+app.get('/login', function(req, res) {
   res.render('login', {title: "Valuqo - Login"})
 });
-app.get('/register.html', function(req, res) {
+app.get('/register', function(req, res) {
   res.render('login')
 });
 
 
 
+var httpsServer = https.createServer(options,app);
+httpsServer.listen(443, () => console.log("https on 443"));
+
 app.listen(80, () => console.log('App listening on port 80!'))
+
+//app.listen(80, () => console.log('App listening on port 8080!'))

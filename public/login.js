@@ -1,18 +1,41 @@
+const path = "https://www.valuqo.us";
+/*
+$.ajaxSetup({
+	headers: {
+		"Access-Control-Allow-Origin": "*",
+		"Authority" :  document.authorizationToken,
+		"Api-Version" : "1.1",
+		"Cobrand-Name": "restserver"
+	}
+});
+*/
 $(document).ready(function(){
-
+	/*
+	$("#initCheck").removeClass("alert-info");
+	$("#initCheck").addClass("alert-warning");
 	//Initialize Yodlee Sample app - makes call to servlet to ensure cobrand login is successful.
+	$.post( path + "cobrand/login",{
+		cobrandParam:
+		{
+			'cobrand': {
+				"cobrandLogin": "sbCobdbf3615a663fa406a1fbef6009fe38075a",
+				"cobrandPassword": "de178e45-9aff-4c88-a59b-4518c0ff6ce1",
+				"locale": "en_US" //for now yea
+			}
+		}
+	})
+	*/
+	$.ajax({
+	  type: "GET",
+		url: path + "/api/cobrandlogin",
+	  success: function(responseObj) {
+		  if(responseObj && responseObj.session.cobSession){
+				$("#initCheck").removeClass("alert-info");
+			  $("#initCheck").addClass("alert-success");
+				$(".temp").remove();
+			  $("#initCheck").append("<p>Connection Successful!</p><p><strong>VALUQO IS CURRENTLY USING TEST API:</strong> Log in with default logins.</p>");
 
-	$.get( "/YodleeSampleApp1.1/YodleeSampleApp",{ action: "init"} )
-	  .done(function( data ) {
-
-		  data = data.replace(/\'/g, '\"');
-
-		  var responseObj = jQuery.parseJSON(data);
-
-		  if(responseObj && responseObj.cobSession){
-			  $("#initCheck").append("<p><strong>Cobrand Configuration Check Successful!</strong></p><p>Use test accounts from API Dashboard to login</p>");
-
-			  $('#submitButton').prop('disabled', false);
+			  $('#submitButton').removeClass('disabled');
 
 		  }else{
 
@@ -27,13 +50,13 @@ $(document).ready(function(){
 				  $("#initCheck").append("<p>Error during initialization. Please check settings in config.properties and user credentials</p>");
 			  }
 		  }
-
+	  }
 	});
 
 	//User login
 	$('#submitButton').click(function() {
 
-		window.console.log('submitButton');
+		//window.console.log('submitButton');
 
 			var userName = $("#username").val();
 			var password = $("#password").val();

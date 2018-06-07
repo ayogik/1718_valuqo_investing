@@ -7,19 +7,26 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
     meta(name='description', content='')
     meta(name='author', content='')
-
-    title SB Admin - Start Bootstrap Template
+    
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
+    
+    title Login
 
     include includes/css/core.pug
 
     include includes/css/custom.pug
 
   body.bg-dark
+    script(src="/login.js")
     .container
       .card.card-login.mx-auto.mt-5
         .card-header
-          | Login
+          | Login to Valuqo
         .card-body
+          #initCheck.alert.alert-info
+            p.temp Initializing.....
+            p.temp Checking Cobrand Login Configurations
           form
             .form-group
               label(for='exampleInputEmail1') Email address
@@ -32,9 +39,9 @@ html(lang='en')
                 label.form-check-label
                   input.form-check-input(type='checkbox')
                   |                   Remember Password
-            a.btn.btn-primary.btn-block(href='index.html') Login
+            #submitButton.a.btn.btn-primary.btn-block.disabled(href='index.html') Login
           .text-center
-            a.d-block.small.mt-3(href='register.html') Register an Account
-            a.d-block.small(href='forgot-password.html') Forgot Password?
+            a.d-block.small.mt-3.disabled(href='register.html') Register an Account (Disabled)
+            a.d-block.small.disabled(href='forgot-password.html') Forgot Password? (Disabled)
 
     include includes/js/core.pug
