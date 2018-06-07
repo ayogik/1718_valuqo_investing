@@ -23,6 +23,7 @@ $(document).ready(function(){
 	    request.setRequestHeader("Authority", document.authorizationToken);
 			request.setRequestHeader("Api-Version", "1.1");
 			request.setRequestHeader("Cobrand-Name", "restserver");
+			request.setRequestHeader("Access-Control-Allow-Origin", "https://valuqo.us");
 	  },
 		/*
 		headers: {
