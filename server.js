@@ -1,6 +1,7 @@
 const express = require('express')
 const favicon = require("express-favicon");
 const session = require("client-sessions");
+var cors = require('cors');
 var fs = require("fs");
 var https = require("https");
 var auth = require("./public/auth.js")
@@ -8,13 +9,21 @@ var mysql = require('mysql');
 const app = express();
 var path = require("path");
 
+app.options('*', cors())
+app.use(cors());
+app.get('/products/:id', function (req, res, next) {
+  res.json({msg: 'This is CORS-enabled for all origins!'})
+});
+
 //ssl attempts
-/* Disabled for now, might have real keys soon enough
 var options = {
-  key: fs.readFileSync("./private_key.pem"),
-  cert: fs.readFileSync("./certificate_file.crt")
+  key: fs.readFileSync("./ssl_certification/keyo.key"),
+  cert: fs.readFileSync("./ssl_certification/valuqo_us.crt"),
+  ca: [
+    fs.readFileSync('./ssl_certification/COMODORSADomainValidationSecureServerCA.crt'),
+    fs.readFileSync('./ssl_certification/COMODORSAAddTrustCA.crt')
+  ]
 };
-*/
 
 //static files and favicon
 app.enable('trust proxy');
@@ -37,6 +46,8 @@ app.all('/*', function (req,res, next) {
   next()
 });
 
+
+
 //database handling
 var connection = mysql.createConnection({
   host     : 'valuqo.cf2muhtlwios.us-east-2.rds.amazonaws.com',
@@ -53,6 +64,12 @@ app.use(session({
   duration: 30 * 60 * 1000,
   activeDuration: 5 * 60 * 1000,
 }));
+
+app.use(session({
+  cookieName: "authorizationToken",
+  secret: "woshitingchechang9359&*($Y&(t7t#g$78gg&*($g&(gy9y894ghHG99gghh)))))",
+
+}))
 
 //checks session
 app.get("/*" , auth.testCookie);
@@ -89,10 +106,10 @@ app.get('/register', function(req, res) {
   res.render('login')
 });
 
-/* See line 12
+
+
 var httpsServer = https.createServer(options,app);
 httpsServer.listen(443, () => console.log("https on 443"));
-*/
 
 app.listen(80, () => console.log('App listening on port 80!'))
 

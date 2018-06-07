@@ -1,6 +1,8 @@
 const path = "https://developer.api.yodlee.com/ysl/";
 
+
 $(document).ready(function(){
+	/*
 	$("#initCheck").removeClass("alert-info");
 	$("#initCheck").addClass("alert-warning");
 	//Initialize Yodlee Sample app - makes call to servlet to ensure cobrand login is successful.
@@ -14,8 +16,41 @@ $(document).ready(function(){
 			}
 		}
 	})
-	  .done(function( data ) {
-
+	*/
+	$.ajax({
+	  type: "POST",
+	  beforeSend: function(request) {
+	    request.setRequestHeader("Authority", document.authorizationToken);
+			request.setRequestHeader("Api-Version", "1.1");
+			request.setRequestHeader("Cobrand-Name", "restserver");
+	  },
+		/*
+		headers: {
+			"Access-Control-Allow-Origin": "*",
+			"Authority" :  document.authorizationToken,
+			"Api-Version" : "1.1",
+			"Cobrand-Name": "restserver"
+		},
+		*/
+	  url: (path + "cobrand/login"),
+		crossDomain: true,
+	  data: "json=" + escape(JSON.stringify({
+			cobrandParam:
+			{
+				"cobrand":	{
+					"cobrandLogin" : "sbCobdbf3615a663fa406a1fbef6009fe38075a",
+					"cobrandPassword" : "de178e45-9aff-4c88-a59b-4518c0ff6ce1",
+					"locale" : "en_US"
+				}
+			}
+		})),
+	  processData: false,
+		failure: function(msg) {
+			$("#initCheck").removeClass("alert-info");
+			$("#initCheck").addClass("alert-danger");
+			$("#initCheck").append("Something broke :(");
+		},
+	  success: function(msg) {
 			$("#initCheck").append(path + "cobrand/login");
 		  data = data.replace(/\'/g, '\"');
 
@@ -38,13 +73,13 @@ $(document).ready(function(){
 				  $("#initCheck").append("<p>Error during initialization. Please check settings in config.properties and user credentials</p>");
 			  }
 		  }
-
+	  }
 	});
 
 	//User login
 	$('#submitButton').click(function() {
 
-		window.console.log('submitButton');
+		//window.console.log('submitButton');
 
 			var userName = $("#username").val();
 			var password = $("#password").val();
