@@ -142,8 +142,11 @@ app.post("/api/userlogin", function(req,res,next) {
 });
 
 //web calls
+app.get('/', function(req, res) {
+  res.render('landing');
+});
 app.get('/index', function(req, res) {
-  res.render('index', {title: "Valuqo - Dashboard"})
+  res.render('index', {title: "Dashboard"})
 });
 app.get('/charts', function(req, res) {
   res.render('charts')
@@ -152,7 +155,7 @@ app.get('/tables', function(req, res) {
   res.render('tables')
 });
 app.get('/login', function(req, res) {
-  res.render('login', {title: "Valuqo - Login"})
+  res.render('login', {title: "Login"})
 });
 app.get('/register', function(req, res) {
   res.render('login')

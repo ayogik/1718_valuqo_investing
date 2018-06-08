@@ -9,27 +9,24 @@ var connection = mysql.createConnection({
 
 module.exports = {
   testCookie: function(req,res,next) {
+    var redirect = false;
     path = req.path;
     if (path.indexOf("login") < 0
-      &&path.indexOf("api") < 0
-      &&path.indexOf("landing") < 0)
-    {
-      if (req.mySession && req.mySession.user) { // Check if session exists
-        // lookup the user in the DB by pulling their email from the session
-        connection.query("SELECT email IN user WHERE email = '" + req.session.user.email + "'",function (err, result, fields) {
-          if (err) throw err;
-          if (result.length > 0) {
-            next();
-          }
-        });
-      }
-      else {
-        res.redirect("/login");
-        next();
+    &&path.indexOf("api") < 0
+    &&path.indexOf("vendor") < 0
+    &&path.indexOf("css") < 0
+    &&path.indexOf("img") < 0
+    &&path != '/'){
+      if (!req.mySession || !req.mySession.id) {//check if session exists
+        redirect = true;
       }
     }
-    next();
-
+    if (redirect){
+      console.log("redirected " + req.path);
+      res.redirect("/");
+    }
+    else{
+      next();
+    }
   }
-
-};
+}
