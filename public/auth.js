@@ -16,7 +16,7 @@ module.exports = {
     &&path.indexOf("css") < 0
     &&path.indexOf("img") < 0
     &&path != '/'){
-      if (!req.mySession || !req.mySession.user.id) {//check if session exists
+      if (!req.mySession || !req.mySession.user) {//check if session exists
         redirect = true;
       }
     }

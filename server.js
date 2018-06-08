@@ -156,6 +156,7 @@ app.post("/api/userlogin", function(req,res,next) {
   request.post(option, function(error, response, body){
     if(body.user){
       req.mySession = body;
+      console.log(body);
       res.send("index");
     }
     else{
@@ -163,6 +164,22 @@ app.post("/api/userlogin", function(req,res,next) {
       next();
     }
   });
+});
+
+app.post("/api/getTransactions", function(req,res,next) {
+
+});
+
+app.get("api/deleteAccount", function(req,res,next) {
+
+});
+
+app.get("api/getAccounts", function(req,res,next) {
+
+});
+
+app.get("api/getFastLink", function(req,res,next) {
+
 });
 
 //web calls
@@ -179,10 +196,19 @@ app.get('/tables', function(req, res) {
   res.render('tables')
 });
 app.get('/login', function(req, res) {
-  res.render('login', {title: "Login"})
+  if (req.mySession && req.mySession.user){res.redirect("/index")}
+  else{res.render('login', {title: "Login"})}
 });
-app.get('/register', function(req, res) {
-  res.render('login')
+//app.get('/register', function(req, res) {
+//  res.render('register')
+//});
+app.get('/accounts', function(req, res) {
+  res.render('accounts')
+});
+app.get('/logout', function(req, res) {
+  req.mySession.reset();
+  req.Authorization.reset();
+  res.redirect('/');
 });
 
 
