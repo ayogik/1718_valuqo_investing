@@ -66,26 +66,26 @@ $(document).ready(function(){
 			  type: "POST",
 				url: path + "/api/userlogin",
 				contentType: "application/json",
-				data: {
+				processData: false,
+				data: JSON.stringify({
 					"username": userName,
 					"password": password
-				},
-			  success: function(dataObj) {
-
-				  if(dataObj && dataObj.error && dataObj.error == "false"){
-					  window.location.href="accounts.html";
-				  }
-					else{
-					  $("#initCheck").removeClass("alert-info");
-					  $("#initCheck").addClass("alert-danger");
-						$(".temp").remove();
-					  $("#initCheck").append("<p class='temp'>dunno something broke ¯\\_(ツ)_/¯</p>");
-
-					  $('#submitButton').prop('disabled', false);
-					  $('#submitButton').html("Login");
+				}),
+				dataType: "text",
+			  success: function(data) {
+					if (data != "error"){
+						location.href = "/index";
 					}
+				},
+				error: function(um, uh, yeah) {
+					$("#initCheck").removeClass("alert-info");
+					$("#initCheck").addClass("alert-danger");
+					$(".temp").remove();
+					$("#initCheck").append("<p class='temp'>dunno something broke ¯\\_(ツ)_/¯</p>");
 
-		   }
+					$('#submitButton').prop('disabled', false);
+					$('#submitButton').html("Login");
+				}
 		 });
 	});
 

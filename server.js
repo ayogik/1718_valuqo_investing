@@ -30,7 +30,7 @@ var options = {
 
 //static files and favicon
 app.enable('trust proxy');
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -143,14 +143,25 @@ app.get("/api/cobrandlogin", function(req,res,next) {
 
 app.post("/api/userlogin", function(req,res,next) {
   //console.log(typeof(req) + "\n\n");
-  console.log(req.Authorization);
+  //console.log(req.Authorization);
   option = extend(true,request_header,userlogin);
   option.headers.Authorization = "cobSession=" + req.Authorization.session.cobSession;
+  option.body = {
+    "user" : {
+      "loginName" : req.body.username,
+      "password" : req.body.password
+    }
+  }
+  option.json = true;
   request.post(option, function(error, response, body){
-    req.mySession = body;
-    //console.log(body);
-    res.json(body);
-    next();
+    if(body.user){
+      req.mySession = body;
+      res.send("index");
+    }
+    else{
+      res.send("error");
+      next();
+    }
   });
 });
 

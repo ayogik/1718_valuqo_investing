@@ -16,12 +16,13 @@ module.exports = {
     &&path.indexOf("css") < 0
     &&path.indexOf("img") < 0
     &&path != '/'){
-      if (!req.mySession || !req.mySession.id) {//check if session exists
+      if (!req.mySession || !req.mySession.user.id) {//check if session exists
         redirect = true;
       }
     }
     if (redirect){
       console.log("redirected " + req.path);
+      console.log(req.mySession);
       res.redirect("/");
     }
     else{
