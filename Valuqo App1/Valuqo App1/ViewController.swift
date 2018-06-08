@@ -17,8 +17,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var btn_login: UIButton!
     
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -28,7 +26,24 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    var username : String?
+    var password : String?
+    
+    
+    @IBAction func username_entered(_ sender: Any) {
+        
+        username = username_entry.text
+        
+    }
+    
+    @IBAction func password_entered(_ sender: Any) {
+        
+        password = password_entry.text
+        
+    }
+    
+    
 
 }
 

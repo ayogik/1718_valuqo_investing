@@ -32,6 +32,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="password_entered:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="a6h-7Q-7ap"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Username" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IQo-Mp-XJM">
                                 <rect key="frame" x="87" y="254" width="201" height="30"/>
@@ -39,6 +42,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="username_entered:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="RbA-s8-vyu"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -58,12 +64,6 @@
         <!--Homepage View Controller-->
         <scene sceneID="jd3-Jk-hxZ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="g8O-8k-SCz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="pSX-8T-oBT">
-                    <connections>
-                        <segue destination="yg5-o6-iUS" kind="show" id="4LI-dY-dkY"/>
-                    </connections>
-                </swipeGestureRecognizer>
                 <viewController id="3ND-Yq-BqQ" customClass="homepageViewController" customModule="Valuqo_App1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OpN-EH-Zky">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -102,13 +102,18 @@
                         <outlet property="map_disp" destination="aEL-jG-0xn" id="0GQ-X0-5Dh"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g8O-8k-SCz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="pSX-8T-oBT">
+                    <connections>
+                        <segue destination="yg5-o6-iUS" kind="show" id="4LI-dY-dkY"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1420" y="133.5832083958021"/>
         </scene>
         <!--Graphs View Controller-->
         <scene sceneID="GGp-9m-4z0">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zz3-ht-0mF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="yg5-o6-iUS" customClass="graphsViewController" customModule="Valuqo_App1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Uo-xi-YCJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -133,6 +138,7 @@
                         <outlet property="pieChart" destination="Pth-6A-9Dw" id="ivM-MK-8KV"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zz3-ht-0mF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2352.8000000000002" y="-368.36581709145429"/>
         </scene>

@@ -1,70 +1,93 @@
 var newloc =[];
-function ExportToTable() {  
-     var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.xlsx|.xls)$/;  
-     /*Checks whether the file is a valid excel file*/  
-     if (regex.test($("#excelfile").val().toLowerCase())) {  
-         var xlsxflag = false; /*Flag for checking whether excel is .xls format or .xlsx format*/  
-         if ($("#excelfile").val().toLowerCase().indexOf(".xlsx") > 0) {  
-             xlsxflag = true;  
-         }  
-         /*Checks whether the browser supports HTML5*/  
-         if (typeof (FileReader) != "undefined") {  
-             var reader = new FileReader();  
-             reader.onload = function (e) { 
-                 var data = e.target.result;  
-                 /*Converts the excel data in to object*/  
-                 if (xlsxflag) {  
-                     var workbook = XLSX.read(data, { type: 'binary' });  
-                 }  
-                 else {  
-                     var workbook = XLS.read(data, { type: 'binary' });  
-                 }  
-                 /*Gets all the sheetnames of excel in to a variable*/  
-                 var sheet_name_list = workbook.SheetNames;  
-  
-                 var cnt = 0; /*This is used for restricting the script to consider only first sheet of excel*/  
-                 sheet_name_list.forEach(function (y) { /*Iterate through all sheets*/  
-                     /*Convert the cell value to Json*/  
-                     if (xlsxflag) {  
-                         var exceljson = XLSX.utils.sheet_to_json(workbook.Sheets[y]);  
-                     }  
-                     else {  
-                         var exceljson = XLS.utils.sheet_to_row_object_array(workbook.Sheets[y]);  
-                     }  
-                     if (exceljson.length > 0 && cnt == 0) {  
-                         BindTable(exceljson, '#dataTable');  
-                         cnt++;  
-                     }  
-                 });  
-                 $('#dataTable').show();  
-             }  
-             if (xlsxflag) {/*If excel file is .xlsx extension than creates a Array Buffer from excel*/  
-                 reader.readAsArrayBuffer($("#excelfile")[0].files[0]);  
-             }  
-             else {  
-                 reader.readAsBinaryString($("#excelfile")[0].files[0]);  
-             }  
-         }  
-         else {  
-             alert("Sorry! Your browser does not support HTML5!");  
-         }  
-     }  
-     else {  
-         alert("Please upload a valid Excel file!");  
-     } 
-     
- }  
-function BindTable(jsondata, tableid) {/*Function used to convert the JSON array to Html Table*/  
-     var columns = BindTableHeader(jsondata, tableid); /*Gets all the column headings of Excel*/  
+function ExportToTable() {
+     var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.xlsx|.xls)$/;
+     /*Checks whether the file is a valid excel file*/
+     if (regex.test($("#excelfile").val().toLowerCase())) {
+         var xlsxflag = false; /*Flag for checking whether excel is .xls format or .xlsx format*/
+         if ($("#excelfile").val().toLowerCase().indexOf(".xlsx") > 0) {
+             xlsxflag = true;
+         }
+         /*Checks whether the browser supports HTML5*/
+         if (typeof (FileReader) != "undefined") {
+             var reader = new FileReader();
+             reader.onload = function (e) {
+                 var data = e.target.result;
+                 /*Converts the excel data in to object*/
+                 if (xlsxflag) {
+                     var workbook = XLSX.read(data, { type: 'binary' });
+                 }
+                 else {
+                     var workbook = XLS.read(data, { type: 'binary' });
+                 }
+                 /*Gets all the sheetnames of excel in to a variable*/
+                 var sheet_name_list = workbook.SheetNames;
+
+                 var cnt = 0; /*This is used for restricting the script to consider only first sheet of excel*/
+                 sheet_name_list.forEach(function (y) { /*Iterate through all sheets*/
+                     /*Convert the cell value to Json*/
+                     var values = "";
+                     if (xlsxflag) {
+                         var exceljson = XLSX.utils.sheet_to_json(workbook.Sheets[y]);
+                         console.log(exceljson[0]);
+                     }
+                     else {
+                         var exceljson = XLS.utils.sheet_to_row_object_array(workbook.Sheets[y]);
+                         console.log(exceljson);
+                     }
+                     for (var i = 0; i<exceljson.length; i++){
+                        values='\''+exceljson[i].Date+'\''+', '+'\''+exceljson[i].Description+'\''+', '+exceljson[i].Amount.substring(1,exceljson[i].Amount.length-1);
+                        console.log(values);
+                        mysqlInput(values);
+                     }
+
+                     if (exceljson.length > 0 && cnt == 0) {
+                         BindTable(exceljson, '#dataTable');
+                         cnt++;
+                     }
+                 });
+                 $('#dataTable').show();
+             }
+             if (xlsxflag) {/*If excel file is .xlsx extension than creates a Array Buffer from excel*/
+                 reader.readAsArrayBuffer($("#excelfile")[0].files[0]);
+             }
+             else {
+                 reader.readAsBinaryString($("#excelfile")[0].files[0]);
+             }
+         }
+         else {
+             alert("Sorry! Your browser does not support HTML5!");
+         }
+     }
+     else {
+         alert("Please upload a valid Excel file!");
+     }
+
+ }
+var mysql = require('mysql');
+function mysqlInput(values){
+    var connection = mysql.createConnection({
+      host     : 'valuqo.cf2muhtlwios.us-east-2.rds.amazonaws.com',
+      user     : 'root',
+      password : '12345678',
+    });
+    connection.connect(function(err) {
+      if (err) throw err;
+      console.log("Connected!");
+      connection.query("INSERT INTO commodities (date, details, amount) VALUES ("+values+")");
+    });
+}
+
+function BindTable(jsondata, tableid) {/*Function used to convert the JSON array to Html Table*/
+     var columns = BindTableHeader(jsondata, tableid); /*Gets all the column headings of Excel*/
      var locationsInM = [];
-     for (var i = 0; i < jsondata.length; i++) {  
-         var row$ = $('<tr/>');  
-         for (var colIndex = 0; colIndex < columns.length; colIndex++) {  
-             var cellValue = jsondata[i][columns[colIndex]];  
-             if (cellValue == null)  
-                 cellValue = "";  
-             row$.append($('<td/>').html(cellValue));  
- 
+     for (var i = 0; i < jsondata.length; i++) {
+         var row$ = $('<tr/>');
+         for (var colIndex = 0; colIndex < columns.length; colIndex++) {
+             var cellValue = jsondata[i][columns[colIndex]];
+             if (cellValue == null)
+                 cellValue = "";
+             row$.append($('<td/>').html(cellValue));
+
             var expenseDesc = cellValue.toLowerCase();
             if (expenseDesc.indexOf("gas") > -1 || expenseDesc.indexOf("exxon") > -1 )
             {
@@ -72,27 +95,27 @@ function BindTable(jsondata, tableid) {/*Function used to convert the JSON array
                 console.log("locations from parse.js are" + cellValue);
                 newloc.push(cellValue);
             }
-         }  
-         $(tableid).append(row$);  
-     }  
-    console.log("locations after binding table:" + newloc[0]); 
-    window.initMap();    
-         
- }  
- function BindTableHeader(jsondata, tableid) {/*Function used to get all column names from JSON and bind the html table header*/  
-     var columnSet = [];  
-     var headerTr$ = $('<tr/>');  
-     for (var i = 0; i < jsondata.length; i++) {  
-         var rowHash = jsondata[i];  
-         for (var key in rowHash) {  
-             if (rowHash.hasOwnProperty(key)) {  
-                 if ($.inArray(key, columnSet) == -1) {/*Adding each unique column names to a variable array*/  
-                     columnSet.push(key);  
-                     headerTr$.append($('<th/>').html(key));  
-                 }  
-             }  
-         }  
-     }  
-     $(tableid).append(headerTr$);  
-     return columnSet;  
- }  
+         }
+         $(tableid).append(row$);
+     }
+    console.log("locations after binding table:" + newloc[0]);
+    window.initMap();
+
+ }
+ function BindTableHeader(jsondata, tableid) {/*Function used to get all column names from JSON and bind the html table header*/
+     var columnSet = [];
+     var headerTr$ = $('<tr/>');
+     for (var i = 0; i < jsondata.length; i++) {
+         var rowHash = jsondata[i];
+         for (var key in rowHash) {
+             if (rowHash.hasOwnProperty(key)) {
+                 if ($.inArray(key, columnSet) == -1) {/*Adding each unique column names to a variable array*/
+                     columnSet.push(key);
+                     headerTr$.append($('<th/>').html(key));
+                 }
+             }
+         }
+     }
+     $(tableid).append(headerTr$);
+     return columnSet;
+ }
