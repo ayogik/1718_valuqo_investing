@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C528660020C9F6D200EC329E /* homepageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52865FF20C9F6D200EC329E /* homepageViewController.swift */; };
+		C528660220C9F8B700EC329E /* graphsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C528660120C9F8B700EC329E /* graphsViewController.swift */; };
 		C531A00120C6206300F424B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C531A00020C6206300F424B1 /* AppDelegate.swift */; };
 		C531A00320C6206300F424B1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C531A00220C6206300F424B1 /* ViewController.swift */; };
 		C531A00620C6206300F424B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C531A00420C6206300F424B1 /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C52865FF20C9F6D200EC329E /* homepageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homepageViewController.swift; sourceTree = "<group>"; };
+		C528660120C9F8B700EC329E /* graphsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = graphsViewController.swift; sourceTree = "<group>"; };
 		C5319FFD20C6206300F424B1 /* Valuqo App1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Valuqo App1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C531A00020C6206300F424B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C531A00220C6206300F424B1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +60,8 @@
 			children = (
 				C531A00020C6206300F424B1 /* AppDelegate.swift */,
 				C531A00220C6206300F424B1 /* ViewController.swift */,
+				C52865FF20C9F6D200EC329E /* homepageViewController.swift */,
+				C528660120C9F8B700EC329E /* graphsViewController.swift */,
 				C531A00420C6206300F424B1 /* Main.storyboard */,
 				C531A00720C6206300F424B1 /* Assets.xcassets */,
 				C531A00920C6206300F424B1 /* LaunchScreen.storyboard */,
@@ -136,6 +142,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C528660020C9F6D200EC329E /* homepageViewController.swift in Sources */,
+				C528660220C9F8B700EC329E /* graphsViewController.swift in Sources */,
 				C531A00320C6206300F424B1 /* ViewController.swift in Sources */,
 				C531A00120C6206300F424B1 /* AppDelegate.swift in Sources */,
 			);
@@ -276,10 +284,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Valuqo App1/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Valuqo-App1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -290,10 +299,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Valuqo App1/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Valuqo-App1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
