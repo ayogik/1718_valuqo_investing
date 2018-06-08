@@ -64,7 +64,8 @@ $(document).ready(function(){
 			$.ajax({
 			  type: "POST",
 				url: path + "/api/userlogin",
-				data: {
+				contentType: "application/json",
+				parameters: {
 					"username": userName,
 					"password": password
 				},
@@ -77,7 +78,7 @@ $(document).ready(function(){
 					  $("#initCheck").removeClass("alert-info");
 					  $("#initCheck").addClass("alert-danger");
 						$(".temp").remove();
-					  $("#initCheck").append("<p class='temp'>Login failed, it could be us, it could be you, probably us, but the fact of the matter is, we didn't do error checking yet ¯\\_(ツ)_/¯</p>");
+					  $("#initCheck").append("<p class='temp'>dunno something broke ¯\\_(ツ)_/¯</p>");
 
 					  $('#submitButton').prop('disabled', false);
 					  $('#submitButton').html("Login");

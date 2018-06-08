@@ -2,6 +2,7 @@ const express = require('express')
 const favicon = require("express-favicon");
 const session = require("client-sessions");
 //const $ = require("jquery");
+var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var extend = require("extend");
 var request = require("request");
@@ -29,11 +30,13 @@ var options = {
 
 //static files and favicon
 app.enable('trust proxy');
-app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(express.static('public'));
 app.use(express.static('views'));
 app.use(favicon(__dirname + "/public/vqlogo.png"));
-app.use(cookieParser());
 
 //view engine for rendering websites
 app.engine('pug',require('pug').__express);
@@ -128,10 +131,6 @@ var userlogin = {
 //api handlers
 app.get("/api/cobrandlogin", function(req,res,next) {
   request.post(extend(request_header,cobrandlogin), function(error, response, body){
-    console.log(req.Authorization);
-    req.Authorization.cobSession = body.session.cobSession;
-    console.log("\nNew:\n");
-    console.log(req.Authorization);
     res.json(body);
     next();
   });
@@ -139,11 +138,9 @@ app.get("/api/cobrandlogin", function(req,res,next) {
 
 app.post("/api/userlogin", function(req,res,next) {
   //console.log(typeof(req) + "\n\n");
-  //console.log("body= " + req.body);
-  console.log(req.Authorization);
+  console.log(req.body);
   option = extend(true,request_header,userlogin);
-  option.headers.Authorization = req.Authorization;
-  //console.log(option.headers.Authorization.session);
+  option.headers.Authorization = "cobSession=" + req.Authorization.session.cobSession;
   request.post(option, function(error, response, body){
     req.mySession = body;
     console.log(body);
