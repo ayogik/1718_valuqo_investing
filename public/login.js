@@ -54,7 +54,6 @@ $(document).ready(function(){
 
 	//User login
 	$('#submitButton').click(function() {
-
 		//window.console.log('submitButton');
 
 			var userName = $("#username").val();

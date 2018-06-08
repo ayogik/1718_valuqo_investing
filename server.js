@@ -2,6 +2,7 @@ const express = require('express')
 const favicon = require("express-favicon");
 const session = require("client-sessions");
 //const $ = require("jquery");
+var cookieParser = require('cookie-parser');
 var extend = require("extend");
 var request = require("request");
 var fs = require("fs");
@@ -32,6 +33,7 @@ app.use(express.json());
 app.use(express.static('public'));
 app.use(express.static('views'));
 app.use(favicon(__dirname + "/public/vqlogo.png"));
+app.use(cookieParser());
 
 //view engine for rendering websites
 app.engine('pug',require('pug').__express);
@@ -74,7 +76,6 @@ app.use(session({
   secret: "woshitingchechang9359&*($Y&(t7t#g$78gg&*($g&(gy9y894ghHG99gghh)))))",
   duration: 1000 * 60 * 60 * 60,
   cookie: {
-    path: "/api",
     httpOnly: true
   }
 
@@ -91,7 +92,6 @@ app.get("/*" , auth.testCookie);
 
 
 //---------//
-
 
 var yodlee_path = "https://developer.api.yodlee.com/ysl/";
 var request_header = {
@@ -113,6 +113,9 @@ var cobrandlogin = {
 };
 var userlogin = {
   url: yodlee_path + "user/login",
+  headers : {
+    'Authorization' : {}
+  },
   json : {
     "cobrand":	{
       "cobrandLogin" : "sbCobdbf3615a663fa406a1fbef6009fe38075a",
@@ -125,17 +128,25 @@ var userlogin = {
 //api handlers
 app.get("/api/cobrandlogin", function(req,res,next) {
   request.post(extend(request_header,cobrandlogin), function(error, response, body){
-    req.Authorization = body;
+    console.log(req.Authorization);
+    req.Authorization.cobSession = body.session.cobSession;
+    console.log("\nNew:\n");
+    console.log(req.Authorization);
     res.json(body);
     next();
   });
 });
 
 app.post("/api/userlogin", function(req,res,next) {
-  console.log(req.json + "\n\n");
-  console.log("body= " + req.body);
-  request.post(extend(request_header,userlogin), function(error, response, body){
-    req.Authorization = body;
+  //console.log(typeof(req) + "\n\n");
+  //console.log("body= " + req.body);
+  console.log(req.Authorization);
+  option = extend(true,request_header,userlogin);
+  option.headers.Authorization = req.Authorization;
+  //console.log(option.headers.Authorization.session);
+  request.post(option, function(error, response, body){
+    req.mySession = body;
+    console.log(body);
     res.json(body);
     next();
   });
