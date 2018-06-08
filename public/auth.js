@@ -11,6 +11,7 @@ module.exports = {
     var redirect = false;
     path = req.path;
     if (path.indexOf("login") < 0
+    &&path.indexOf("tables") < 0
     &&path.indexOf("api") < 0
     &&path.indexOf("vendor") < 0
     &&path.indexOf("css") < 0

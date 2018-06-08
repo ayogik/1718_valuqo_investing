@@ -1,3 +1,4 @@
+
 var newloc =[];
 function ExportToTable() {
      var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.xlsx|.xls)$/;
@@ -37,7 +38,7 @@ function ExportToTable() {
                      for (var i = 0; i<exceljson.length; i++){
                         values='\''+exceljson[i].Date+'\''+', '+'\''+exceljson[i].Description+'\''+', '+exceljson[i].Amount.substring(1,exceljson[i].Amount.length-1);
                         console.log(values);
-                        mysqlInput(values);
+                        mysqlInput(values, "commodities");
                      }
 
                      if (exceljson.length > 0 && cnt == 0) {
@@ -63,20 +64,6 @@ function ExportToTable() {
      }
 
  }
-var mysql = require('mysql');
-function mysqlInput(values){
-    var connection = mysql.createConnection({
-      host     : 'valuqo.cf2muhtlwios.us-east-2.rds.amazonaws.com',
-      user     : 'root',
-      password : '12345678',
-    });
-    connection.connect(function(err) {
-      if (err) throw err;
-      console.log("Connected!");
-      connection.query("INSERT INTO commodities (date, details, amount) VALUES ("+values+")");
-    });
-}
-
 function BindTable(jsondata, tableid) {/*Function used to convert the JSON array to Html Table*/
      var columns = BindTableHeader(jsondata, tableid); /*Gets all the column headings of Excel*/
      var locationsInM = [];
@@ -118,4 +105,7 @@ function BindTable(jsondata, tableid) {/*Function used to convert the JSON array
      }
      $(tableid).append(headerTr$);
      return columnSet;
+ }
+ function mysqlInput(values, id){
+     console.log(values+" "+id);
  }
