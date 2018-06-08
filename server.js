@@ -37,6 +37,11 @@ app.use(bodyParser.urlencoded({
 app.use(express.static('public'));
 app.use(express.static('views'));
 app.use(favicon(__dirname + "/public/vqlogo.png"));
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 //view engine for rendering websites
 app.engine('pug',require('pug').__express);
@@ -138,12 +143,12 @@ app.get("/api/cobrandlogin", function(req,res,next) {
 
 app.post("/api/userlogin", function(req,res,next) {
   //console.log(typeof(req) + "\n\n");
-  console.log(req.body);
+  console.log(req.Authorization);
   option = extend(true,request_header,userlogin);
   option.headers.Authorization = "cobSession=" + req.Authorization.session.cobSession;
   request.post(option, function(error, response, body){
     req.mySession = body;
-    console.log(body);
+    //console.log(body);
     res.json(body);
     next();
   });

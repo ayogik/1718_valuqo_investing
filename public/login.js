@@ -56,16 +56,17 @@ $(document).ready(function(){
 	$('#submitButton').click(function() {
 		//window.console.log('submitButton');
 
-			var userName = $("#username").val();
-			var password = $("#password").val();
+			var userName = $("#exampleInputEmail1").val();
+			var password = $("#exampleInputPassword1").val();
 			$('#submitButton').prop('disabled', true);
 			$('#submitButton').html("Loading...");
+			console.log("user is " +userName);
 
 			$.ajax({
 			  type: "POST",
 				url: path + "/api/userlogin",
 				contentType: "application/json",
-				parameters: {
+				data: {
 					"username": userName,
 					"password": password
 				},
