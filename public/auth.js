@@ -1,5 +1,4 @@
 var mysql = require("mysql");
-var pathToRegexp = require("path-to-regexp");
 var connection = mysql.createConnection({
   host     : 'valuqo.cf2muhtlwios.us-east-2.rds.amazonaws.com',
   user     : 'root',
