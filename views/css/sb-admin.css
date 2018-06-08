@@ -19,6 +19,14 @@ body.fixed-nav {
   padding-top: 56px;
 }
 
+/*custom style */
+.isDisabled {
+  color: currentColor;
+  cursor: not-allowed;
+  opacity: 0.5;
+  text-decoration: none;
+}
+
 .content-wrapper {
   min-height: calc(100vh - 56px);
   padding-top: 1rem;

@@ -2,6 +2,7 @@ const express = require('express')
 const favicon = require("express-favicon");
 const session = require("client-sessions");
 //const $ = require("jquery");
+var extend = require("extend");
 var request = require("request");
 var fs = require("fs");
 var https = require("https");
@@ -11,6 +12,9 @@ const app = express();
 var path = require("path");
 
 
+//all https related code
+var httpsRedirect = require('express-https-redirect');
+app.use("/*",httpsRedirect(true));
 //ssl attempts
 var options = {
   key: fs.readFileSync("./ssl_certification/keyo.key"),
@@ -21,8 +25,10 @@ var options = {
   ]
 };
 
+
 //static files and favicon
 app.enable('trust proxy');
+app.use(express.json());
 app.use(express.static('public'));
 app.use(express.static('views'));
 app.use(favicon(__dirname + "/public/vqlogo.png"));
@@ -32,6 +38,8 @@ app.engine('pug',require('pug').__express);
 app.set('view engine','pug');
 app.set('views', __dirname + '/views');
 
+
+
 //general handler for any web request
 var ips = [];
 app.all('/*', function (req,res, next) {
@@ -39,7 +47,7 @@ app.all('/*', function (req,res, next) {
     console.log(req.ip);
     ips.push(req.ip);
   }
-  next()
+  next();
 });
 
 
@@ -62,37 +70,49 @@ app.use(session({
 }));
 
 app.use(session({
-  cookieName: "authorizationToken",
+  cookieName: "Authorization",
   secret: "woshitingchechang9359&*($Y&(t7t#g$78gg&*($g&(gy9y894ghHG99gghh)))))",
+  duration: 1000 * 60 * 60 * 60,
+  cookie: {
+    path: "/api",
+    httpOnly: true
+  }
 
 }));
 
-//checks session
+/*
+app.get(["/login","/landing*","/api*"], function (req, res, next) {
+  console.log("no");
+  next('route');
+});
+*/
+//checks session, but only if its not the routes specified above
 app.get("/*" , auth.testCookie);
 
 
 //---------//
-//all https related code (except for the other thing)
-var httpsRedirect = require('express-https-redirect');
-app.use("/*",httpsRedirect(true));
 
-
-/*
-//page handlers
-app.get('/', function(req, res) {
-  res.redirect("/index")
-});
-*/
 
 var yodlee_path = "https://developer.api.yodlee.com/ysl/";
-var request_options = {
-  url: yodlee_path + "cobrand/login",
+var request_header = {
   headers: {
-    "authorization" : "authorizationToken",
     "Api-Version" : "1.1",
     "Cobrand-Name" : "restserver",
     "content-type" : "application/json"
-  },
+  }
+};
+var cobrandlogin = {
+  url: yodlee_path + "cobrand/login",
+  json : {
+    "cobrand":	{
+      "cobrandLogin" : "sbCobdbf3615a663fa406a1fbef6009fe38075a",
+      "cobrandPassword" : "de178e45-9aff-4c88-a59b-4518c0ff6ce1",
+      "locale" : "en_US"
+    }
+  }
+};
+var userlogin = {
+  url: yodlee_path + "user/login",
   json : {
     "cobrand":	{
       "cobrandLogin" : "sbCobdbf3615a663fa406a1fbef6009fe38075a",
@@ -104,8 +124,18 @@ var request_options = {
 
 //api handlers
 app.get("/api/cobrandlogin", function(req,res,next) {
-  request.post(request_options, function(error, response, body){
-    console.log(body);
+  request.post(extend(request_header,cobrandlogin), function(error, response, body){
+    req.Authorization = body;
+    res.json(body);
+    next();
+  });
+});
+
+app.post("/api/userlogin", function(req,res,next) {
+  console.log(req.json + "\n\n");
+  console.log("body= " + req.body);
+  request.post(extend(request_header,userlogin), function(error, response, body){
+    req.Authorization = body;
     res.json(body);
     next();
   });

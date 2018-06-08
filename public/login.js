@@ -33,10 +33,9 @@ $(document).ready(function(){
 				$("#initCheck").removeClass("alert-info");
 			  $("#initCheck").addClass("alert-success");
 				$(".temp").remove();
-			  $("#initCheck").append("<p>Connection Successful!</p><p><strong>VALUQO IS CURRENTLY USING TEST API:</strong> Log in with default logins.</p>");
+			  $("#initCheck").append("<p class='temp'>Connection Successful!</p><p class='temp'><strong>VALUQO IS CURRENTLY USING TEST API:</strong> Log in with default logins.</p>");
 
 			  $('#submitButton').removeClass('disabled');
-
 		  }else{
 
 			  $("#initCheck").removeClass("alert-info");
@@ -63,27 +62,30 @@ $(document).ready(function(){
 			$('#submitButton').prop('disabled', true);
 			$('#submitButton').html("Loading...");
 
-		  $.post( "/YodleeSampleApp1.1/YodleeSampleApp",{ username:userName, password:password} )
-		  .done(function( data ) {
+			$.ajax({
+			  type: "POST",
+				url: path + "/api/userlogin",
+				data: {
+					"username": userName,
+					"password": password
+				},
+			  success: function(dataObj) {
 
-			  data = data.replace(/\'/g, '\"');
-			  var dataObj = jQuery.parseJSON(data);
+				  if(dataObj && dataObj.error && dataObj.error == "false"){
+					  window.location.href="accounts.html";
+				  }
+					else{
+					  $("#initCheck").removeClass("alert-info");
+					  $("#initCheck").addClass("alert-danger");
+						$(".temp").remove();
+					  $("#initCheck").append("<p class='temp'>Error in User login, please check your test user credentials (from Yodlee API Dashboard).</p>");
 
-			  if(dataObj && dataObj.error && dataObj.error == "false"){
-				  window.location.href="accounts.html";
-			  }else{
-				  $("#initCheck").removeClass("alert-info");
-				  $("#initCheck").addClass("alert-danger");
-				  $("#initCheck").append("<p>Error in User login, please check your test user credentials (from Yodlee API Dashboard).</p>");
+					  $('#submitButton').prop('disabled', false);
+					  $('#submitButton').html("Login");
+					}
 
-				  $('#submitButton').prop('disabled', false);
-				  $('#submitButton').html("Login");
-
-
-			  }
-
-		   });
-
+		   }
+		 });
 	});
 
 
