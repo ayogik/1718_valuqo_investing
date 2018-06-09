@@ -9,6 +9,16 @@ $.ajaxSetup({
 	}
 });
 */
+function error (code,message) {
+	$("#initCheck").removeClass("alert-info");
+	$("#initCheck").addClass("alert-danger");
+	$(".temp").remove();
+	$("#initCheck").append("<p class='temp'>ERROR: " + code + "</p>");
+	$("#initCheck").append("<p class='temp'>Message: " + message + "</p>");
+	$('#submitButton').prop('disabled', false);
+	$('#submitButton').html("Login");
+}
+
 $(document).ready(function(){
 	/*
 	$("#initCheck").removeClass("alert-info");
@@ -29,7 +39,7 @@ $(document).ready(function(){
 	  type: "GET",
 		url: path + "/api/cobrandlogin",
 	  success: function(responseObj) {
-		  if(responseObj && responseObj.session.cobSession){
+		  if(responseObj.session && responseObj.session.cobSession){
 				$("#initCheck").removeClass("alert-info");
 			  $("#initCheck").addClass("alert-success");
 				$(".temp").remove();
@@ -71,20 +81,17 @@ $(document).ready(function(){
 					"username": userName,
 					"password": password
 				}),
-				dataType: "text",
+				dataType: "json",
 			  success: function(data) {
-					if (data != "error"){
-						location.href = "/index";
+					dataObj = JSON.parse(data);
+					console.log(dataObj);
+					console.log(typeof(dataObj));
+					console.log(dataObj.errorCode);
+					if (dataObj.errorCode && dataObj.errorCode != undefined) {
+						error(dataObj.errorCode,dataObj.errorMessage);
 					}
-				},
-				error: function(um, uh, yeah) {
-					$("#initCheck").removeClass("alert-info");
-					$("#initCheck").addClass("alert-danger");
-					$(".temp").remove();
-					$("#initCheck").append("<p class='temp'>dunno something broke ¯\\_(ツ)_/¯</p>");
-
-					$('#submitButton').prop('disabled', false);
-					$('#submitButton').html("Login");
+					else if (dataObj.user && dataObj.user.id) {location.href = "/index";}
+					else {error("Unknown","No idea. That's realy spooky.")}
 				}
 		 });
 	});

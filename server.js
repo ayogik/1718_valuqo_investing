@@ -154,16 +154,17 @@ app.post("/api/userlogin", function(req,res,next) {
   }
   option.json = true;
   request.post(option, function(error, response, body){
-    if(body.user){
-      req.mySession = body;
-      console.log(body);
-      res.send("index");
-    }
-    else{
-      res.send("error");
-      next();
-    }
+    req.mySession = body;
+    res.json(JSON.stringify(body));
+    next();
   });
+});
+
+app.get("/api/getname", function(req,res,next) {
+  if (req.mySession && req.mySession.user){
+    res.send(req.mySession.user.name.first);
+  }
+  else {next();}
 });
 
 app.post("/api/getTransactions", function(req,res,next) {
