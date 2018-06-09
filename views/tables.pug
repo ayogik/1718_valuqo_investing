@@ -130,23 +130,22 @@ html(lang='en')
           li.breadcrumb-item.active Tables
         // Example DataTables Card
         // 
+        script(src="/auth.js")
         p
-          | To analyze gas expenditures, upload a .xlsx (Excel Workbook) of your expenses by clicking "Choose File" below.
+          | To upload commodity expenditures, upload a .xlsx (Excel Workbook) of your expenses by clicking "Choose File" below.
         input#excelfile(type='file')
-        input#viewfile(type='button', value='Export To Table', onclick='ExportToTable()')
+        input#viewfile(type='button', value='Upload and Export To Table', onclick='ExportToTable()')
         br
         p#demo
-        table#exceltable
-        input#viewfile.btn.btn-primary(type='button', value='Export To Table', onclick='ExportToTable()')
-        br
-        br
+        p
+        table#exceltable(style='block')
         .card.mb-3
           .card-header
             i.fa.fa-table
-            | Data Table Example
+            |  Expenses to be uploaded
           .card-body
             .table-responsive
-              table#dataTable.table.table-bordered(width='100%', cellspacing='0')
+              table#dataTable.table.table-bordered(width='100%', cellspacing='0', style='display: block')
                 //
                   <thead>
                   <tr>
@@ -179,7 +178,7 @@ html(lang='en')
                   <td>$28.35</td>
                   </tr>
                   </tbody>
-          .card-footer.small.text-muted Updated yesterday at 11:59 PM
+          .card-footer.small.text-muted Updated just now.
         //
           <script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDFCcHzzZgvH5aLn91I1kdvKfA1FT9ENmc'></script>
           <div style='overflow:hidden;height:400px;width:520px;'>
@@ -223,8 +222,17 @@ html(lang='en')
             max-width: none !important;
             background: none !important
             }
-        a(href='https://embedmaps.org/') Gas Station Widget
+        a(href='https://embedmaps.org/')
+          font(size='.1') .
         script(type='text/javascript', src='https://embedmaps.com/google-maps-authorization/script.js?id=a36a21f0ca14e004e460d95709874e3ec29c478f')
+        script(type='text/javascript').
+          import 'mysql';
+          var connection = mysql.createConnection({
+          host     : 'valuqo.cf2muhtlwios.us-east-2.rds.amazonaws.com',
+          user     : 'root',
+          password : '12345678',
+          database : 'accounts'
+          });
         script(type='text/javascript').
           var map;
           var centering = {lat: 40.1843574, lng: -74.5740333};
@@ -253,6 +261,7 @@ html(lang='en')
           for (i = 0; i < locations.length; i++) {
           /* Code to get Latitude and Longitude of location*/
           var locate = locations[i];
+          console.log(locate);
           var geocoder = new google.maps.Geocoder();
           var address = locate;
           var points;
@@ -307,11 +316,13 @@ html(lang='en')
           if (status == google.maps.places.PlacesServiceStatus.OK) {
           for (var i = 0; i < results.length; i++) {
           var place = results[i];
+          console.log('results of i')
           createMarker(results[i]);
           }
           }
           }
-          function createMarker(place) {
+          const function createMarker(place) {
+          var price = 0;
           console.log("Found marker:" +place.geometry.location.lat() + ":" + place.geometry.location.lng() );
           var marker = new google.maps.Marker({
           map: map,
@@ -328,10 +339,14 @@ html(lang='en')
           console.error(status);
           return;
           }
-          infoWindow.setContent(result.name);
+          //price = getGasPrices(places.formatted_address);
+          price = (2.75+.25*Math.random()).toFixed(2);
+          infoWindow.setContent('<strong>'+result.name+'</strong>'+'<br> '+price);
+          //infoWindow.setContent('<strong>'+result.name+'</strong>'+'<br> '+getGasPrices(places.formatted_address));
           infoWindow.open(map, marker);
           });
           });
+          return price;
           }
           /*google.maps.event.addDomListener(window, 'load', initMap);
           icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|FE7569', ==> orange/red
@@ -377,4 +392,4 @@ html(lang='en')
       script(src='https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.7.7/xlsx.core.min.js')
       script(src='https://cdnjs.cloudflare.com/ajax/libs/xls/0.7.4-a/xls.core.min.js')
       // Script file for adding to bootstrap table
-      script(src='js/parse.js')
+      script(type='text/javascript', src='js/parse.js')

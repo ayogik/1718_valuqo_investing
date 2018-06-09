@@ -301,6 +301,7 @@
     for (i = 0; i < locations.length; i++) {
     /* Code to get Latitude and Longitude of location*/
       var locate = locations[i];
+      console.log(locate);
       var geocoder = new google.maps.Geocoder();
       var address = locate;
       var points;
@@ -339,11 +340,7 @@
                 });
                 //extend the bounds to include each marker's position
                 bounds.extend(marker.position);
-                var minPrice = {
-                    lat: 40.191948,
-                    lon: -74.555070,
-                    price: 2
-                }
+
                 /* Now finding nearby gas stations */
                 var request = {
                   location: results[0].geometry.location,
@@ -354,26 +351,6 @@
                 service = new google.maps.places.PlacesService(map);
                 service.nearbySearch(request, callback);
               }
-                 /* Plotting on map */
-                 var start = new google.maps.LatLng(minPrice.lat, minPrice.lon);
-                 var end = new google.maps.LatLng(geometry.location.lat(),geometry.location.lng());
-                 var bounds = new google.maps.LatLngBounds();
-                 bounds.extend(start);
-                 bounds.extend(end);
-                 map.fitBounds(bounds);
-                 var request = {
-                     origin: start,
-                     destination: end,
-                     travelMode: google.maps.TravelMode.DRIVING
-                 };
-                 directionsService.route(request, function (response, status) {
-                     if (status == google.maps.DirectionsStatus.OK) {
-                         directionsDisplay.setDirections(response);
-                         directionsDisplay.setMap(map);
-                     } else {
-                         alert("Directions Request from " + start.toUrlValue(6) + " to " + end.toUrlValue(6) + " failed: " + status);
-                     }
-                 });
             });
     }
     /*map.fitBounds(bounds);*/
@@ -384,6 +361,7 @@ function callback(results, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
       var place = results[i];
+      console.log('results of i')
       createMarker(results[i]);
     }
   }
@@ -411,7 +389,6 @@ function createMarker(place) {
       infoWindow.open(map, marker);
     });
   });
-  return price;
 }
 
 /*google.maps.event.addDomListener(window, 'load', initMap);
@@ -472,7 +449,7 @@ icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|F
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.7.7/xlsx.core.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xls/0.7.4-a/xls.core.min.js"></script>
     <!--Script file for adding to bootstrap table-->
-    <script src="js/parse.js"></script>
+    <script type='text/javascript' src="js/parse.js"></script>
   </div>
 </body>
 
