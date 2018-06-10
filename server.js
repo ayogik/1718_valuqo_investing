@@ -1,26 +1,26 @@
 const express = require('express')
-const favicon = require("express-favicon");
-const session = require("client-sessions");
-//const $ = require("jquery");
+const favicon = require('express-favicon');
+const session = require('client-sessions');
+//const $ = require('jquery');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
-var extend = require("extend");
-var request = require("request");
-var fs = require("fs");
-var https = require("https");
-var auth = require("./public/auth.js")
+var extend = require('extend');
+var request = require('request');
+var fs = require('fs');
+var https = require('https');
+var auth = require('./public/auth.js')
 var mysql = require('mysql');
 const app = express();
-var path = require("path");
+var path = require('path');
 
 
 //all https related code
 var httpsRedirect = require('express-https-redirect');
-app.use("/*",httpsRedirect(true));
+app.use('/*',httpsRedirect(true));
 //ssl attempts
 var options = {
-  key: fs.readFileSync("./ssl_certification/keyo.key"),
-  cert: fs.readFileSync("./ssl_certification/valuqo_us.crt"),
+  key: fs.readFileSync('./ssl_certification/keyo.key'),
+  cert: fs.readFileSync('./ssl_certification/valuqo_us.crt'),
   ca: [
     fs.readFileSync('./ssl_certification/COMODORSADomainValidationSecureServerCA.crt'),
     fs.readFileSync('./ssl_certification/COMODORSAAddTrustCA.crt')
@@ -36,10 +36,10 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static('public'));
 app.use(express.static('views'));
-app.use(favicon(__dirname + "/public/vqlogo.png"));
+app.use(favicon(__dirname + '/public/vqlogo.png'));
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   next();
 });
 
@@ -80,8 +80,8 @@ app.use(session({
 }));
 
 app.use(session({
-  cookieName: "Authorization",
-  secret: "woshitingchechang9359&*($Y&(t7t#g$78gg&*($g&(gy9y894ghHG99gghh)))))",
+  cookieName: 'Authorization',
+  secret: 'woshitingchechang9359&*($Y&(t7t#g$78gg&*($g&(gy9y894ghHG99gghh)))))',
   duration: 1000 * 60 * 60,
   cookie: {
     httpOnly: true
@@ -90,59 +90,59 @@ app.use(session({
 }));
 
 /*
-app.get(["/login","/landing*","/api*"], function (req, res, next) {
-  console.log("no");
+app.get(['/login','/landing*','/api*'], function (req, res, next) {
+  console.log('no');
   next('route');
 });
 */
 //checks session, but only if its not the routes specified above
-app.get("/*" , auth.testCookie);
+app.get('/*' , auth.testCookie);
 
 
 //---------//
 
-var yodlee_path = "https://developer.api.yodlee.com/ysl/";
+var yodlee_path = 'https://developer.api.yodlee.com/ysl/';
 var request_header = {
   headers: {
-    "Api-Version" : "1.1",
-    "Cobrand-Name" : "restserver",
-    "content-type" : "application/json"
+    'Api-Version' : '1.1',
+    'Cobrand-Name' : 'restserver',
+    'content-type' : 'application/json'
   }
 };
 app.use(function(req,res,next) {
   if (req.Authorization && req.Authorization.session){
-    request_header.headers.Authorization = "cobSession=" + req.Authorization.session.cobSession;
+    request_header.headers.Authorization = 'cobSession=' + req.Authorization.session.cobSession;
   }
   if (req.mySession && req.mySession.user){
-    request_header.headers.Authorization += ",userSession=" + req.mySession.user.session.userSession;
+    request_header.headers.Authorization += ',userSession=' + req.mySession.user.session.userSession;
   }
   //if (req.Authorization && req.Authorization.)
   next();
 });
 
 var cobrandlogin = {
-  url: yodlee_path + "cobrand/login",
+  url: yodlee_path + 'cobrand/login',
   json : {
-    "cobrand":	{
-      "cobrandLogin" : "sbCobdbf3615a663fa406a1fbef6009fe38075a",
-      "cobrandPassword" : "de178e45-9aff-4c88-a59b-4518c0ff6ce1",
-      "locale" : "en_US"
+    'cobrand':	{
+      'cobrandLogin' : 'sbCobdbf3615a663fa406a1fbef6009fe38075a',
+      'cobrandPassword' : 'de178e45-9aff-4c88-a59b-4518c0ff6ce1',
+      'locale' : 'en_US'
     }
   }
 };
 var userlogin = {
-  url: yodlee_path + "user/login",
+  url: yodlee_path + 'user/login',
   json : {
-    "cobrand":	{
-      "cobrandLogin" : "sbCobdbf3615a663fa406a1fbef6009fe38075a",
-      "cobrandPassword" : "de178e45-9aff-4c88-a59b-4518c0ff6ce1",
-      "locale" : "en_US"
+    'cobrand':	{
+      'cobrandLogin' : 'sbCobdbf3615a663fa406a1fbef6009fe38075a',
+      'cobrandPassword' : 'de178e45-9aff-4c88-a59b-4518c0ff6ce1',
+      'locale' : 'en_US'
     }
   }
 };
 
 //api handlers
-app.get("/api/cobrandlogin", function(req,res,next) {
+app.get('/api/cobrandlogin', function(req,res,next) {
   request.post(extend(request_header,cobrandlogin), function(error, response, body){
     if (body.session && body.session.cobSession){
       req.Authorization = body;
@@ -152,16 +152,16 @@ app.get("/api/cobrandlogin", function(req,res,next) {
   });
 });
 
-app.post("/api/userlogin", function(req,res,next) {
-  //console.log(typeof(req) + "\n\n");
+app.post('/api/userlogin', function(req,res,next) {
+  //console.log(typeof(req) + '\n\n');
   //console.log(req.Authorization);
   option = extend(true,request_header,userlogin);
-  //option.headers.Authorization = "cobSession=" + req.Authorization.session.cobSession;
+  //option.headers.Authorization = 'cobSession=' + req.Authorization.session.cobSession;
   //console.log(option);
   option.body = {
-    "user" : {
-      "loginName" : req.body.username,
-      "password" : req.body.password
+    'user' : {
+      'loginName' : req.body.username,
+      'password' : req.body.password
     }
   }
   option.json = true;
@@ -172,44 +172,44 @@ app.post("/api/userlogin", function(req,res,next) {
   });
 });
 
-app.get("/api/getname", function(req,res,next) {
+app.get('/api/getname', function(req,res,next) {
   if (req.mySession && req.mySession.user){
     res.send(req.mySession.user.name.first);
   }
   else {next();}
 });
 
-app.get("/api/networth", function(req,res,next) {
+app.get('/api/networth', function(req,res,next) {
   if (req.mySession && req.mySession.user){
     var options = extend(request_header,{
-    body : "container=bank,top=2",
-    url: yodlee_path + "/derived/networth"})
+    body : 'container=bank,top=2',
+    url: yodlee_path + '/derived/networth'})
     request.get(options, function(error, response, body){
       console.log();
-      res.send("$" + JSON.parse(body).networth[0].networth.amount);
+      res.send('$' + JSON.parse(body).networth[0].networth.amount);
     });
   }
   else {next();}
 });
 
-app.post("/api/getTransactions", function(req,res,next) {
+app.post('/api/getTransactions', function(req,res,next) {
 
 });
 
-app.get("api/deleteAccount", function(req,res,next) {
+app.get('api/deleteAccount', function(req,res,next) {
 
 });
 
-app.get("api/getAccounts", function(req,res,next) {
+app.get('api/getAccounts', function(req,res,next) {
 
 });
 
-app.get("api/getFastLink", function(req,res,next) {
+app.get('api/getFastLink', function(req,res,next) {
 
 });
 
 //web calls
-app.get("*.html", function(req,res,next){
+app.get('*.html', function(req,res,next){
   res.redirect(req.path.substring(0,req.path.length-5));
   next();
 });
@@ -217,7 +217,7 @@ app.get('/', function(req, res) {
   res.render('landing');
 });
 app.get('/index', function(req, res) {
-  res.render('index', {title: "Dashboard"})
+  res.render('index', {title: 'Dashboard'})
 });
 app.get('/charts', function(req, res) {
   res.render('charts')
@@ -226,8 +226,14 @@ app.get('/tables', function(req, res) {
   res.render('tables')
 });
 app.get('/login', function(req, res) {
-  if (req.mySession && req.mySession.user){res.redirect("/index")}
-  else{res.render('login', {title: "Login"})}
+  if (req.mySession && req.mySession.user){res.redirect('/index')}
+  else{res.render('login', {title: 'Login'})}
+});
+
+var files = ['accounts', 'blank', 'cards', 'forgot-password', 'landing', 'navbar', 'register',  'testajax', 'tit']
+files.forEach(function(element){
+    app.get('/'+element, function(req, res) {
+      res.render(element)
 });
 //app.get('/register', function(req, res) {
 //  res.render('register')
@@ -244,7 +250,7 @@ app.get('/logout', function(req, res) {
 
 
 var httpsServer = https.createServer(options,app);
-httpsServer.listen(443, () => console.log("https on 443"));
+httpsServer.listen(443, () => console.log('https on 443'));
 
 app.listen(80, () => console.log('App listening on port 80!'))
 

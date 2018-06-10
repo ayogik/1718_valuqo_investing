@@ -130,22 +130,19 @@ html(lang='en')
           li.breadcrumb-item.active Tables
         // Example DataTables Card
         // 
-        script(src="/auth.js")
         p
-          | To upload commodity expenditures, upload a .xlsx (Excel Workbook) of your expenses by clicking "Choose File" below.
+          | To analyze gas expenditures, upload a .xlsx (Excel Workbook) of your expenses by clicking "Choose File" below.
         input#excelfile(type='file')
-        input#viewfile(type='button', value='Upload and Export To Table', onclick='ExportToTable()')
+        input#viewfile(type='button', value='Export To Table', onclick='ExportToTable()')
+        table#exceltable
         br
-        p#demo
-        p
-        table#exceltable(style='block')
         .card.mb-3
           .card-header
             i.fa.fa-table
-            |  Expenses to be uploaded
+            |  Data Table Example
           .card-body
             .table-responsive
-              table#dataTable.table.table-bordered(width='100%', cellspacing='0', style='display: block')
+              table#dataTable.table.table-bordered(width='100%', cellspacing='0')
                 //
                   <thead>
                   <tr>
@@ -178,7 +175,7 @@ html(lang='en')
                   <td>$28.35</td>
                   </tr>
                   </tbody>
-          .card-footer.small.text-muted Updated just now.
+          .card-footer.small.text-muted Updated yesterday at 11:59 PM
         //
           <script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDFCcHzzZgvH5aLn91I1kdvKfA1FT9ENmc'></script>
           <div style='overflow:hidden;height:400px;width:520px;'>
@@ -226,14 +223,6 @@ html(lang='en')
           font(size='.1') .
         script(type='text/javascript', src='https://embedmaps.com/google-maps-authorization/script.js?id=a36a21f0ca14e004e460d95709874e3ec29c478f')
         script(type='text/javascript').
-          import 'mysql';
-          var connection = mysql.createConnection({
-          host     : 'valuqo.cf2muhtlwios.us-east-2.rds.amazonaws.com',
-          user     : 'root',
-          password : '12345678',
-          database : 'accounts'
-          });
-        script(type='text/javascript').
           var map;
           var centering = {lat: 40.1843574, lng: -74.5740333};
           var infowindow;
@@ -263,7 +252,7 @@ html(lang='en')
           var locate = locations[i];
           console.log(locate);
           var geocoder = new google.maps.Geocoder();
-          var address = locate;
+          var address = "4165 S Broad St Yardville, NJ";
           var points;
           var latitude;
           var longitude;
@@ -273,6 +262,7 @@ html(lang='en')
           longitude = results[0].geometry.location.lng();
           points = new google.maps.LatLng(latitude, longitude);
           latLongPoints[i]=points;
+          console.log(results);
           console.log("Found gas station at"+ latitude + " "+ longitude);
           /* marker code*/
           var marker = new google.maps.Marker({
@@ -321,8 +311,7 @@ html(lang='en')
           }
           }
           }
-          const function createMarker(place) {
-          var price = 0;
+          function createMarker(place) {
           console.log("Found marker:" +place.geometry.location.lat() + ":" + place.geometry.location.lng() );
           var marker = new google.maps.Marker({
           map: map,
@@ -339,14 +328,10 @@ html(lang='en')
           console.error(status);
           return;
           }
-          //price = getGasPrices(places.formatted_address);
-          price = (2.75+.25*Math.random()).toFixed(2);
-          infoWindow.setContent('<strong>'+result.name+'</strong>'+'<br> '+price);
-          //infoWindow.setContent('<strong>'+result.name+'</strong>'+'<br> '+getGasPrices(places.formatted_address));
+          infoWindow.setContent(result.name);
           infoWindow.open(map, marker);
           });
           });
-          return price;
           }
           /*google.maps.event.addDomListener(window, 'load', initMap);
           icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|FE7569', ==> orange/red

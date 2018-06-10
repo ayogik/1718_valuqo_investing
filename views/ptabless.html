@@ -385,7 +385,7 @@ function createMarker(place) {
         console.error(status);
         return;
       }
-      infoWindow.setContent(result.name);
+      infoWindow.setContent('<bold>'+result.name+'</bold> ');
       infoWindow.open(map, marker);
     });
   });
