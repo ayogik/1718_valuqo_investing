@@ -27,10 +27,11 @@ html(lang='en')
           li.breadcrumb-item
             a(href='index') Dashboard
           li.breadcrumb-item.active My Dashboard
-          div.jumbotron.jumbotron-Fluid
-            div.container
-              h5#welcome Welcome, User!
-              p Your balance is
+        div.jumbotron.jumbotron-Fluid
+          div.container
+            h5#welcome Welcome, User!
+            p Your net worth is
+            .row
               h1#balance.display-1 Like tree fiddy
         //- Icon Cards
           .row
@@ -789,7 +790,3 @@ html(lang='en')
       script(src='vendor/datatables/dataTables.bootstrap4.js')
 
       include includes/js/custom.pug
-
-      // Custom scripts for this page
-      script(src='js/sb-admin-datatables.min.js')
-      script(src='js/sb-admin-charts.min.js')

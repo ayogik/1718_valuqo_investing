@@ -82,7 +82,7 @@ app.use(session({
 app.use(session({
   cookieName: "Authorization",
   secret: "woshitingchechang9359&*($Y&(t7t#g$78gg&*($g&(gy9y894ghHG99gghh)))))",
-  duration: 1000 * 60 * 60 * 60,
+  duration: 1000 * 60 * 60,
   cookie: {
     httpOnly: true
   }
@@ -109,6 +109,17 @@ var request_header = {
     "content-type" : "application/json"
   }
 };
+app.use(function(req,res,next) {
+  if (req.Authorization && req.Authorization.session){
+    request_header.headers.Authorization = "cobSession=" + req.Authorization.session.cobSession;
+  }
+  if (req.mySession && req.mySession.user){
+    request_header.headers.Authorization += ",userSession=" + req.mySession.user.session.userSession;
+  }
+  //if (req.Authorization && req.Authorization.)
+  next();
+});
+
 var cobrandlogin = {
   url: yodlee_path + "cobrand/login",
   json : {
@@ -121,9 +132,6 @@ var cobrandlogin = {
 };
 var userlogin = {
   url: yodlee_path + "user/login",
-  headers : {
-    'Authorization' : {}
-  },
   json : {
     "cobrand":	{
       "cobrandLogin" : "sbCobdbf3615a663fa406a1fbef6009fe38075a",
@@ -136,8 +144,11 @@ var userlogin = {
 //api handlers
 app.get("/api/cobrandlogin", function(req,res,next) {
   request.post(extend(request_header,cobrandlogin), function(error, response, body){
-    res.json(body);
-    next();
+    if (body.session && body.session.cobSession){
+      req.Authorization = body;
+      res.json(body);
+    }
+    else{next()}
   });
 });
 
@@ -145,7 +156,8 @@ app.post("/api/userlogin", function(req,res,next) {
   //console.log(typeof(req) + "\n\n");
   //console.log(req.Authorization);
   option = extend(true,request_header,userlogin);
-  option.headers.Authorization = "cobSession=" + req.Authorization.session.cobSession;
+  //option.headers.Authorization = "cobSession=" + req.Authorization.session.cobSession;
+  //console.log(option);
   option.body = {
     "user" : {
       "loginName" : req.body.username,
@@ -167,6 +179,19 @@ app.get("/api/getname", function(req,res,next) {
   else {next();}
 });
 
+app.get("/api/networth", function(req,res,next) {
+  if (req.mySession && req.mySession.user){
+    var options = extend(request_header,{
+    body : "container=bank,top=2",
+    url: yodlee_path + "/derived/networth"})
+    request.get(options, function(error, response, body){
+      console.log();
+      res.send("$" + JSON.parse(body).networth[0].networth.amount);
+    });
+  }
+  else {next();}
+});
+
 app.post("/api/getTransactions", function(req,res,next) {
 
 });
@@ -184,6 +209,10 @@ app.get("api/getFastLink", function(req,res,next) {
 });
 
 //web calls
+app.get("*.html", function(req,res,next){
+  res.redirect(req.path.substring(0,req.path.length-5));
+  next();
+});
 app.get('/', function(req, res) {
   res.render('landing');
 });

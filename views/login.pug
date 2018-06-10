@@ -16,6 +16,12 @@ html(lang='en')
     include includes/css/core.pug
 
     include includes/css/custom.pug
+    
+    script(type='text/javascript').
+      //<![CDATA[
+      var tlJsHost = ((window.location.protocol == "https:") ? "https://secure.comodo.com/" : "http://www.trustlogo.com/");
+      document.write(unescape("%3Cscript src='" + tlJsHost + "trustlogo/javascript/trustlogo.js' type='text/javascript'%3E%3C/script%3E"));
+      //]]>
 
   body.bg-dark
     script(src="/login.js")
@@ -29,8 +35,8 @@ html(lang='en')
             p.temp Checking Cobrand Login Configurations
           form
             .form-group
-              label(for='exampleInputEmail1') Email address
-              input#exampleInputEmail1.form-control(type='email', aria-describedby='emailHelp', placeholder='Enter email')
+              label(for='exampleInputEmail1') User
+              input#exampleInputEmail1.form-control(type='email', aria-describedby='emailHelp', placeholder='Enter email or username')
             .form-group
               label(for='exampleInputPassword1') Password
               input#exampleInputPassword1.form-control(type='password', placeholder='Password')
@@ -38,10 +44,14 @@ html(lang='en')
               .form-check
                 label.form-check-label
                   input.form-check-input(type='checkbox')
-                  |                   Remember Password
+                  |                   Remember Username
             #submitButton.a.btn.btn-primary.btn-block.disabled(href='index.html') Login
           .text-center
             a.isDisabled.d-block.small.mt-3 Register an Account (Disabled)
             a.isDisabled.d-block.small Forgot Password? (Disabled)
+          script(language='JavaScript', type='text/javascript').
+            TrustLogo("/comodo_secure_seal_113x59_transp.png", "CL1", "none");
+    
+    //a#comodoTL(href='https://www.positivessl.com/') Positive SSL
 
     include includes/js/core.pug

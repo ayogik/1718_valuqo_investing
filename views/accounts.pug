@@ -26,19 +26,20 @@ html(lang='en')
           
         .container-fluid
           .row
-            .card.text-center(style='width: 18rem')
-              .card-header.text-white.bg-primary.mb-2 Linked Accounts
-              .card-body
-                button#btnlink.btn.btn-primary.btn-lg(type="button") Link Account
-              ul.list-group.list-group-flush
-                li.list-group-item Hiya
-                li.list-group-item Heyo
-                li.list-group-item Heya
-                
-            .card.col-md.offset-1
-              .card-header.text-white.bg-primary.mb-3 Account Details
-              .card-body
-                #nonealert.alert.alert-primary Select a linked account to view here.
+            .col-md-4
+              .card.text-center
+                .card-header.bg-light.mb-2 Linked Accounts
+                .card-body
+                  button#btnlink.btn.btn-primary.btn-lg(type="button") Link Account
+                  hr
+                  p.list-group-item Hiya
+                  p.list-group-item Heyo
+                  p.list-group-item Heya
+            .col-md-8
+              .card
+                .card-header.bg-light.mb-3 Account Details
+                .card-body
+                  #nonealert.alert.alert-primary Select a linked account to view here.
 
       // /.container-fluid
       // /.content-wrapper
