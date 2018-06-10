@@ -1,4 +1,5 @@
 var newloc =[];
+var subloc = [];
 function ExportToTable() {
      var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.xlsx|.xls)$/;
      /*Checks whether the file is a valid excel file*/
@@ -68,20 +69,29 @@ function BindTable(jsondata, tableid) {/*Function used to convert the JSON array
      var locationsInM = [];
      for (var i = 0; i < jsondata.length; i++) {
          var row$ = $('<tr/>');
-         for (var colIndex = 0; colIndex < columns.length; colIndex++) {
-             var cellValue = jsondata[i][columns[colIndex]];
-             if (cellValue == null)
-                 cellValue = "";
-             row$.append($('<td/>').html(cellValue));
-
-            var expenseDesc = cellValue.toLowerCase();
-            if (expenseDesc.indexOf("gas") > -1 || expenseDesc.indexOf("exxon") > -1 )
-            {
+                var cellValue = jsondata[i][columns[1]];
                 locationsInM.push(cellValue);
-                console.log("locations from parse.js are" + cellValue);
-                newloc.push(cellValue);
-            }
-         }
+                //console.log("locations from parse.js are" + cellValue);
+                console.log(contains.call(subloc, cellValue.substring(0,9)));
+                console.log(subloc);
+                console.log(newloc);
+                if(!contains.call(subloc, cellValue.substring(0,    9))){
+                    if (cellValue != null)
+                       cellValue = cellValue.substring(0,cellValue.length-5).trim();
+                    newloc.push(cellValue);
+                    subloc.push(cellValue.substring(0,9));
+                    for(var colIndex = 0; colIndex < columns.length; colIndex++){
+                        cellValue = jsondata[i][columns[colIndex]];
+                        var cellValue = jsondata[i][columns[colIndex]];
+                        if (cellValue != null && colIndex==1)
+                           cellValue = cellValue.substring(0,cellValue.length-5).trim();
+                        if (colIndex==2)
+                           cellValue = ""+Math.abs(parseFloat(cellValue));
+                        if (cellValue == null)
+                            cellValue = "";
+                        row$.append($('<td/>').html(cellValue));
+                    }
+                }
          $(tableid).append(row$);
      }
     console.log("locations after binding table:" + newloc[0]);
@@ -104,3 +114,30 @@ function BindTable(jsondata, tableid) {/*Function used to convert the JSON array
      $(tableid).append(headerTr$);
      return columnSet;
  }
+
+ var contains = function(needle) {
+    // Per spec, the way to identify NaN is that it is not equal to itself
+    var findNaN = needle !== needle;
+    var indexOf;
+
+    if(!findNaN && typeof Array.prototype.indexOf === 'function') {
+        indexOf = Array.prototype.indexOf;
+    } else {
+        indexOf = function(needle) {
+            var i = -1, index = -1;
+
+            for(i = 0; i < this.length; i++) {
+                var item = this[i];
+
+                if((findNaN && item !== item) || item === needle) {
+                    index = i;
+                    break;
+                }
+            }
+
+            return index;
+        };
+    }
+
+    return indexOf.call(this, needle) > -1;
+};

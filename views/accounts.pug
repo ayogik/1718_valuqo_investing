@@ -7,6 +7,17 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
     meta(name='description', content='')
     meta(name='author', content='')
+        
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
+    script(type='text/javascript').
+      function SubmitForMySQL() {
+      console.log(document.getElementById("form").elements['home'].value);
+      sessionStorage.setItem("home_address", document.getElementById("form").elements['home'].value)
+      sessionStorage.setItem("work_address", document.getElementById("form").elements['work'].value)
+      sessionStorage.setItem("electrical_utility", document.getElementById("form").elements['elec'].value)
+      document.getElementById('test2').innerHTML = sessionStorage.getItem("home_address");
+      }
 
     title Accounts
 
@@ -15,6 +26,7 @@ html(lang='en')
     include includes/css/custom.pug
 
   body#page-top.fixed-nav.sticky-footer.bg-dark
+      
     include includes/navbar.pug
     .content-wrapper
       .container-fluid
@@ -24,9 +36,10 @@ html(lang='en')
             a(href='index') Dashboard
           li.breadcrumb-item.active Accounts
           
+        
         .container-fluid
           .row
-            .col-md-4
+            .col-md-5
               .card.text-center
                 .card-header.bg-light.mb-2 Linked Accounts
                 .card-body
@@ -35,15 +48,30 @@ html(lang='en')
                   p.list-group-item Hiya
                   p.list-group-item Heyo
                   p.list-group-item Heya
-            .col-md-8
+            .col-md-7
               .card
                 .card-header.bg-light.mb-3 Account Details
                 .card-body
                   #nonealert.alert.alert-primary Select a linked account to view here.
-
-      // /.container-fluid
-      // /.content-wrapper
-
+                  hr
+                  form(role='form' id='form' action='/')
+                      .form-group
+                        label Personal Information
+                        input.form-control(name='home' placeholder='Home Address')
+                        p.help-block To change or enter a home address, type above.
+                      .form-group
+                        input.form-control(name='work' placeholder='Work Address')
+                        p.help-block To change or enter a work address, type above.
+                      .form-group
+                        input.form-control(name='elec' placeholder='Electric Utility Company')
+                        p.help-block To change or enter a Electric Utility Company, type above.
+                      button.btn.btn-primary(type='button' onclick="SubmitForMySQL()") Submit Button  
+                      button.btn.btn-default(type='button')
+                      button.btn.btn-secondary(type='reset') Reset Button
+                  #test2(style='display: block') asdf
+                      
+                      
+        
       include includes/footer.pug
 
       include includes/scroll-to-top.pug
