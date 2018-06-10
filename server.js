@@ -235,6 +235,7 @@ files.forEach(function(element){
     app.get('/'+element, function(req, res) {
       res.render(element)
 });
+});
 //app.get('/register', function(req, res) {
 //  res.render('register')
 //});
