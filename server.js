@@ -244,15 +244,12 @@ app.get('/index', function(req, res) {
 app.get('/charts', function(req, res) {
   res.render('charts')
 });
-app.get('/tables', function(req, res) {
-  res.render('tables')
-});
 app.get('/login', function(req, res) {
   if (req.mySession && req.mySession.user){res.redirect('/index')}
   else{res.render('login', {title: 'Login'})}
 });
 
-var files = ['accounts', 'blank', 'cards', 'forgot-password', 'landing', 'navbar', 'register',  'testajax', 'tit']
+var files = ['accounts', 'blank', 'cards', 'forgot-password', 'landing', 'navbar', 'register',  'testajax', 'tables', 'tit']
 files.forEach(function(element){
     app.get('/'+element, function(req, res) {
       res.render(element)

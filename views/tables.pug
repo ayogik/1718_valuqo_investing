@@ -7,6 +7,7 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
     meta(name='description', content='')
     meta(name='author', content='')
+    
     title Gas Algorithm
     link.js-site-favicon(rel='icon', type='image/x-icon', href='vqlogo.ico')
     // Bootstrap core CSS
@@ -17,6 +18,36 @@ html(lang='en')
     link(href='vendor/datatables/dataTables.bootstrap4.css', rel='stylesheet')
     // Custom styles for this template
     link(href='css/sb-admin.css', rel='stylesheet')
+    
+    
+    // Bootstrap core JavaScript
+
+    script(src='vendor/jquery/jquery.min.js')
+    script(src='vendor/bootstrap/js/bootstrap.bundle.min.js')
+    // Core plugin JavaScript
+    script(src='vendor/jquery-easing/jquery.easing.min.js')
+    // Page level plugin JavaScript
+    script(src='vendor/datatables/jquery.dataTables.js')
+    script(src='vendor/datatables/dataTables.bootstrap4.js')
+    // Custom scripts for all pages
+    script(src='js/sb-admin.min.js')
+    // Custom scripts for this page
+    script(src='js/sb-admin-datatables.min.js')
+    // jQuery plugin files for parsing xlsx
+    // <script src="jquery-1.10.2.min.js" type="text/javascript"></script>
+    // jQuery plugin files for parsing xlsx
+    script(src=' https://code.jquery.com/jquery-1.10.2.min.js', type='text/javascript')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.7.7/xlsx.core.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/xls/0.7.4-a/xls.core.min.js')
+    // Script file for adding to bootstrap table
+    script(type='text/javascript', src='js/parse.js')
+    
+        
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
+    script(type='text/javascript', src='/ajax-cross-origin/js/jquery.ajax-cross-origin.min.js')
+    
+    script(src='/testajaxss.js')
   body#page-top.fixed-nav.sticky-footer.bg-dark
     // Navigation
     nav#mainNav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
@@ -134,8 +165,78 @@ html(lang='en')
           | To analyze gas expenditures, upload a .xlsx (Excel Workbook) of your expenses by clicking "Choose File" below.
         input#excelfile(type='file')
         input#viewfile(type='button', value='Export To Table', onclick='ExportToTable()')
-        table#exceltable
+        #data
+        #test1(style='display: none') asdf
+        #test2(style='display: none') asdf
+        #test3(style='display: none') asdf
         br
+        
+        //
+          <script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDFCcHzzZgvH5aLn91I1kdvKfA1FT9ENmc'></script>
+          <div style='overflow:hidden;height:400px;width:520px;'>
+          <div id='gmap_canvas' style='height:400px;width:520px;'></div>
+          <style>
+          #gmap_canvas img {
+          max-width: none !important;
+          background: none !important
+          }
+          </style>
+          </div>
+          <a href='https://embedmaps.org/'>google maps html widget</a>
+          <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=a36a21f0ca14e004e460d95709874e3ec29c478f'></script>
+          <script type='text/javascript'>
+          function init_map() {
+          var myOptions = {
+          zoom: 12,
+          center: new google.maps.LatLng(40.1843574, -74.5740333),
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+          };
+          map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);
+          marker = new google.maps.Marker({
+          map: map,
+          position: new google.maps.LatLng(40.1843574, -74.5740333)
+          });
+          infowindow = new google.maps.InfoWindow({
+          content: '<strong>Allentown Gas </strong><br>1650 Old York Rd<br>08501 Allentown<br>'
+          });
+          google.maps.event.addListener(marker, 'click', function() {
+          infowindow.open(map, marker);
+          });
+          infowindow.open(map, marker);
+          }
+          google.maps.event.addDomListener(window, 'load', init_map);
+          </script>
+        script(src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDFCcHzzZgvH5aLn91I1kdvKfA1FT9ENmc')
+        .content-fluid
+          .row
+             .col-md-5
+                #map11(style='overflow:hidden;height:500px;width:520px; display:block;') 
+                  strong The map below shows your route had you traveled to the cheapest gas station near your workplace.
+                  p 
+                    #map121 asdf
+                  p 
+                  #map(style='height:400px;width:520px;')
+                    style.
+                      #map img {
+                      max-width: none !important;
+                      background: none !important
+                      }
+             .col-md-1
+             .col-md-5
+                #map12(style='overflow:hidden;height:500px;width:520px; display:block;') 
+                  strong The map below shows your route had you traveled to the cheapest gas station near your workplace.
+                  p 
+                    #map122 asdf
+                  p 
+                  #map2(style='height:400px;width:520px;')
+                    style.
+                      #map2 img {
+                      max-width: none !important;
+                      background: none !important
+                      }
+        
+        br
+        table#exceltablebr
         .card.mb-3
           .card-header
             i.fa.fa-table
@@ -176,55 +277,16 @@ html(lang='en')
                   </tr>
                   </tbody>
           .card-footer.small.text-muted Updated yesterday at 11:59 PM
-        //
-          <script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDFCcHzzZgvH5aLn91I1kdvKfA1FT9ENmc'></script>
-          <div style='overflow:hidden;height:400px;width:520px;'>
-          <div id='gmap_canvas' style='height:400px;width:520px;'></div>
-          <style>
-          #gmap_canvas img {
-          max-width: none !important;
-          background: none !important
-          }
-          </style>
-          </div>
-          <a href='https://embedmaps.org/'>google maps html widget</a>
-          <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=a36a21f0ca14e004e460d95709874e3ec29c478f'></script>
-          <script type='text/javascript'>
-          function init_map() {
-          var myOptions = {
-          zoom: 12,
-          center: new google.maps.LatLng(40.1843574, -74.5740333),
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-          };
-          map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);
-          marker = new google.maps.Marker({
-          map: map,
-          position: new google.maps.LatLng(40.1843574, -74.5740333)
-          });
-          infowindow = new google.maps.InfoWindow({
-          content: '<strong>Allentown Gas </strong><br>1650 Old York Rd<br>08501 Allentown<br>'
-          });
-          google.maps.event.addListener(marker, 'click', function() {
-          infowindow.open(map, marker);
-          });
-          infowindow.open(map, marker);
-          }
-          google.maps.event.addDomListener(window, 'load', init_map);
-          </script>
-        script(src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDFCcHzzZgvH5aLn91I1kdvKfA1FT9ENmc')
-        div(style='overflow:hidden;height:400px;width:520px;')
-          #map(style='height:400px;width:520px;')
-          style.
-            #map img {
-            max-width: none !important;
-            background: none !important
-            }
         a(href='https://embedmaps.org/')
           font(size='.1') .
         script(type='text/javascript', src='https://embedmaps.com/google-maps-authorization/script.js?id=a36a21f0ca14e004e460d95709874e3ec29c478f')
         script(type='text/javascript').
           var map;
-          var centering = {lat: 40.1843574, lng: -74.5740333};
+          var map2;
+          var centering = {
+          lat: 40.1843574,
+          lng: -74.5740333
+          };
           var infowindow;
           var latLongPoints = [];
           var service;
@@ -232,42 +294,60 @@ html(lang='en')
           function initMap() {
           var bounds = new google.maps.LatLngBounds();
           var locations = newloc;
-          console.log("Now locations are " +locations);
+          console.log("Now locations are");
+          console.log(locations);
           var mapProp = {
           center: centering,
           zoom: 8,
-          panControl: true, /*In order to show navigating control*/
+          panControl: true,
+          /*In order to show navigating control*/
           zoomControl: true,
           mapTypeControl: true,
           scaleControl: true,
-          streetViewControl: true, /*Enable street view control*/
+          streetViewControl: true,
+          /*Enable street view control*/
           overviewMapControl: true,
           rotateControl: true,
           mapTypeId: google.maps.MapTypeId.ROADMAP
           };
+          var x = document.getElementById('map11');
+          x.style.display = 'block';
           map = new google.maps.Map(document.getElementById('map'), mapProp);
-          map.setTilt(45);  /*To rotate map with an angle of 45 degree*/
+          map.setTilt(45); /*To rotate map with an angle of 45 degree*/
+          x = document.getElementById('map12');
+          x.style.display = 'block';
+          map2 = new google.maps.Map(document.getElementById('map2'), mapProp);
+          map2.setTilt(45); /*To rotate map with an angle of 45 degree*/
+          /* Draw all the expense points */
           for (i = 0; i < locations.length; i++) {
           /* Code to get Latitude and Longitude of location*/
           var locate = locations[i];
-          console.log(locate);
+          console.log("locate" + locate);
           var geocoder = new google.maps.Geocoder();
           var address = locate;
           var points;
           var latitude;
           var longitude;
-          geocoder.geocode({ 'address': address }, function (results, status) {
+          geocoder.geocode({
+          'address': address
+          }, function(results, status) {
           if (status == google.maps.GeocoderStatus.OK) {
           latitude = results[0].geometry.location.lat();
           longitude = results[0].geometry.location.lng();
           points = new google.maps.LatLng(latitude, longitude);
-          latLongPoints[i]=points;
-          console.log(results);
-          console.log("Found gas station at"+ latitude + " "+ longitude);
+          latLongPoints[i] = points;
+          console.log(results[0]);
+          console.log("Found place at" + locate + " latlong: " + latitude + " " + longitude);
           /* marker code*/
+          console.log("---------------------------------------------------" + contains.call(results[0].types, 'gas_station'))
+          if (contains.call(results[0].types, 'gas_station')) {
           var marker = new google.maps.Marker({
           position: points,
           map: map
+          });
+          var marker2 = new google.maps.Marker({
+          position: points,
+          map: map2
           });
           /* Info window for primary gas station marker */
           google.maps.event.addListener(marker, 'click', function() {
@@ -286,21 +366,189 @@ html(lang='en')
           infoWindow.open(map, marker);
           });
           });
+          
+          google.maps.event.addListener(marker2, 'click', function() {
+          service = new google.maps.places.PlacesService(map);
+          console.log(results[0].place_id);
+          var plrequest = {
+          placeId: results[0].place_id
+          };
+          service.getDetails(plrequest, function(result, status) {
+          if (status !== google.maps.places.PlacesServiceStatus.OK) {
+          console.error(status);
+          return;
+          }
+          infoWindow = new google.maps.InfoWindow();
+          infoWindow.setContent(result.name);
+          infoWindow.open(map, marker2);
+          });
+          });
+          
           //extend the bounds to include each marker's position
           bounds.extend(marker.position);
-          /* Now finding nearby gas stations */
+          /* Now finding nearby gas stations
           var request = {
           location: results[0].geometry.location,
           radius: '5000',
           type: ['gas_station']
           };
-          console.log("doing search for nearby gas stations for:" + locate);
-          service = new google.maps.places.PlacesService(map);
-          service.nearbySearch(request, callback);
+          //console.log("doing search for nearby gas stations for:" + locate);
+          //service = new google.maps.places.PlacesService(map);
+          //service.nearbySearch(request, callback);*/
+          }
+          } else {
+          console.log("geocoder failed for" + locate);
           }
           });
           }
-          /*map.fitBounds(bounds);*/
+          /* Draw home and work points */
+          var homeAdd = sessionStorage.getItem("home_address");
+          var workAdd = sessionStorage.getItem("work_address");
+          var latitude1;
+          var longitude1;
+          var point1;
+          var point2;
+          console.log("Home Add is " + homeAdd + " and work Add is " + workAdd);
+          var geocoder1 = new google.maps.Geocoder();
+          geocoder1.geocode({
+          'address': homeAdd
+          }, function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+          latitude1 = results[0].geometry.location.lat();
+          longitude1 = results[0].geometry.location.lng();
+          point1 = new google.maps.LatLng(latitude1, longitude1);
+          var marker = new google.maps.Marker({
+          position: point1,
+          map: map,
+          icon: {
+          url: 'home.png',
+          scaledSize: new google.maps.Size(50, 50)
+          }
+          });
+          bounds.extend(marker.position);
+          }
+          });
+          
+          var geocoder2 = new google.maps.Geocoder();
+          geocoder2.geocode({
+          'address': workAdd
+          }, function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+          latitude1 = results[0].geometry.location.lat();
+          longitude1 = results[0].geometry.location.lng();
+          point2 = new google.maps.LatLng(latitude1, longitude1);
+          var marker = new google.maps.Marker({
+          position: point2,
+          map: map,
+          icon: {
+          url: 'work.png',
+          scaledSize: new google.maps.Size(50, 50)
+          }
+          });
+          bounds.extend(marker.position);
+          }
+          });
+          
+          var geocoder3 = new google.maps.Geocoder();
+          geocoder1.geocode({
+          'address': homeAdd
+          }, function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+          latitude1 = results[0].geometry.location.lat();
+          longitude1 = results[0].geometry.location.lng();
+          point1 = new google.maps.LatLng(latitude1, longitude1);
+          var marker = new google.maps.Marker({
+          position: point1,
+          map: map2,
+          icon: {
+          url: 'home.png',
+          scaledSize: new google.maps.Size(50, 50)
+          }
+          });
+          bounds.extend(marker.position);
+          }
+          });
+          var geocoder4 = new google.maps.Geocoder();
+          geocoder2.geocode({
+          'address': workAdd
+          }, function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+          latitude1 = results[0].geometry.location.lat();
+          longitude1 = results[0].geometry.location.lng();
+          point2 = new google.maps.LatLng(latitude1, longitude1);
+          var marker = new google.maps.Marker({
+          position: point2,
+          map: map2,
+          icon: {
+          url: 'work.png',
+          scaledSize: new google.maps.Size(50, 50)
+          }
+          });
+          bounds.extend(marker.position);
+          }
+          });
+          
+          
+          /* draw route */
+          var directionsService = new google.maps.DirectionsService();
+          var directionsDisplay = new google.maps.DirectionsRenderer();
+          //var start =  new google.maps.LatLng(latLongPoints[3]);
+          // var end =  new google.maps.LatLng(latLongPoints[0]);
+          //var start = new google.maps.LatLng(37.334818, -121.884886);
+          // var end = new google.maps.LatLng(37.441883, -122.143019);
+          var midHome = JSON.parse(sessionStorage.getItem("minPricep")).address;
+          var midWork = JSON.parse(sessionStorage.getItem("wminPricep")).address;
+          var end = point2;
+          var start = point1;
+          var waypts = [{location: midHome, stopover: true}];
+          var request = {
+          origin: homeAdd,
+          destination: workAdd,
+          waypoints: waypts,
+          optimizeWaypoints: true,
+          unitSystem: google.maps.UnitSystem.IMPERIAL,
+          travelMode: google.maps.TravelMode.DRIVING
+          };
+          directionsService.route(request, function(response, status) {
+          if (status == google.maps.DirectionsStatus.OK) {
+          directionsDisplay.setDirections(response);
+          directionsDisplay.setMap(map);
+          } else {
+          alert("Directions Request from " + latLongPoints[0] + " to " + latLongPoints[3] + " failed: " + status);
+          }
+          });
+          
+          /* draw route */
+          var directionsService1 = new google.maps.DirectionsService();
+          var directionsDisplay1 = new google.maps.DirectionsRenderer();
+          //var start =  new google.maps.LatLng(latLongPoints[3]);
+          // var end =  new google.maps.LatLng(latLongPoints[0]);
+          //var start = new google.maps.LatLng(37.334818, -121.884886);
+          // var end = new google.maps.LatLng(37.441883, -122.143019);
+          var midHome = JSON.parse(sessionStorage.getItem("minPricep")).address;
+          var midWork = JSON.parse(sessionStorage.getItem("wminPricep")).address;
+          var end = point2;
+          var start = point1;
+          var waypts = [{location: midWork, stopover: true}];
+          var request = {
+          origin: homeAdd,
+          destination: workAdd,
+          waypoints: waypts,
+          optimizeWaypoints: true,
+          unitSystem: google.maps.UnitSystem.IMPERIAL,
+          travelMode: google.maps.TravelMode.DRIVING
+          };
+          directionsService1.route(request, function(response, status) {
+          if (status == google.maps.DirectionsStatus.OK) {
+          directionsDisplay1.setDirections(response);
+          directionsDisplay1.setMap(map2);
+          } else {
+          alert("Directions Request from " + latLongPoints[0] + " to " + latLongPoints[3] + " failed: " + status);
+          }
+          });
+          
+          
+              
           }
           function callback(results, status) {
           if (status == google.maps.places.PlacesServiceStatus.OK) {
@@ -312,9 +560,18 @@ html(lang='en')
           }
           }
           function createMarker(place) {
-          console.log("Found marker:" +place.geometry.location.lat() + ":" + place.geometry.location.lng() );
+          console.log("Found marker:" + place.geometry.location.lat() + ":" + place.geometry.location.lng());
           var marker = new google.maps.Marker({
           map: map,
+          position: place.geometry.location,
+          icon: {
+          url: 'https://developers.google.com/maps/documentation/javascript/images/circle.png',
+          anchor: new google.maps.Point(10, 10),
+          scaledSize: new google.maps.Size(10, 17)
+          }
+          });
+          var marker2 = new google.maps.Marker({
+          map: map2,
           position: place.geometry.location,
           icon: {
           url: 'https://developers.google.com/maps/documentation/javascript/images/circle.png',
@@ -332,10 +589,39 @@ html(lang='en')
           infoWindow.open(map, marker);
           });
           });
+          google.maps.event.addListener(marker, 'click', function() {
+          service.getDetails(place, function(result, status) {
+          if (status !== google.maps.places.PlacesServiceStatus.OK) {
+          console.error(status);
+          return;
           }
-          /*google.maps.event.addDomListener(window, 'load', initMap);
-          icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|FE7569', ==> orange/red
-          icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|F4EB42', ==> yellow */
+          infoWindow.setContent(result.name);
+          infoWindow.open(map2, marker2);
+          });
+          });
+          }
+          var contains = function(needle) {
+          // Per spec, the way to identify NaN is that it is not equal to itself
+          var findNaN = needle !== needle;
+          var indexOf;
+          if (!findNaN && typeof Array.prototype.indexOf === 'function') {
+          indexOf = Array.prototype.indexOf;
+          } else {
+          indexOf = function(needle) {
+          var i = -1,
+          index = -1;
+          for (i = 0; i < this.length; i++) {
+          var item = this[i];
+          if ((findNaN && item !== item) || item === needle) {
+          index = i;
+          break;
+          }
+          }
+          return index;
+          };
+          }
+          return indexOf.call(this, needle) > -1;
+          };
         script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDFCcHzzZgvH5aLn91I1kdvKfA1FT9ENmc&libraries=places', async='', defer='')
       // /.container-fluid
       // /.content-wrapper
@@ -358,23 +644,3 @@ html(lang='en')
             .modal-footer
               button.btn.btn-secondary(type='button', data-dismiss='modal') Cancel
               a.btn.btn-primary(href='login.html') Logout
-      // Bootstrap core JavaScript
-      script(src='vendor/jquery/jquery.min.js')
-      script(src='vendor/bootstrap/js/bootstrap.bundle.min.js')
-      // Core plugin JavaScript
-      script(src='vendor/jquery-easing/jquery.easing.min.js')
-      // Page level plugin JavaScript
-      script(src='vendor/datatables/jquery.dataTables.js')
-      script(src='vendor/datatables/dataTables.bootstrap4.js')
-      // Custom scripts for all pages
-      script(src='js/sb-admin.min.js')
-      // Custom scripts for this page
-      script(src='js/sb-admin-datatables.min.js')
-      // jQuery plugin files for parsing xlsx
-      // <script src="jquery-1.10.2.min.js" type="text/javascript"></script>
-      // jQuery plugin files for parsing xlsx
-      script(src=' https://code.jquery.com/jquery-1.10.2.min.js', type='text/javascript')
-      script(src='https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.7.7/xlsx.core.min.js')
-      script(src='https://cdnjs.cloudflare.com/ajax/libs/xls/0.7.4-a/xls.core.min.js')
-      // Script file for adding to bootstrap table
-      script(type='text/javascript', src='js/parse.js')
