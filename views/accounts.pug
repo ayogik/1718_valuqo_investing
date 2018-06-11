@@ -13,10 +13,9 @@ html(lang='en')
     script(type='text/javascript').
       function SubmitForMySQL() {
       console.log(document.getElementById("form").elements['home'].value);
-      sessionStorage.setItem("home_address", document.getElementById("form").elements['home'].value);
-      sessionStorage.setItem("work_address", document.getElementById("form").elements['work'].value);
-      sessionStorage.setItem("electrical_utility", document.getElementById("form").elements['elec'].value);
-      document.getElementById('test2').innerHTML = sessionStorage.getItem("home_address");
+      localStorage.setItem("home_address", document.getElementById("form").elements['home'].value);
+      localStorage.setItem("work_address", document.getElementById("form").elements['work'].value);
+      localStorage.setItem("electrical_utility", document.getElementById("form").elements['elec'].value);
       }
 
     title Accounts
@@ -72,7 +71,6 @@ html(lang='en')
                       button.btn.btn-primary(type='button' onclick="SubmitForMySQL()") Submit Button  
                       button.btn.btn-default(type='button')
                       button.btn.btn-secondary(type='reset') Reset Button
-                  #test2(style='display: block') asdf
                       
                       
         
