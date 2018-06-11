@@ -89,6 +89,8 @@ function BindTable(jsondata, tableid) {/*Function used to convert the JSON array
                            cellValue = ""+Math.abs(parseFloat(cellValue));
                         if (cellValue == null)
                             cellValue = "";
+                        if (colIndex==2)
+                            cellValue = "$" + cellValue
                         row$.append($('<td/>').html(cellValue));
                     }
                 }

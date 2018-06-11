@@ -210,10 +210,10 @@ html(lang='en')
         .content-fluid
           .row
              .col-md-5
-                #map11(style='overflow:hidden;height:500px;width:520px; display:block;') 
+                #map121(style='display:none;')  a 
+                p
+                #map11(style='overflow:hidden;height:500px;width:520px; display:none;') 
                   strong The map below shows your route had you traveled to the cheapest gas station near your workplace.
-                  p 
-                    #map121 asdf
                   p 
                   #map(style='height:400px;width:520px;')
                     style.
@@ -223,21 +223,27 @@ html(lang='en')
                       }
              .col-md-1
              .col-md-5
-                #map12(style='overflow:hidden;height:500px;width:520px; display:block;') 
+                #map122(style='display:none;') a
+                p
+                #map12(style='overflow:hidden;height:500px;width:520px; display:none;') 
                   strong The map below shows your route had you traveled to the cheapest gas station near your workplace.
-                  p 
-                    #map122 asdf
-                  p 
+                  p
                   #map2(style='height:400px;width:520px;')
                     style.
                       #map2 img {
                       max-width: none !important;
                       background: none !important
                       }
-        
+        script(type='text/javascript').
+          var midHome = JSON.parse(sessionStorage.getItem("minPricep"));
+          var midWork = JSON.parse(sessionStorage.getItem("wminPricep"));
+          var a = document.getElementById('map121');
+          a.innerHTML = 'The price of regular gas at the cheapest station is $'+midHome.price+', and is located at '+midHome.address+'.';
+          var b = document.getElementById('map122');
+          b.innerHTML = 'The price of regular gas at the cheapest station is $'+midWork.price+', and is located at '+midWork.address+'.';
         br
         table#exceltablebr
-        .card.mb-3
+        #asdf.card.mb-3(style='display:none;')
           .card-header
             i.fa.fa-table
             |  Data Table Example
@@ -317,6 +323,15 @@ html(lang='en')
           x = document.getElementById('map12');
           x.style.display = 'block';
           map2 = new google.maps.Map(document.getElementById('map2'), mapProp);
+          
+          var sdf = document.getElementById('asdf');
+          sdf.style.display = 'block';
+          
+          var a = document.getElementById('map121');
+          a.style.display = 'block';
+          var b = document.getElementById('map122');
+          b.style.display = 'block';
+          
           map2.setTilt(45); /*To rotate map with an angle of 45 degree*/
           /* Draw all the expense points */
           for (i = 0; i < locations.length; i++) {
