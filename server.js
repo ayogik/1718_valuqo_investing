@@ -188,7 +188,8 @@ app.get('/api/networth', function(req,res,next) {
     body : 'container=bank,top=2',
     url: yodlee_path + '/derived/networth'});
     request.get(options, function(error, response, body){
-      JSONbody = JSON.parse(body);
+      console.log(body);
+      if (error == null){JSONbody = JSON.parse(body);}
       if (JSONbody.networth && JSONbody.networth[0]){
         res.send('$' + JSONbody.networth[0].networth.amount);
       }
