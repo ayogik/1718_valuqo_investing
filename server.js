@@ -37,11 +37,14 @@ app.use(bodyParser.urlencoded({
 app.use(express.static('public'));
 app.use(express.static('views'));
 app.use(favicon(__dirname + '/public/vqlogo.png'));
+/*
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+
   next();
 });
+*/
 
 //view engine for rendering websites
 app.engine('pug',require('pug').__express);
@@ -183,25 +186,44 @@ app.get('/api/networth', function(req,res,next) {
   if (req.mySession && req.mySession.user){
     var options = extend(request_header,{
     body : 'container=bank,top=2',
-    url: yodlee_path + '/derived/networth'})
+    url: yodlee_path + '/derived/networth'});
     request.get(options, function(error, response, body){
-      console.log();
-      res.send('$' + JSON.parse(body).networth[0].networth.amount);
+      JSONbody = JSON.parse(body);
+      if (JSONbody.networth && JSONbody.networth[0]){
+        res.send('$' + JSONbody.networth[0].networth.amount);
+      }
+      else {next();}
     });
   }
   else {next();}
 });
 
 app.post('/api/getTransactions', function(req,res,next) {
-
+  console.log("called");
+  if (req.mySession && req.mySession.user){
+    var options = extend(request_header,{
+    });
+    next();
+  }
+  else {next();}
 });
 
 app.get('api/deleteAccount', function(req,res,next) {
-
+  next();
 });
 
-app.get('api/getAccounts', function(req,res,next) {
-
+app.get('/api/getAccounts', function(req,res,next) {
+  var options = extend(request_header, {
+    url: yodlee_path + "/accounts"
+  });
+  request.get(options, function(error,response, body){
+    if (body.account && body.account[0]){
+      console.log(body);
+      res.json(body);
+    }
+    else {next();}
+  });
+  next();
 });
 
 app.get('api/getFastLink', function(req,res,next) {
@@ -240,7 +262,7 @@ files.forEach(function(element){
 //  res.render('register')
 //});
 app.get('/accounts', function(req, res) {
-  res.render('accounts')
+  res.render('accounts');
 });
 app.get('/logout', function(req, res) {
   req.mySession.reset();

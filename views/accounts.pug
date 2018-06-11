@@ -9,13 +9,16 @@ html(lang='en')
     meta(name='author', content='')
 
     title Accounts
-
+    
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js")
     include includes/css/core.pug
 
     include includes/css/custom.pug
 
   body#page-top.fixed-nav.sticky-footer.bg-dark
+    script(src="/accounts.js")
     include includes/navbar.pug
+    
     .content-wrapper
       .container-fluid
         // Breadcrumbs
@@ -32,9 +35,7 @@ html(lang='en')
                 .card-body
                   button#btnlink.btn.btn-primary.btn-lg(type="button") Link Account
                   hr
-                  p.list-group-item Hiya
-                  p.list-group-item Heyo
-                  p.list-group-item Heya
+                  #accountsListDiv
             .col-md-8
               .card
                 .card-header.bg-light.mb-3 Account Details
