@@ -165,11 +165,77 @@ html(lang='en')
           | To analyze gas expenditures, upload a .xlsx (Excel Workbook) of your expenses by clicking "Choose File" below.
         input#excelfile(type='file')
         input#viewfile(type='button', value='Export To Table', onclick='ExportToTable()')
-        #data asdf
-        #test1(style='display: block') asdf
-        #test2(style='display: block') asdf
-        #test3(style='display: block') asdf
-        #datas asdf
+        #data
+        #test1(style='display: none') asdf
+        #test2(style='display: none') asdf
+        #test3(style='display: none') asdf
+        br
+        
+        //
+          <script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDFCcHzzZgvH5aLn91I1kdvKfA1FT9ENmc'></script>
+          <div style='overflow:hidden;height:400px;width:520px;'>
+          <div id='gmap_canvas' style='height:400px;width:520px;'></div>
+          <style>
+          #gmap_canvas img {
+          max-width: none !important;
+          background: none !important
+          }
+          </style>
+          </div>
+          <a href='https://embedmaps.org/'>google maps html widget</a>
+          <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=a36a21f0ca14e004e460d95709874e3ec29c478f'></script>
+          <script type='text/javascript'>
+          function init_map() {
+          var myOptions = {
+          zoom: 12,
+          center: new google.maps.LatLng(40.1843574, -74.5740333),
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+          };
+          map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);
+          marker = new google.maps.Marker({
+          map: map,
+          position: new google.maps.LatLng(40.1843574, -74.5740333)
+          });
+          infowindow = new google.maps.InfoWindow({
+          content: '<strong>Allentown Gas </strong><br>1650 Old York Rd<br>08501 Allentown<br>'
+          });
+          google.maps.event.addListener(marker, 'click', function() {
+          infowindow.open(map, marker);
+          });
+          infowindow.open(map, marker);
+          }
+          google.maps.event.addDomListener(window, 'load', init_map);
+          </script>
+        script(src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDFCcHzzZgvH5aLn91I1kdvKfA1FT9ENmc')
+        .content-fluid
+          .row
+             .col-md-5
+                #map11(style='overflow:hidden;height:500px;width:520px; display:block;') 
+                  strong The map below shows your route had you traveled to the cheapest gas station near your workplace.
+                  p 
+                    #map121 asdf
+                  p 
+                  #map(style='height:400px;width:520px;')
+                    style.
+                      #map img {
+                      max-width: none !important;
+                      background: none !important
+                      }
+             .col-md-1
+             .col-md-5
+                #map12(style='overflow:hidden;height:500px;width:520px; display:block;') 
+                  strong The map below shows your route had you traveled to the cheapest gas station near your workplace.
+                  p 
+                    #map122 asdf
+                  p 
+                  #map2(style='height:400px;width:520px;')
+                    style.
+                      #map2 img {
+                      max-width: none !important;
+                      background: none !important
+                      }
+        
+        br
         table#exceltablebr
         .card.mb-3
           .card-header
@@ -211,54 +277,12 @@ html(lang='en')
                   </tr>
                   </tbody>
           .card-footer.small.text-muted Updated yesterday at 11:59 PM
-        //
-          <script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDFCcHzzZgvH5aLn91I1kdvKfA1FT9ENmc'></script>
-          <div style='overflow:hidden;height:400px;width:520px;'>
-          <div id='gmap_canvas' style='height:400px;width:520px;'></div>
-          <style>
-          #gmap_canvas img {
-          max-width: none !important;
-          background: none !important
-          }
-          </style>
-          </div>
-          <a href='https://embedmaps.org/'>google maps html widget</a>
-          <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=a36a21f0ca14e004e460d95709874e3ec29c478f'></script>
-          <script type='text/javascript'>
-          function init_map() {
-          var myOptions = {
-          zoom: 12,
-          center: new google.maps.LatLng(40.1843574, -74.5740333),
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-          };
-          map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);
-          marker = new google.maps.Marker({
-          map: map,
-          position: new google.maps.LatLng(40.1843574, -74.5740333)
-          });
-          infowindow = new google.maps.InfoWindow({
-          content: '<strong>Allentown Gas </strong><br>1650 Old York Rd<br>08501 Allentown<br>'
-          });
-          google.maps.event.addListener(marker, 'click', function() {
-          infowindow.open(map, marker);
-          });
-          infowindow.open(map, marker);
-          }
-          google.maps.event.addDomListener(window, 'load', init_map);
-          </script>
-        script(src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDFCcHzzZgvH5aLn91I1kdvKfA1FT9ENmc')
-        div(style='overflow:hidden;height:400px;width:520px;')
-          #map(style='height:400px;width:520px;')
-          style.
-            #map img {
-            max-width: none !important;
-            background: none !important
-            }
         a(href='https://embedmaps.org/')
           font(size='.1') .
         script(type='text/javascript', src='https://embedmaps.com/google-maps-authorization/script.js?id=a36a21f0ca14e004e460d95709874e3ec29c478f')
         script(type='text/javascript').
           var map;
+          var map2;
           var centering = {
           lat: 40.1843574,
           lng: -74.5740333
@@ -286,8 +310,14 @@ html(lang='en')
           rotateControl: true,
           mapTypeId: google.maps.MapTypeId.ROADMAP
           };
+          var x = document.getElementById('map11');
+          x.style.display = 'block';
           map = new google.maps.Map(document.getElementById('map'), mapProp);
           map.setTilt(45); /*To rotate map with an angle of 45 degree*/
+          x = document.getElementById('map12');
+          x.style.display = 'block';
+          map2 = new google.maps.Map(document.getElementById('map2'), mapProp);
+          map2.setTilt(45); /*To rotate map with an angle of 45 degree*/
           /* Draw all the expense points */
           for (i = 0; i < locations.length; i++) {
           /* Code to get Latitude and Longitude of location*/
@@ -315,6 +345,10 @@ html(lang='en')
           position: points,
           map: map
           });
+          var marker2 = new google.maps.Marker({
+          position: points,
+          map: map2
+          });
           /* Info window for primary gas station marker */
           google.maps.event.addListener(marker, 'click', function() {
           service = new google.maps.places.PlacesService(map);
@@ -332,6 +366,24 @@ html(lang='en')
           infoWindow.open(map, marker);
           });
           });
+          
+          google.maps.event.addListener(marker2, 'click', function() {
+          service = new google.maps.places.PlacesService(map);
+          console.log(results[0].place_id);
+          var plrequest = {
+          placeId: results[0].place_id
+          };
+          service.getDetails(plrequest, function(result, status) {
+          if (status !== google.maps.places.PlacesServiceStatus.OK) {
+          console.error(status);
+          return;
+          }
+          infoWindow = new google.maps.InfoWindow();
+          infoWindow.setContent(result.name);
+          infoWindow.open(map, marker2);
+          });
+          });
+          
           //extend the bounds to include each marker's position
           bounds.extend(marker.position);
           /* Now finding nearby gas stations
@@ -349,7 +401,6 @@ html(lang='en')
           }
           });
           }
-          /*map.fitBounds(bounds);*/
           /* Draw home and work points */
           var homeAdd = sessionStorage.getItem("home_address");
           var workAdd = sessionStorage.getItem("work_address");
@@ -377,6 +428,7 @@ html(lang='en')
           bounds.extend(marker.position);
           }
           });
+          
           var geocoder2 = new google.maps.Geocoder();
           geocoder2.geocode({
           'address': workAdd
@@ -396,107 +448,47 @@ html(lang='en')
           bounds.extend(marker.position);
           }
           });
-          /*web scraping for lowest fuel price
-          var pathHome = "https://www.gasbuddy.com/home?search="+encodeURIComponent(homeAdd)+"&fuel=1";
-          var pathWork = "https://www.gasbuddy.com/home?search="+encodeURIComponent(workAdd)+"&fuel=1";
-          var minPricep = {
-          index : 0,
-          price : 5,
-          address : '',
-          name : '',
-          };
-          var wminPricep = {
-          index : 0,
-          price : 5,
-          address : '',
-          name : '',
-          };
-          $.ajaxSetup({
-          headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Authority" :  document.authorizationToken,
-          "Api-Version" : "1.1",
-          "Cobrand-Name": "restserver"
+          
+          var geocoder3 = new google.maps.Geocoder();
+          geocoder1.geocode({
+          'address': homeAdd
+          }, function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+          latitude1 = results[0].geometry.location.lat();
+          longitude1 = results[0].geometry.location.lng();
+          point1 = new google.maps.LatLng(latitude1, longitude1);
+          var marker = new google.maps.Marker({
+          position: point1,
+          map: map2,
+          icon: {
+          url: 'home.png',
+          scaledSize: new google.maps.Size(50, 50)
           }
           });
-          $.ajax({
-          crossOrigin: true,
-          url: pathHome,
-          dataType: 'text',
-          success: function(data) {
-          console.log(typeof data);
-          var priceStructs = $(data).find('.styles__price___3DxO5');
-          var prices = [];
-          for(var i = 0; i < priceStructs.length; i++){
-          prices.push(priceStructs[i].innerText);
-          if (parseFloat(priceStructs[i].innerText)<minPricep.price){
-          minPricep.index = i;
-          minPricep.price = parseFloat(priceStructs[i].innerText).toFixed(2);
-          }
-          }
-          var addressesStructs = $(data).find('.styles__address___8IK98');
-          minPricep.address = addressesStructs[minPricep.index].innerText;
-          var addresses = [];
-          for(var i = 0; i < addressesStructs.length; i++){
-          addresses.push(addressesStructs[i].innerText);
-          }
-          var namesStructs = $(data).find('.ui.header.styles__stationNameHeader___24lb3');
-          minPricep.name = namesStructs[minPricep.index].innerText;
-          var names = [];
-          for(var i = 0; i < namesStructs.length; i++){
-          names.push(namesStructs[i].innerText);
-          }
-          console.log(prices);
-          console.log(addresses);
-          console.log(names);
-          console.log(priceStructs);
-          console.log($(data).find('.styles__price___3DxO5'));
-          console.log(data);
-          //var elements = $("<div>").html(data)[0];
-          //console.log(elements);
+          bounds.extend(marker.position);
           }
           });
-          $.ajax({
-          crossOrigin: true,
-          url: pathWork,
-          dataType: 'text',
-          success: function(data) {
-          console.log(typeof data);
-          var priceStructs = $(data).find('.styles__price___3DxO5');
-          var prices = [];
-          for(var i = 0; i < priceStructs.length; i++){
-          prices.push(priceStructs[i].innerText);
-          if (priceStructs[i].innerText!='---' &&parseFloat(priceStructs[i].innerText)<wminPricep.price){
-          wminPricep.index = i;
-          wminPricep.price = parseFloat(priceStructs[i].innerText).toFixed(2);
-          }
-          }
-          var addressesStructs = $(data).find('.styles__address___8IK98');
-          wminPricep.address = addressesStructs[wminPricep.index].innerText;
-          var addresses = [];
-          for(var i = 0; i < addressesStructs.length; i++){
-          addresses.push(addressesStructs[i].innerText);
-          }
-          var namesStructs = $(data).find('.ui.header.styles__stationNameHeader___24lb3');
-          wminPricep.name = namesStructs[wminPricep.index].innerText;
-          var names = [];
-          for(var i = 0; i < namesStructs.length; i++){
-          names.push(namesStructs[i].innerText);
-          }
-          console.log(prices);
-          console.log(addresses);
-          console.log(names);
-          console.log(priceStructs);
-          console.log($(data).find('.styles__price___3DxO5'));
-          console.log(data);
-          //var elements = $("<div>").html(data)[0];
-          //console.log(elements);
+          var geocoder4 = new google.maps.Geocoder();
+          geocoder2.geocode({
+          'address': workAdd
+          }, function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+          latitude1 = results[0].geometry.location.lat();
+          longitude1 = results[0].geometry.location.lng();
+          point2 = new google.maps.LatLng(latitude1, longitude1);
+          var marker = new google.maps.Marker({
+          position: point2,
+          map: map2,
+          icon: {
+          url: 'work.png',
+          scaledSize: new google.maps.Size(50, 50)
           }
           });
-          console.log("asdfasdfasdfasdf");
-          console.log(minPricep);
-          console.log("asdfasdfasdfasdfasdfas");
-          console.log(wminPricep);*/
+          bounds.extend(marker.position);
+          }
+          });
+          
+          
           /* draw route */
           var directionsService = new google.maps.DirectionsService();
           var directionsDisplay = new google.maps.DirectionsRenderer();
@@ -504,13 +496,17 @@ html(lang='en')
           // var end =  new google.maps.LatLng(latLongPoints[0]);
           //var start = new google.maps.LatLng(37.334818, -121.884886);
           // var end = new google.maps.LatLng(37.441883, -122.143019);
+          var midHome = JSON.parse(sessionStorage.getItem("minPricep")).address;
+          var midWork = JSON.parse(sessionStorage.getItem("wminPricep")).address;
           var end = point2;
           var start = point1;
-          //var waypts = [""]
+          var waypts = [{location: midHome, stopover: true}];
           var request = {
           origin: homeAdd,
           destination: workAdd,
-          //waypoints: 
+          waypoints: waypts,
+          optimizeWaypoints: true,
+          unitSystem: google.maps.UnitSystem.IMPERIAL,
           travelMode: google.maps.TravelMode.DRIVING
           };
           directionsService.route(request, function(response, status) {
@@ -521,6 +517,38 @@ html(lang='en')
           alert("Directions Request from " + latLongPoints[0] + " to " + latLongPoints[3] + " failed: " + status);
           }
           });
+          
+          /* draw route */
+          var directionsService1 = new google.maps.DirectionsService();
+          var directionsDisplay1 = new google.maps.DirectionsRenderer();
+          //var start =  new google.maps.LatLng(latLongPoints[3]);
+          // var end =  new google.maps.LatLng(latLongPoints[0]);
+          //var start = new google.maps.LatLng(37.334818, -121.884886);
+          // var end = new google.maps.LatLng(37.441883, -122.143019);
+          var midHome = JSON.parse(sessionStorage.getItem("minPricep")).address;
+          var midWork = JSON.parse(sessionStorage.getItem("wminPricep")).address;
+          var end = point2;
+          var start = point1;
+          var waypts = [{location: midWork, stopover: true}];
+          var request = {
+          origin: homeAdd,
+          destination: workAdd,
+          waypoints: waypts,
+          optimizeWaypoints: true,
+          unitSystem: google.maps.UnitSystem.IMPERIAL,
+          travelMode: google.maps.TravelMode.DRIVING
+          };
+          directionsService1.route(request, function(response, status) {
+          if (status == google.maps.DirectionsStatus.OK) {
+          directionsDisplay1.setDirections(response);
+          directionsDisplay1.setMap(map2);
+          } else {
+          alert("Directions Request from " + latLongPoints[0] + " to " + latLongPoints[3] + " failed: " + status);
+          }
+          });
+          
+          
+              
           }
           function callback(results, status) {
           if (status == google.maps.places.PlacesServiceStatus.OK) {
@@ -542,6 +570,15 @@ html(lang='en')
           scaledSize: new google.maps.Size(10, 17)
           }
           });
+          var marker2 = new google.maps.Marker({
+          map: map2,
+          position: place.geometry.location,
+          icon: {
+          url: 'https://developers.google.com/maps/documentation/javascript/images/circle.png',
+          anchor: new google.maps.Point(10, 10),
+          scaledSize: new google.maps.Size(10, 17)
+          }
+          });
           google.maps.event.addListener(marker, 'click', function() {
           service.getDetails(place, function(result, status) {
           if (status !== google.maps.places.PlacesServiceStatus.OK) {
@@ -550,6 +587,16 @@ html(lang='en')
           }
           infoWindow.setContent(result.name);
           infoWindow.open(map, marker);
+          });
+          });
+          google.maps.event.addListener(marker, 'click', function() {
+          service.getDetails(place, function(result, status) {
+          if (status !== google.maps.places.PlacesServiceStatus.OK) {
+          console.error(status);
+          return;
+          }
+          infoWindow.setContent(result.name);
+          infoWindow.open(map2, marker2);
           });
           });
           }
