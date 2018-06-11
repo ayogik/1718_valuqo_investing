@@ -182,14 +182,15 @@ app.get('/api/getname', function(req,res,next) {
   else {next();}
 });
 
+var JSONbody = {};
 app.get('/api/networth', function(req,res,next) {
   if (req.mySession && req.mySession.user){
     var options = extend(request_header,{
     body : 'container=bank,top=2',
     url: yodlee_path + '/derived/networth'});
     request.get(options, function(error, response, body){
-      if (typeof(body) == "string"){var JSONbody = JSON.parse(body);}
-      else {var JSONbody = body;}
+      if (typeof(body) == "string"){JSONbody = JSON.parse(body);}
+      else {JSONbody = body;}
       if (JSONbody.networth && JSONbody.networth[0]){
         res.send('$' + JSONbody.networth[0].networth.amount);
       }
