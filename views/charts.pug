@@ -7,7 +7,7 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
     meta(name='description', content='')
     meta(name='author', content='')
-
+        
     title SB Admin - Start Bootstrap Template
 
     include includes/css/core.pug
@@ -22,37 +22,71 @@ html(lang='en')
         ol.breadcrumb
           li.breadcrumb-item
             a(href='#') Dashboard
-          li.breadcrumb-item.active Charts
+          li.breadcrumb-item.active Porfolio
         // Area Chart Example
-        .card.mb-3
-          .card-header
-            i.fa.fa-area-chart
-            |  Balance over Time
-          .card-body
-            canvas#myAreaChart(width='100%', height='30')
-          .card-footer.small.text-muted
-            | Updated yesterday at 11:59 PM
         .row
-          .col-lg-8
-            // Example Bar Chart Card
-            .card.mb-3
-              .card-header
-                i.fa.fa-bar-chart
-                |  Bar Chart Example
-              .card-body
-                canvas#myBarChart(width='100', height='50')
-              .card-footer.small.text-muted
-                | Updated yesterday at 11:59 PM
-          .col-lg-4
-            // Example Pie Chart Card
-            .card.mb-3
-              .card-header
-                i.fa.fa-pie-chart
-                |  Pie Chart Example
-              .card-body
-                canvas#myPieChart(width='100%', height='100')
-              .card-footer.small.text-muted
-                | Updated yesterday at 11:59 PM
+            .col-md-6
+                .card.mb-3
+                  .card-header
+                    i.fa.fa-area-chart
+                    |  Gassing Near Home
+                  .card-body
+                    #myAreaCharta(width='100%', height='50')
+                        font(size='8', color='green') Save 7.00%!
+                        p By fueling up at 1299 US-130 N Robbinsville, NJ.
+                  .card-footer.small.text-muted
+                    | Updated just now!
+            .col-md-6
+                .card.mb-3
+                  .card-header
+                    i.fa.fa-area-chart
+                    |  Gassing Near Work
+                  .card-body
+                    #myAreaChartb(width='100%', height='50')
+                        font(size='8', color='green') Save 17%!
+                        p By fueling up at 607 Somerset St Somerset, NJ.
+                  .card-footer.small.text-muted
+                    | Updated just now!
+        .row
+            .col-md-6
+                .card.mb-3
+                  .card-header
+                    i.fa.fa-area-chart
+                    |  Gas Price Per Month Near Home
+                  .card-body
+                    canvas#myAreaChart1(width='100%', height='50')
+
+                  .card-footer.small.text-muted
+                    | Updated just now!
+            .col-md-6
+                .card.mb-3
+                  .card-header
+                    i.fa.fa-area-chart
+                    |  Total Factor Cost of Gassing Up Near Home
+                  .card-body
+                    canvas#myAreaChart2(width='100%', height='50')
+
+                  .card-footer.small.text-muted
+                    | Updated just now!
+        .row
+            .col-md-6
+                .card.mb-3
+                  .card-header
+                    i.fa.fa-area-chart
+                    |  Gas Price Per Month Near Work
+                  .card-body
+                    canvas#myAreaChart3(width='100%', height='50')
+                  .card-footer.small.text-muted
+                    | Updated just now!
+            .col-md-6
+                .card.mb-3
+                  .card-header
+                    i.fa.fa-area-chart
+                    |  Total Factor Cost of Gassing Up Near Work
+                  .card-body
+                    canvas#myAreaChart4(width='100%', height='50')
+                  .card-footer.small.text-muted
+                    | Updated just now!
       // /.container-fluid
       // /.content-wrapper
 
