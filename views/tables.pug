@@ -103,9 +103,8 @@ html(lang='en')
              .col-md-5
                 #map121(style='display:none;')  a 
                 p
-                #map11(style='overflow:hidden;height:500px;width:520px; display:none;') 
-                  strong The map below shows your route had you traveled to the cheapest gas station near your workplace.
-                  p 
+                #map11(style='overflow:hidden;height:500px;width:400px; display:none;') 
+                  #map12345
                   #map(style='height:400px;width:520px;')
                     style.
                       #map img {
@@ -116,9 +115,8 @@ html(lang='en')
              .col-md-5
                 #map122(style='display:none;') a
                 p
-                #map12(style='overflow:hidden;height:500px;width:520px; display:none;') 
-                  strong The map below shows your route had you traveled to the cheapest gas station near your workplace.
-                  p
+                #map12(style='overflow:hidden;height:500px;width:400px; display:none;') 
+                  #map1234
                   #map2(style='height:400px;width:520px;')
                     style.
                       #map2 img {
@@ -132,6 +130,10 @@ html(lang='en')
           a.innerHTML = 'The price of regular gas at the cheapest station is $'+midHome.price+', and is located at '+midHome.address+'.';
           var b = document.getElementById('map122');
           b.innerHTML = 'The price of regular gas at the cheapest station is $'+midWork.price+', and is located at '+midWork.address+'.';
+          var x = document.getElementById('map12345');
+          x.innerHTML = '<strong>The map below shows your route had you traveled to the cheapest gas station near your workplace.</strong>';
+          var y = document.getElementById('map1234');
+          y.innerHTML = '<strong>The map below shows your route had you traveled to the cheapest gas station near your workplace.</strong?';
           //will be scraped.
           var saveHome = ((3.10-midHome.price)/3.10).toFixed(2);
           var saveWork = ((3.30-midWork.price)/3.30).toFixed(2);

@@ -67,6 +67,7 @@ function ExportToTable() {
 function BindTable(jsondata, tableid) {/*Function used to convert the JSON array to Html Table*/
      var columns = BindTableHeader(jsondata, tableid); /*Gets all the column headings of Excel*/
      var locationsInM = [];
+     var asdf = [];
      for (var i = 0; i < jsondata.length; i++) {
          var row$ = $('<tr/>');
                 var cellValue = jsondata[i][columns[1]];
@@ -75,7 +76,8 @@ function BindTable(jsondata, tableid) {/*Function used to convert the JSON array
                 console.log(contains.call(subloc, cellValue.substring(0,9)));
                 console.log(subloc);
                 console.log(newloc);
-                if(!contains.call(subloc, cellValue.substring(0,    9))){
+                asdf.push([jsondata[i][columns[0]], jsondata[i][columns[1]].substring(0,cellValue.length-5).trim(), Math.abs(parseFloat(jsondata[i][columns[2]]))]);
+                if(!contains.call(subloc, cellValue.substring(0,9))){
                     if (cellValue != null)
                        cellValue = cellValue.substring(0,cellValue.length-5).trim();
                     newloc.push(cellValue);
@@ -98,6 +100,7 @@ function BindTable(jsondata, tableid) {/*Function used to convert the JSON array
      }
     console.log("locations after binding table:" + newloc[0]);
     window.initMap();
+    localStorage.setItem('inputtedData', JSON.stringify(asdf));
  }
  function BindTableHeader(jsondata, tableid) {/*Function used to get all column names from JSON and bind the html table header*/
      var columnSet = [];
