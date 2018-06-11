@@ -13,9 +13,9 @@ html(lang='en')
     script(type='text/javascript').
       function SubmitForMySQL() {
       console.log(document.getElementById("form").elements['home'].value);
-      sessionStorage.setItem("home_address", document.getElementById("form").elements['home'].value)
-      sessionStorage.setItem("work_address", document.getElementById("form").elements['work'].value)
-      sessionStorage.setItem("electrical_utility", document.getElementById("form").elements['elec'].value)
+      sessionStorage.setItem("home_address", document.getElementById("form").elements['home'].value);
+      sessionStorage.setItem("work_address", document.getElementById("form").elements['work'].value);
+      sessionStorage.setItem("electrical_utility", document.getElementById("form").elements['elec'].value);
       document.getElementById('test2').innerHTML = sessionStorage.getItem("home_address");
       }
 
