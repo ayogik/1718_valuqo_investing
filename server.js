@@ -201,7 +201,6 @@ app.get('/api/networth', function(req,res,next) {
 });
 
 app.post('/api/getTransactions', function(req,res,next) {
-  console.log("called");
   if (req.mySession && req.mySession.user){
     var options = extend(request_header,{
     });
@@ -216,16 +215,15 @@ app.get('api/deleteAccount', function(req,res,next) {
 
 app.get('/api/getAccounts', function(req,res,next) {
   var options = extend(request_header, {
-    url: yodlee_path + "/accounts"
+    url: yodlee_path + "accounts",
+    json: true
   });
   request.get(options, function(error,response, body){
     if (body.account && body.account[0]){
-      console.log(body);
       res.json(body);
     }
     else {next();}
   });
-  next();
 });
 
 app.get('api/getFastLink', function(req,res,next) {

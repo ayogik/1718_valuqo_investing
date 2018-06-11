@@ -7,7 +7,6 @@ $(document).ready(function() {
       top: 1
     },
     success: function(data){
-      console.log(data);
       if (data != undefined){
         $("#balance").text(data);
       }

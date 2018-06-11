@@ -92,13 +92,12 @@ $(document).ready(function(){
 	$.get( "api/getAccounts")
 	  .done(function( data ) {
       console.log(typeof(data));
-		  var responseObj = jQuery.parseJSON(data);
 
 		  $("#accountsListDiv").empty();
 
 		  var accountsListHTML = "";
 
-		  $.each(responseObj.account, function (i, item) {
+		  $.each(data.account, function (i, item) {
 			  var paramsList=null;
 			  if(item.CONTAINER!="insurance" && item.CONTAINER!="reward" ){
 			  	 paramsList = "'"+item.id+"', '"+item.accountType+"', '"+item.balance.amount+"', '"+item.CONTAINER+"', '"+item.accountName+"'";
